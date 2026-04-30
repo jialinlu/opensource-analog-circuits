@@ -1,0 +1,38 @@
+{
+  "name": "sky130_ldo",
+  "circuit_file": "circuits/sky130_ldo/circuit.cir",
+  "design_vars": {
+    "L_0": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "L_1": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "W_0": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "W_1": [
+      1.0,
+      0.5,
+      1.5
+    ]
+  },
+  "specs": {
+    "vout": [
+      ">",
+      3.0
+    ]
+  },
+  "metrics_patterns": {
+    "vout": "^\\s*vout\\s+=\\s+([\\-\\d\\.eE+])"
+  },
+  "objective": {
+    "type": "sum_violations"
+  }
+}

@@ -1,0 +1,72 @@
+* Two-Stage Miller-Compensated Operational Amplifier
+* Parametric design for MC-aware sizing
+* Technology: 180nm, VDD=1.8V
+
+.include ptm180nm.lib
+
+* Parameters (will be overwritten by Python)
+.param W1=10u
+.param W2=10u
+.param W3=20u
+.param W4=20u
+.param W5=15u
+.param W6=40u
+.param W7=20u
+.param W8=5u
+.param L1=0.36u
+.param L2=0.36u
+.param L3=0.36u
+.param L4=0.36u
+.param L5=0.36u
+.param L6=0.36u
+.param L7=0.36u
+.param L8=0.72u
+.param Cc=2p
+.param CL=5p
+.param Ib=10u
+
+* Supply
+VDD vdd 0 1.8
+VSS vss 0 0
+
+* Input signals for AC analysis
+Vin_p inp 0 DC 0.9 AC 1
+Vin_n inn 0 DC 0.9
+
+* Differential pair (NMOS)
+M1 d1 inp tail vss nmos W=W1 L=L1
+M2 d2 inn tail vss nmos W=W2 L=L2
+
+* PMOS current mirror load
+M3 d1 d1 vdd vdd pmos W=W3 L=L3
+M4 d2 d1 vdd vdd pmos W=W4 L=L4
+
+* Tail current source
+M5 tail bias vss vss nmos W=W5 L=L5
+
+* Second stage: PMOS common-source driver
+M6 out d2 vdd vdd pmos W=W6 L=L6
+
+* Second stage: NMOS current sink
+M7 out bias vss vss nmos W=W7 L=L7
+
+* Bias network
+M8 bias bias vss vss nmos W=W8 L=L8
+Iref vdd bias DC Ib
+
+* Compensation and load
+Cc d2 out Cc
+CL out vss CL
+
+* Operating point and AC analysis
+.op
+.ac dec 10 1 10G
+.print ac vdb(out) vp(out)
+
+* Measurements for benchmark extraction
+.meas ac gain max vdb(out)
+.meas ac ugf when vdb(out)=0
+.meas ac pm find vp(out) when vdb(out)=0
+
+
+.end

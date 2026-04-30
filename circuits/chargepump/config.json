@@ -1,0 +1,53 @@
+{
+  "name": "chargepump",
+  "circuit_file": "circuits/chargepump/circuit.cir",
+  "design_vars": {
+    "WN1": [
+      0.3,
+      0.15,
+      0.45
+    ],
+    "WN8": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "WP1": [
+      0.3,
+      0.15,
+      0.45
+    ],
+    "WP5": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "LCHN": [
+      0.1,
+      0.05,
+      0.15
+    ],
+    "LCHP": [
+      0.1,
+      0.05,
+      0.15
+    ],
+    "C_CAP": [
+      1e-11,
+      5e-12,
+      1.5e-11
+    ]
+  },
+  "specs": {
+    "vout": [
+      ">",
+      3.0
+    ]
+  },
+  "metrics_patterns": {
+    "vout": "^\\s*vout\\s+=\\s+([\\-\\d\\.eE+])"
+  },
+  "objective": {
+    "type": "sum_violations"
+  }
+}

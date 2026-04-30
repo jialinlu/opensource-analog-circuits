@@ -1,0 +1,38 @@
+{
+  "name": "sky130_por",
+  "circuit_file": "circuits/sky130_por/circuit.cir",
+  "design_vars": {
+    "L_0": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "L_1": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "W_0": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "W_1": [
+      1.0,
+      0.5,
+      1.5
+    ]
+  },
+  "specs": {
+    "trip_point": [
+      "<",
+      1.5
+    ]
+  },
+  "metrics_patterns": {
+    "trip_point": "^\\s*rstn\\s+=\\s+([\\-\\d\\.eE+]+)"
+  },
+  "objective": {
+    "type": "sum_violations"
+  }
+}

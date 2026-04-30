@@ -1,0 +1,46 @@
+* OTA - Parametric Sizing
+.title ota_iitb
+
+* Parameters
+.param W1=10u
+.param W2=10u
+.param W3=20u
+.param W4=20u
+.param W5=15u
+.param W6=40u
+.param L1=0.36u
+.param L2=0.36u
+.param L3=0.36u
+.param L4=0.36u
+.param L5=0.36u
+.param L6=0.36u
+.param CL=5p
+
+* 180nm BSIM3 models (simplified)
+.model nmos NMOS (LEVEL=8 VERSION=3.3.0 TNOM=27 TOX=4E-9 XJ=1E-7 NCH=2.3549E17 VTH0=0.4 K1=0.5 K2=0 U0=400 WINT=5E-8 LINT=1E-8)
+.model pmos PMOS (LEVEL=8 VERSION=3.3.0 TNOM=27 TOX=4E-9 XJ=1E-7 NCH=2.3549E17 VTH0=-0.4 K1=0.5 K2=0 U0=200 WINT=5E-8 LINT=1E-8)
+
+vinp1 VINP NODEP AC 1
+M6 SOURCETAIL VBCAS MSD GND nmos W=W6 L=L6
+vbcas1 VBCAS GND DC 0.6
+M1 DRAINL VINP SOURCETAIL GND nmos W=W1 L=L1
+vinpb1 NODEP GND DC 0.9
+M3 DRAINL DRAINL VDD VDD pmos W=W3 L=L3
+vdd1 VDD GND DC 1.8
+M5 MSD VBIAS GND GND nmos W=W5 L=L5
+Itail1 GND SOURCETAIL dc 10u
+CL1 OUT GND {CL}
+M4 OUT DRAINL VDD VDD pmos W=W4 L=L4
+M2 OUT VINN SOURCETAIL GND nmos W=W2 L=L2
+vinn1 VINN NODEN AC 1
+vinnb1 NODEN GND DC 0.9
+vbias1 VBIAS GND DC 0.6
+
+.op
+.ac dec 10 1 1G
+.print ac VDB(OUT) VP(OUT)
+.meas ac gain MAX VDB(OUT)
+.meas ac ugf WHEN VDB(OUT)=0
+.meas ac pm FIND VP(OUT) WHEN VDB(OUT)=0
+
+.end

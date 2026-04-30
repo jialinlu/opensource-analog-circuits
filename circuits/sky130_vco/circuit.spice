@@ -1,0 +1,37 @@
+* Sky130 VCO - Parametric Sizing
+.title sky130_vco
+
+* Parameters
+.param W_N=1.0
+.param L_N=0.15
+.param W_P=2.745
+.param W_P2=1.0
+.param L_P=0.35
+.param W_TAIL=1.0
+.param L_TAIL=0.15
+
+.lib "../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice" tt
+
+* Direct transistor instances (no subckt wrapper)
+XM1 net1 vout GND GND sky130_fd_pr__nfet_01v8_lvt l=L_N w=W_N
+XM2 vdd net2 net1 net1 sky130_fd_pr__nfet_01v8_lvt l=L_N w=W_N
+XM3 net2 net1 GND GND sky130_fd_pr__nfet_01v8_lvt l=L_N w=W_N
+XM4 vout net2 GND GND sky130_fd_pr__nfet_01v8_lvt l=L_N w=W_N
+XM5 net1 vout vdd vdd sky130_fd_pr__pfet_01v8_lvt l=L_P w=W_P
+XM6 net2 net1 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=L_P w=W_P2
+XM8 vout net2 vdd vdd sky130_fd_pr__pfet_01v8_lvt l=L_P w=W_P
+XM9 net2 vcntrl vdd vdd sky130_fd_pr__pfet_01v8 l=L_TAIL w=W_TAIL
+
+* Supply and control
+VDD vdd 0 dc 1.8
+VCTRL vcntrl 0 dc 0
+
+* Load capacitor
+CL vout 0 1f
+
+.tran 10p 7n
+.print tran V(vout)
+.meas tran ymax MAX V(vout) from=0n to=7n
+.meas tran ymin MIN V(vout) from=0n to=7n
+
+.end

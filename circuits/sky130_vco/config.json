@@ -1,0 +1,58 @@
+{
+  "name": "sky130_vco",
+  "circuit_file": "circuits/sky130_vco/circuit.spice",
+  "design_vars": {
+    "W_N": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "L_N": [
+      0.15,
+      0.075,
+      0.225
+    ],
+    "W_P": [
+      2.745,
+      1.3725,
+      4.1175
+    ],
+    "W_P2": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "L_P": [
+      0.35,
+      0.175,
+      0.525
+    ],
+    "W_TAIL": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "L_TAIL": [
+      0.15,
+      0.075,
+      0.225
+    ]
+  },
+  "specs": {
+    "ymax": [
+      ">",
+      1.5
+    ],
+    "ymin": [
+      "<",
+      0.5
+    ]
+  },
+  "metrics_patterns": {
+    "ymax": "^\\s*ymax\\s+=\\s+([\\-\\d\\.eE+]+)",
+    "ymin": "^\\s*ymin\\s+=\\s+([\\-\\d\\.eE+]+)"
+  },
+  "objective": {
+    "type": "sum_violations"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "name": "sky130_lp_opamp",
+  "circuit_file": "circuits/sky130_lp_opamp/circuit.cir",
+  "design_vars": {
+    "L_0": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "L_1": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "M_0": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "M_1": [
+      1.0,
+      0.5,
+      1.5
+    ],
+    "W_0": [
+      65.0,
+      32.5,
+      97.5
+    ],
+    "W_1": [
+      10.0,
+      5.0,
+      15.0
+    ]
+  },
+  "specs": {
+    "gain": [
+      ">",
+      40
+    ],
+    "ugf": [
+      ">",
+      1000000.0
+    ],
+    "pm": [
+      ">",
+      45
+    ]
+  },
+  "metrics_parser_type": "ac_data",
+  "metrics_patterns": {},
+  "objective": {
+    "type": "sum_violations"
+  }
+}

@@ -1,0 +1,46 @@
+* c:\users\aparv\esim-workspace\ayesha_LDO\ayesha_LDO.cir 
+.title sky130_ldo
+.param L_0=1
+.param L_1=1
+.param M_0=1
+.param M_1=1
+.param W_0=1
+.param W_1=1
+
+.lib "../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice" tt 
+
+******* Transistor Connection*****
+xMN4 net_d    vbias2     net3     GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xMP2 net1     net_d   VDD      VDD  sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+xMN1 net3     VFB  net_diff GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xM4 Vpass   vbias2     net4     GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xM1 net4     VREF    net_diff GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xMP3 net_d    vbias1     net1     VDD  sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+xM3 Vpass   vbias1     net2     VDD  sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+xMn5 net_diff VDD     GND      GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xM5 VDD      VDD     GND      GND  sky130_fd_pr__nfet_01v8 l=L_0 w=W_0
+xMP1 Vreg     Vpass  VDD      VDD  sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+xMV2 net2     net_d   VDD      VDD  sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+CL    Vreg     GND     10p
+
+* Feedback resistors
+RFB1   Vreg     VFB    150k
+RFB2   VFB   GND       150k
+
+***** Power *******
+
+Vdd vdd 0 3.3
+Vbias1 vbias1 0 0
+vbias2 vbias2 0 3.3
+VREF VREF 0 1.2
+
+**** Analysis*****
+
+.dc vdd 2e-00 7e-00 0.1e-00
+
+* Control Statements
+
+
+.print dc V(vreg)
+.meas dc vout FIND V(vreg) AT=3.3
+.end

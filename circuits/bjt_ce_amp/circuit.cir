@@ -1,0 +1,26 @@
+.title Common Emitter Amplifier - Parametric
+
+.param R1=110k
+.param R2=10k
+.param R3=10k
+.param R4=1k
+.param C1=0.1u
+
+.model QMOD	NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=74.03 Bf=50 Ne=1.259
++		Ise=6.734f Ikf=66.78m Xtb=1.5 Br=.7371 Nc=2 Isc=0 Ikr=0 Rc=1
++		Cjc=3.638p Mjc=.3085 Vjc=.75 Fc=.5 Cje=4.493p Mje=.2593 Vje=.75
++		Tr=239.5n Tf=301.2p Itf=.4 Vtf=4 Xtf=2 Rb=10)
+Q1 out bin e QMOD
+C1 bin in {C1}
+R1 vcc bin {R1}
+R2 bin GND {R2}
+R4 e GND {R4}
+R3 vcc out {R3}
+VCC vcc 0 20
+Vin in 0 dc 0 ac 0 SIN(0.5 0.25 1k)
+
+.tran 10u 10m
+.print tran V(out)
+.meas tran vout FIND V(out) AT=5m
+
+.end

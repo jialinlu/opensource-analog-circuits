@@ -1,0 +1,75 @@
+{
+  "name": "gh_autockt_opamp",
+  "circuit_file": "circuits/gh_autockt_opamp/circuit.cir",
+  "design_vars": {
+    "wp1": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "wn1": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "wn3": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "wp3": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "wn4": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "wn5": [
+      0.5,
+      0.25,
+      0.75
+    ],
+    "cc": [
+      3.0,
+      1.5,
+      4.5
+    ],
+    "ibias": [
+      30.0,
+      15.0,
+      45.0
+    ],
+    "cload": [
+      10.0,
+      5.0,
+      15.0
+    ],
+    "vcm": [
+      0.6,
+      0.3,
+      0.8999999999999999
+    ]
+  },
+  "specs": {
+    "gain": [
+      ">",
+      60
+    ],
+    "ugf": [
+      ">",
+      1000000.0
+    ],
+    "pm": [
+      ">",
+      60
+    ]
+  },
+  "metrics_patterns": {},
+  "objective": {
+    "type": "sum_violations"
+  },
+  "metrics_parser_type": "ac_data"
+}

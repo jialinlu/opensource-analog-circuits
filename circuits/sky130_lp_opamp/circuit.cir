@@ -1,0 +1,44 @@
+* LowPower OpAmp
+.title sky130_lp_opamp
+.param L_0=0.5
+.param L_1=0.5
+.param M_0=1
+.param M_1=1
+.param W_0=65
+.param W_1=10
+
+.lib "../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice" tt
+
+X0 n1 vin1 n2 gnd sky130_fd_pr__nfet_01v8 w=5 l=0.5
+X1 vss n3 out vss sky130_fd_pr__nfet_01v8 w=65 l=0.5
+X2 vss n3 n3 vss sky130_fd_pr__nfet_01v8 w=20 l=0.5
+X3 out n4 vdd vdd sky130_fd_pr__pfet_01v8 l=L_0 w=W_0
+*X4 n5 vdd vss sky130_fd_pr__res_generic_nd w=30 l=2492
+X5 n4 n2 vdd vdd sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+X6 vdd n2 n2  vdd sky130_fd_pr__pfet_01v8 l=L_1 w=W_1
+X7 n4 vin2 n1 gnd sky130_fd_pr__nfet_01v8 w=5 l=0.5
+*X8 n3 n6 vss sky130_fd_pr__res_generic_nd w=25 l=2494
+*X9 n6 n7 vss sky130_fd_pr__res_generic_nd w=30 l=2492
+*X10 n5 n7 vss sky130_fd_pr__res_generic_nd w=30 l=2492
+X11 vss n3 n1 vss sky130_fd_pr__nfet_01v8 w=20 l=0.5
+C1 n4 out 1fF
+C2 out gnd 2fF
+
+*Sources
+i1 n3 vdd dc -40u
+v1 vdd gnd dc 1.8
+v2 vss gnd dc -1.8
+
+v3 vin1 gnd ac 1
+v4 vin2 gnd dc 0
+
+*Simulation Command
+.ac dec 101 1 1g
+
+* ngspice control statements
+
+.print ac VDB(out) VP(out)
+.meas ac gain MAX VDB(out)
+.meas ac ugf WHEN VDB(out)=0
+.meas ac pm FIND VP(out) WHEN VDB(out)=0
+.end

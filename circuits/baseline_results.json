@@ -1,0 +1,97 @@
+{
+  "ptm180nm_opamp": {
+    "vars": 19,
+    "obj": 0.1454568333333333,
+    "meets_specs": false,
+    "time": 0.04,
+    "metrics": {
+      "gain": 51.27259,
+      "ugf": 29657341.04153038,
+      "pm": 180.75884438555795
+    }
+  },
+  "gh_autockt_opamp": {
+    "vars": 10,
+    "obj": 2001.0667595,
+    "meets_specs": false,
+    "time": 0.03,
+    "metrics": {
+      "gain": -4.00557
+    }
+  },
+  "ota_iitb": {
+    "vars": 13,
+    "obj": 2001.2687175,
+    "meets_specs": false,
+    "time": 0.03,
+    "metrics": {
+      "gain": -10.7487
+    }
+  },
+  "chargepump": {
+    "vars": 7,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 0.08,
+    "metrics": {
+      "vout": 4.0
+    }
+  },
+  "bjt_ce_amp": {
+    "vars": 5,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 0.04,
+    "metrics": {
+      "vout": 11.3701
+    }
+  },
+  "sky130_bgr": {
+    "vars": 15,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 17.2,
+    "metrics": {
+      "vref": 0.738317
+    }
+  },
+  "sky130_ldo": {
+    "vars": 4,
+    "obj": 0.3333333333333333,
+    "meets_specs": false,
+    "time": 16.85,
+    "metrics": {
+      "vout": 2.0
+    }
+  },
+  "sky130_lp_opamp": {
+    "vars": 6,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 16.87,
+    "metrics": {
+      "gain": 72.76753,
+      "ugf": 843977807.1855339,
+      "pm": 179.85514974070907
+    }
+  },
+  "sky130_por": {
+    "vars": 4,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 16.77,
+    "metrics": {
+      "trip_point": 1.0
+    }
+  },
+  "sky130_vco": {
+    "vars": 7,
+    "obj": 0.0,
+    "meets_specs": true,
+    "time": 16.92,
+    "metrics": {
+      "ymax": 1.89343,
+      "ymin": 0.0278986
+    }
+  }
+}
