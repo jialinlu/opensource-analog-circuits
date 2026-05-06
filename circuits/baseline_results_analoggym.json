@@ -1,0 +1,190 @@
+{
+  "alfio_raffc": {
+    "success": true,
+    "metrics": {
+      "gain": -15.3708
+    },
+    "returncode": 0
+  },
+  "fan_smc": {
+    "success": true,
+    "metrics": {
+      "gain": 69.9285,
+      "ugf": 2079150.0,
+      "pm": 80.9604
+    },
+    "returncode": 0
+  },
+  "hoilee_affc": {
+    "success": true,
+    "metrics": {
+      "gain": 90.0754,
+      "ugf": 838366.0,
+      "pm": 8.05217
+    },
+    "returncode": 0
+  },
+  "leung_dfcfc1": {
+    "success": true,
+    "metrics": {
+      "gain": 122.807,
+      "ugf": 2208670.0,
+      "pm": -38.175
+    },
+    "returncode": 0
+  },
+  "leung_dfcfc2": {
+    "success": true,
+    "metrics": {
+      "gain": 108.42,
+      "ugf": 1103100.0,
+      "pm": 57.7447
+    },
+    "returncode": 0
+  },
+  "leung_nmcf": {
+    "success": true,
+    "metrics": {
+      "gain": 96.6304,
+      "ugf": 929546.0,
+      "pm": -67.6501
+    },
+    "returncode": 0
+  },
+  "leung_nmcnr": {
+    "success": true,
+    "metrics": {
+      "gain": 122.396,
+      "ugf": 718480.0,
+      "pm": -57.5334
+    },
+    "returncode": 0
+  },
+  "peng_acbc": {
+    "success": true,
+    "metrics": {
+      "gain": 94.1616,
+      "ugf": 688006.0,
+      "pm": 62.0208
+    },
+    "returncode": 0
+  },
+  "peng_iac": {
+    "success": true,
+    "metrics": {
+      "gain": 113.955,
+      "ugf": 1076140.0,
+      "pm": 1.91066
+    },
+    "returncode": 0
+  },
+  "peng_tcfc": {
+    "success": true,
+    "metrics": {
+      "gain": 117.641,
+      "ugf": 2466360.0,
+      "pm": -19.176
+    },
+    "returncode": 0
+  },
+  "qu2017_azc": {
+    "success": true,
+    "metrics": {
+      "gain": 97.9384,
+      "ugf": 2024770.0,
+      "pm": 61.9407
+    },
+    "returncode": 0
+  },
+  "ramos_pfc": {
+    "success": true,
+    "metrics": {
+      "gain": 135.297,
+      "ugf": 1808660.0,
+      "pm": -24.0777
+    },
+    "returncode": 0
+  },
+  "sau_cfcc": {
+    "success": true,
+    "metrics": {
+      "gain": 99.6423,
+      "ugf": 5845760.0,
+      "pm": 12.6839
+    },
+    "returncode": 0
+  },
+  "song_dacfc": {
+    "success": true,
+    "metrics": {
+      "gain": 90.2639,
+      "ugf": 1160510.0,
+      "pm": 89.0149
+    },
+    "returncode": 0
+  },
+  "yan_az": {
+    "success": true,
+    "metrics": {
+      "gain": 149.635,
+      "ugf": 2797650.0,
+      "pm": -96.3583
+    },
+    "returncode": 0
+  },
+  "ldo_1": {
+    "success": true,
+    "metrics": {
+      "vout": 0.005288,
+      "dcgain": 40.24,
+      "ugf": 331919.0
+    },
+    "returncode": 0
+  },
+  "ldo_2": {
+    "success": true,
+    "metrics": {
+      "vout": -4.8302,
+      "dcgain": 38.1198,
+      "ugf": 101776.0
+    },
+    "returncode": 0
+  },
+  "ldo_folded_cascode": {
+    "success": true,
+    "metrics": {
+      "vout": -5.71275,
+      "dcgain": 43.2842,
+      "ugf": 25101000.0
+    },
+    "returncode": 0
+  },
+  "ldo_simple": {
+    "success": true,
+    "metrics": {
+      "vout": -5.39711,
+      "dcgain": 35.9814,
+      "ugf": 5615900.0
+    },
+    "returncode": 0
+  },
+  "amp_nmcf": {
+    "success": true,
+    "metrics": {
+      "gain": 141.851,
+      "ugf": 3389390.0,
+      "pm": 43.9753
+    },
+    "returncode": 0
+  },
+  "ldo_tb": {
+    "success": true,
+    "metrics": {
+      "vout": 1.58203,
+      "dcgain": 66.4311,
+      "ugf": 1094750.0,
+      "pm": 53.428
+    },
+    "returncode": 0
+  }
+}

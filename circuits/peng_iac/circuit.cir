@@ -1,0 +1,154 @@
+.title peng_iac
+* Test OpAmp ACDC
+
+***************************************
+* Step 1: Replace circuit netlist and parameter here.
+***************************************
+.subckt peng_iac_pin_3 gnda vdda vinn vinp vout
+xm66 net10 VB2 net049 VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_66_1_L_gmt_PMOS' w='MOSFET_66_1_W_gmt_PMOS*1' m='MOSFET_66_1_M_gmt_PMOS'
+xm11 VOUT VOUTP VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_11_1_L_gmf_PMOS' w='MOSFET_11_1_W_gmf_PMOS*1' m='MOSFET_11_1_M_gmf_PMOS'
+xm7 net049 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*16'
+xm10 net043 VOUTP VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_10_1_L_gm2_PMOS' w='MOSFET_10_1_W_gm2_PMOS*1' m='MOSFET_10_1_M_gm2_PMOS'
+xm57 VB1 VB2 net2 VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm65 VB2 VB2 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS'
+xm6 VOUTP VOUTN VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='4*MOSFET_0_8_M_BIASCM_PMOS'
+xm5 VOUTN VOUTN VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='4*MOSFET_0_8_M_BIASCM_PMOS'
+xm9 net063 VINP net31 net31 sky130_fd_pr__pfet_01v8 l='MOSFET_8_2_L_gm1_PMOS' w='MOSFET_8_2_W_gm1_PMOS*1' m='MOSFET_8_2_M_gm1_PMOS'
+xm8 DM_2 VINN net31 net31 sky130_fd_pr__pfet_01v8 l='MOSFET_8_2_L_gm1_PMOS' w='MOSFET_8_2_W_gm1_PMOS*1' m='MOSFET_8_2_M_gm1_PMOS'
+xm4 net31 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='8*MOSFET_0_8_M_BIASCM_PMOS'
+xm62 VB3 VB2 net8 VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm3 net8 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm61 net7 VB2 net6 VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm2 net6 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm58 VB4 VB2 net3 VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm1 net3 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm0 net2 VB1 VDDA VDDA sky130_fd_pr__pfet_01v8 l='MOSFET_0_8_L_BIASCM_PMOS' w='MOSFET_0_8_W_BIASCM_PMOS*1' m='MOSFET_0_8_M_BIASCM_PMOS*4'
+xm23 VOUT net10 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_23_1_L_gm3_NMOS' w='MOSFET_23_1_W_gm3_NMOS*1' m='MOSFET_23_1_M_gm3_NMOS'
+xm70 net1 net043 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_70_3_L_BIASCM_NMOS' w='MOSFET_70_3_W_BIASCM_NMOS*1' m='MOSFET_70_3_M_BIASCM_NMOS'
+xm69 net10 net043 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_70_3_L_BIASCM_NMOS' w='MOSFET_70_3_W_BIASCM_NMOS*1' m='MOSFET_70_3_M_BIASCM_NMOS'
+xm19 DM_2 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm15 VOUTN VB3 DM_2 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm20 net063 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm16 VOUTP VB3 net063 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*8'
+xm17 net54 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm67 net043 VB3 net1 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*32'
+xm14 VB3 VB3 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS'
+xm12 VB4 VB3 net54 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm18 net56 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm13 net7 VB3 net56 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm64 net9 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm63 VB2 VB3 net9 GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_17_7_L_BIASCM_NMOS' w='MOSFET_17_7_W_BIASCM_NMOS*1' m='MOSFET_17_7_M_BIASCM_NMOS*4'
+xm68 net1 VB4 GNDA GNDA sky130_fd_pr__nfet_01v8 l='MOSFET_68_1_L_BIASCM_NMOS' w='MOSFET_68_1_W_BIASCM_NMOS*1' m='MOSFET_68_1_M_BIASCM_NMOS'
+I0 VB1 GNDA 'CURRENT_0_BIAS'
+C1 net10 net4 'CAPACITOR_1'
+C0 VOUTP VOUT 'CAPACITOR_0'
+R0 net4 GNDA 'RESISTOR_0'
+.ends Peng_IAC_Pin_3
+
+.PARAM
++ CAPACITOR_0=0.5p CAPACITOR_1=1.1p CLOAD=150p CURRENT_0_BIAS=1.25u 
++ MOSFET_0_8_L_BIASCM_PMOS=1 MOSFET_0_8_M_BIASCM_PMOS=4 
++ MOSFET_0_8_W_BIASCM_PMOS=1 MOSFET_10_1_L_gm2_PMOS=0.350 
++ MOSFET_10_1_M_gm2_PMOS=24 MOSFET_10_1_W_gm2_PMOS=1 
++ MOSFET_11_1_L_gmf_PMOS=0.350 MOSFET_11_1_M_gmf_PMOS=9 
++ MOSFET_11_1_W_gmf_PMOS=1 MOSFET_17_7_L_BIASCM_NMOS=0.350 
++ MOSFET_17_7_M_BIASCM_NMOS=2 MOSFET_17_7_W_BIASCM_NMOS=1 
++ MOSFET_23_1_L_gm3_NMOS=0.350 MOSFET_23_1_M_gm3_NMOS=3 
++ MOSFET_23_1_W_gm3_NMOS=1 MOSFET_66_1_L_gmt_PMOS=1 
++ MOSFET_66_1_M_gmt_PMOS=16 MOSFET_66_1_W_gmt_PMOS=1 
++ MOSFET_68_1_L_BIASCM_NMOS=0.350 MOSFET_68_1_M_BIASCM_NMOS=3 
++ MOSFET_68_1_W_BIASCM_NMOS=1 MOSFET_70_3_L_BIASCM_NMOS=0.350 
++ MOSFET_70_3_M_BIASCM_NMOS=3 MOSFET_70_3_W_BIASCM_NMOS=1 
++ MOSFET_8_2_L_gm1_PMOS=0.350 MOSFET_8_2_M_gm1_PMOS=3 
++ MOSFET_8_2_W_gm1_PMOS=1 RESISTOR_0=750k VCM=240m 
+
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+
+.lib "../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice" tt
+*.include ../mosfet_model/sky130_pdk/libs.tech/ngspice/r+c/res_typical__cap_typical.spice
+*.include ../mosfet_model/sky130_pdk/libs.tech/ngspice/r+c/res_typical__cap_typical__lin.spice
+*.include ../mosfet_model/sky130_pdk/libs.tech/ngspice/corners/tt/specialized_cells.spice
+
+
+.PARAM supply_voltage = 1.8
+.PARAM VCM_ratio = 0.25
+.PARAM PARAM_CLOAD =500.00p 
+
+V1 vdd 0 'supply_voltage'
+V2 vss 0 0 
+
+Vindc opin 0 'supply_voltage*VCM_ratio'
+Vin signal_in 0 dc 'supply_voltage*VCM_ratio' ac 1 sin('supply_voltage*VCM_ratio' 100m 500)
+
+Lfb opout opout_dc 1T
+Cin opout_dc signal_in 1T
+
+* XOP gnda vdda vinn vinp vout
+*        |  |     |     |   |
+*        |  |     |     |   Output
+*        |  |     |     Non-inverting Input
+*        |  |      Inverting Input
+*        |  Positive Supply
+*        Negative Supply 
+
+***************************************
+* Step 3: Replace circuit name below.
+* e.g. Leung_NMCNR_Pin_3 -> Leung_NMCF_Pin_3
+*************************************** 
+*    ADM TB   
+Xop1 vss vdd opout_dc opin opout  Peng_IAC_Pin_3
+Cload1 opout 0 'PARAM_CLOAD'
+
+*   ACM TB    
+xop2 vss vdd cm2 cm1 cm3  Peng_IAC_Pin_3
+Cload2 cm3 0 'PARAM_CLOAD'
+vcmdc cm0 0 'supply_voltage*VCM_ratio'
+vcmac1 cm1 cm0 0 ac=1
+vcmac2 cm2 cm3 0 ac=1
+.meas ac cmrrdc find vdb(cm3) at = 0.1 
+.meas ac dcgain find vdb(opout) at = 0.1
+.meas ac gain_bandwidth_product when vdb(opout)=0
+.meas ac phase_in_rad find vp(opout) when vdb(opout)=0
+.meas ac phase_in_deg param='phase_in_rad*180/3.1416'
+
+* PSRR   TB   
+VGNDApsrr gndpsrr 0 0 AC=1
+VVDDApsrr vddpsrr 0 'supply_voltage'  AC=1
+xop3 vss vddpsrr ppsr1 opin ppsr1  Peng_IAC_Pin_3
+Cload3 ppsr1 0 'PARAM_CLOAD'
+xop4 gndpsrr vdd npsr1 opin npsr1  Peng_IAC_Pin_3
+Cload4 npsr1 0 'PARAM_CLOAD'
+.measure ac DCPSRp find vdb(ppsr1) at = 0.1
+.measure ac DCPSRn find vdb(npsr1) at = 0.1
+
+* DC ALL  TB  
+VVDDdc VDDdc 0 'supply_voltage' 
+xop5 vss vdddc vout6 opin vout6  Peng_IAC_Pin_3
+Cload5 vout6 0 'PARAM_CLOAD'
+* TC meas   
+.measure dc maxval MAX V(vout6) from=-40 to=125
+.measure dc minval MIN V(vout6) from=-40 to=125
+.measure dc avgval AVG V(vout6) from=-40 to=125
+.measure dc ppavl  PP V(vout6) from=-40 to=125
+.measure dc TC param='ppavl/avgval/165'
+* Power meas   
+.meas dc Ivdd25 FIND I(VVDDDC) AT=25
+.meas dc Power param='-1*Ivdd25*supply_voltage'
+*   Vos.meas   
+.meas dc vout25 FIND V(vout6) AT=25
+.meas dc vos25 param = 'vout25-supply_voltage*VCM_ratio'
+
+.control
+
+DC temp -40 125 0.1
+plot v(vout6)
+
+ac dec 10 0.1 1G
+plot vdb(opout) vdb(cm3) vdb(ppsr1) vdb(npsr1)
+plot vp(opout)
+
+.endc
+
+.end

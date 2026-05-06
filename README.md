@@ -4,7 +4,7 @@ A unified benchmark suite for **analog circuit sizing optimization** using open-
 
 ## Features
 
-- **10 parameterized circuits** from PTM, IITB, Sky130, and educational sources
+- **31 parameterized circuits** from PTM, IITB, Sky130, AnalogGym, and educational sources
 - **Zero-dependency GA demo** (pure numpy) included out-of-the-box
 - **JSON-configurable** design space, specs, and parsers — add a new circuit in minutes
 - **Relative model paths** — every case runs out-of-the-box after cloning
@@ -20,7 +20,7 @@ A unified benchmark suite for **analog circuit sizing optimization** using open-
 │   ├── ngspice_benchmark.py       # Core framework: NgspiceBenchmark class
 │   ├── example_ga.py              # Real-coded GA demo (SBX + polynomial mutation)
 │   └── example_bo.py              # Random-search / BO baseline demo
-├── circuits/                       # 10 sizing benchmarks
+├── circuits/                       # 31 sizing benchmarks
 │   ├── ptm180nm_opamp/
 │   │   ├── circuit.cir
 │   │   ├── ptm180nm.lib
@@ -164,6 +164,27 @@ See `benchmark/example_ga.py` for a complete working example (~260 lines, pure n
 | **sky130_lp_opamp** | Sky130 | 6 | AC | gain>40dB, UGF>1MHz, PM>45° | 0.000 | ✅ | ~17s |
 | **sky130_por** | Sky130 | 4 | regex | trip_point<1.5V | 0.000 | ✅ | ~17s |
 | **sky130_vco** | Sky130 | 7 | regex | ymax>1.5V, ymin<0.1V | 0.000 | ✅ | ~17s |
+| **alfio_raffc** | Sky130 | 29 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **fan_smc** | Sky130 | 25 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ✅ | ~17s |
+| **hoilee_affc** | Sky130 | 35 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **leung_dfcfc1** | Sky130 | 32 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **leung_dfcfc2** | Sky130 | 29 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **leung_nmcf** | Sky130 | 26 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **leung_nmcnr** | Sky130 | 24 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **peng_acbc** | Sky130 | 35 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **peng_iac** | Sky130 | 33 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **peng_tcfc** | Sky130 | 26 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **qu2017_azc** | Sky130 | 40 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ✅ | ~17s |
+| **ramos_pfc** | Sky130 | 26 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **sau_cfcc** | Sky130 | 31 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **song_dacfc** | Sky130 | 35 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ✅ | ~17s |
+| **yan_az** | Sky130 | 38 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **ldo_1** | Sky130 | 20 | regex | gain>40dB, UGF>100kHz, PM>45° | - | ❌ | ~17s |
+| **ldo_2** | Sky130 | 57 | regex | gain>40dB, UGF>100kHz, PM>45° | - | ❌ | ~17s |
+| **ldo_folded_cascode** | Sky130 | 23 | regex | gain>40dB, UGF>100kHz, PM>45° | - | ❌ | ~17s |
+| **ldo_simple** | Sky130 | 16 | regex | gain>40dB, UGF>100kHz, PM>45° | - | ❌ | ~17s |
+| **amp_nmcf** | Sky130 | 24 | regex | gain>60dB, UGF>1MHz, PM>60° | - | ❌ | ~17s |
+| **ldo_tb** | Sky130 | 21 | regex | gain>40dB, UGF>100kHz, PM>45° | - | ✅ | ~17s |
 
 > **Note:** Sky130 circuits are slower (~17s/sim) because the PDK loads all corners and models. Use small population sizes (e.g., 4–8) and few generations (3–5) for quick demos.
 
@@ -212,6 +233,27 @@ Each circuit in this suite is derived from open-source repositories or public PD
 | sky130_lp_opamp | [velugotiashokkumar/LP_OPAMP_130nm](https://github.com/velugotiashokkumar/LP_OPAMP_130nm) — Low-power two-stage opamp | Original repo license |
 | sky130_por | [Sree-Vishnu-Varthini/POR_SKY130](https://github.com/Sree-Vishnu-Varthini/POR_SKY130) — Power-on-Reset circuit | Original repo license |
 | sky130_vco | [SANGESH007/GHz-Range-Low-Power-VCO](https://github.com/SANGESH007/GHz-Range-Low-Power-VCO) — Ring oscillator VCO | Original repo license |
+| alfio_raffc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — AFFC opamp | Original repo license |
+| fan_smc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — SMC opamp | Original repo license |
+| hoilee_affc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — AFFC opamp | Original repo license |
+| leung_dfcfc1 | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — DFCFC opamp | Original repo license |
+| leung_dfcfc2 | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — DFCFC opamp | Original repo license |
+| leung_nmcf | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — NMCF opamp | Original repo license |
+| leung_nmcnr | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — NMCNR opamp | Original repo license |
+| peng_acbc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — ACBC opamp | Original repo license |
+| peng_iac | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — IAC opamp | Original repo license |
+| peng_tcfc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — TCFC opamp | Original repo license |
+| qu2017_azc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — AZC opamp | Original repo license |
+| ramos_pfc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — PFC opamp | Original repo license |
+| sau_cfcc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — CFCC opamp | Original repo license |
+| song_dacfc | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — DACFC opamp | Original repo license |
+| yan_az | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — AZ opamp | Original repo license |
+| ldo_1 | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — LDO | Original repo license |
+| ldo_2 | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — LDO | Original repo license |
+| ldo_folded_cascode | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — Folded-cascode LDO | Original repo license |
+| ldo_simple | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — Simple LDO | Original repo license |
+| amp_nmcf | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — NMCF opamp | Original repo license |
+| ldo_tb | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — LDO | Original repo license |
 | **Sky130 PDK** | [SkyWater 130nm PDK](https://github.com/google/skywater-pdk) | Apache-2.0 |
 
 > **Note:** Circuits were parameterized and adapted for this benchmark. Original testbenches and netlists may have been modified (e.g., parameter injection, `.lib` path fixes, convergence options). Please refer to the original repositories for the unmodified designs.

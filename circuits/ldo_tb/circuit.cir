@@ -1,0 +1,212 @@
+.title ldo_tb
+* Test LDO ACDC
+
+*.OPTIONS RELTOL=.0001
+***************************************
+* Step 1: Replace circuit netlist here.
+*************************************** 
+.subckt Basic_LDO gnda vdda vinn vout vfb vinp Ib       
+XM0 Ib Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos       
+XM1 vb4 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos              
+XM2 dm_1 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos             
+XM3 vb3 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos              
+XM4 net20 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m='2*mosfet_0_8_m_biascm_pmos'                  
+XM5 voutn voutn vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos             
+XM6 net10 voutn vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos                           
+XM7 net7 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos  
+XM24 net1 Ib vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_0_8_l_biascm_pmos W='mosfet_0_8_w_biascm_pmos*1' m=mosfet_0_8_m_biascm_pmos  
+
+XM11 vout net1 vdda vdda sky130_fd_pr__pfet_01v8 L=mosfet_11_1_l_power_pmos W='mosfet_11_1_w_power_pmos*1' m=mosfet_11_1_m_power_pmos  
+
+XM10 net12 net10 net1 net1 sky130_fd_pr__pfet_01v8_lvt L=mosfet_10_1_l_gm2_pmos W='mosfet_10_1_w_gm2_pmos*1' m=mosfet_10_1_m_gm2_pmos
+
+XM8 dm_2 vinp net20 net20 sky130_fd_pr__pfet_01v8 L=mosfet_8_2_l_gm1_pmos W='mosfet_8_2_w_gm1_pmos*1' m=mosfet_8_2_m_gm1_pmos                       
+XM9 net106 vinn net20 net20 sky130_fd_pr__pfet_01v8 L=mosfet_8_2_l_gm1_pmos W='mosfet_8_2_w_gm1_pmos*1' m=mosfet_8_2_m_gm1_pmos    
+
+XM14 vb3 vb3 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m=mosfet_17_7_m_biascm_nmos
+XM12 vb4 vb3 net28 gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'
+XM13 dm_1 vb3 net31 gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'                          
+XM15 voutn vb3 dm_2 gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'       
+XM16 net10 vb3 net106 gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'  
+XM17 net28 vb4 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'
+XM18 net31 vb4 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='4*mosfet_17_7_m_biascm_nmos'           
+XM19 dm_2 vb4 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='8*mosfet_17_7_m_biascm_nmos'
+XM20 net106 vb4 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_17_7_l_biascm_nmos W='mosfet_17_7_w_biascm_nmos*1' m='8*mosfet_17_7_m_biascm_nmos'
+
+XM21 net12 net7 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_21_2_l_load2_nmos W='mosfet_21_2_w_load2_nmos*1' m=mosfet_21_2_m_load2_nmos           
+XM22 net7 net7 gnda gnda sky130_fd_pr__nfet_01v8 L=mosfet_21_2_l_load2_nmos W='mosfet_21_2_w_load2_nmos*1' m=mosfet_21_2_m_load2_nmos           
+
+r1 vout vfb 300e3
+r0 vfb gnda 100e3
+XC0 net106 vout sky130_fd_pr__cap_mim_m3_1 W=10 L=10 MF=M_C0 m=M_C0
+.ends Basic_LDO
+
+.param mc_mm_switch=0
+.param mc_pr_switch=0
+.lib "../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice" tt
+* (removed r+c include)
+* (removed r+c include)
+* (removed specialized_cells include)
+
+***************************************
+* Step 2: Replace circuit param.  here.
+*************************************** 
+.PARAM supply_voltage = 1.8
+.PARAM Vref = 0.4
+.PARAM PARAM_ILOAD =55m 
+
+.param mosfet_0_8_w_biascm_pmos=1.1511714458465576 mosfet_0_8_l_biascm_pmos=2.908731134608388 mosfet_0_8_m_biascm_pmos=27
+.param mosfet_8_2_w_gm1_pmos=1.485758513212204 mosfet_8_2_l_gm1_pmos=1.1558892875909805 mosfet_8_2_m_gm1_pmos=14
+.param mosfet_10_1_w_gm2_pmos=6.022575721144676 mosfet_10_1_l_gm2_pmos=2.1927622258663177 mosfet_10_1_m_gm2_pmos=27
+.param mosfet_11_1_w_power_pmos=7.487297892570496 mosfet_11_1_l_power_pmos=1.1738390671089292 mosfet_11_1_m_power_pmos=949
+.param mosfet_17_7_w_biascm_nmos=1.812826544046402 mosfet_17_7_l_biascm_nmos=1.0926024317741394 mosfet_17_7_m_biascm_nmos=5
+.param mosfet_21_2_w_load2_nmos=2.9079740941524506 mosfet_21_2_l_load2_nmos=4.691825315356255 mosfet_21_2_m_load2_nmos=24
+.param current_0_bias=3.211307168006898e-06
+.param M_C0=19
+.param M_CL=287
+
+
+V1 vdd 0 'supply_voltage'
+V2 vss 0 0 
+
+Vindc vref_in 0 'Vref'
+Vin signal_in 0 dc 'Vref' ac 1 sin('Vref' 100m 500)
+
+* Circuit List:
+* Basic_LDO
+
+* XLDO gnda vdda vinn vout vfb vinp Ib
+*        |  |     |     |   |    |   |
+*        |  |     |     |   |    |   bias current
+*        |  |     |     |   |    Non-inverting input 
+*        |  |     |     |   Feedback voltage 
+*        |  |     |     |   
+*        |  |     |     Output
+*        |  |     Inverting Input
+*        |  Positive Supply
+*         Negative Supply 
+
+***************************************
+* Step 3: Replace circuit name below.
+* e.g. Basic_LDO -> DFCFC_LDO
+*************************************** 
+*    ADM TB   
+x1 vss vdd vref_in vout1 vfb1 vinp1 Ib Basic_LDO
+Ib Ib 0 DC='current_0_bias'
+Lfb vinp1 vfb1 1T
+Cfb vinp1 signal_in 1T
+XCL vout1 0 sky130_fd_pr__cap_mim_m3_1 W=30 L=30 MF=M_CL m=M_CL
+Iload1 vout1 0 'PARAM_ILOAD'
+
+* PSRR   TB   
+VVDDApsrr vddpsrr 0 'supply_voltage'  AC=1
+Ib2 Ib2 0 DC='current_0_bias'
+XCL2 ppsr1 0 sky130_fd_pr__cap_mim_m3_1 W=30 L=30 MF=M_CL m=M_CL
+x2 vss vddpsrr vref_in ppsr1 vfb2 vfb2 Ib2 Basic_LDO
+Iload2 ppsr1 0 'PARAM_ILOAD'
+
+* DC ALL  TB  
+VVDDdc VDDdc 0 'supply_voltage' 
+Ib3 Ib3 0 DC='current_0_bias'
+XCL3 vout6 0 sky130_fd_pr__cap_mim_m3_1 W=30 L=30 MF=M_CL m=M_CL
+x3 vss vdddc vref_in vout6 vfb3 vfb3 Ib3 Basic_LDO
+Iload3 vout6 0 'PARAM_ILOAD'
+
+.control
+* save all voltage and current
+save all
+.options savecurrents 
+set filetype=ascii
+set units=degrees
+
+* DC sweep at maxload
+alter Iload3 dc=55m
+dc VVDDdc 1 3 0.01
+plot  v(vout6)
+wrdata LDO_TB_Vdrop_maxload v(vout6)
+
+* DC sweep at minload
+alter Iload3 dc=5m
+dc VVDDdc 1 3 0.01
+plot  v(vout6)
+wrdata LDO_TB_Vdrop_minload v(vout6)
+
+* LNR at maxload
+alter Iload3 dc=55m
+dc VVDDdc 1.62 1.98 0.01
+meas dc maxval1 MAX V(vout6) from=1.62 to=1.98
+meas dc minval1 MIN V(vout6) from=1.62 to=1.98
+meas dc avgval1 AVG V(vout6) from=1.62 to=1.98
+meas dc ppavl1  PP V(vout6) from=1.62 to=1.98
+let LNR1 = ppavl1/avgval1/0.36
+print LNR1
+plot v(vout6)
+wrdata LDO_TB_ACDC_LNR_maxload LNR1
+
+* LNR at minload
+alter Iload3 dc=5m
+dc VVDDdc 1.62 1.98 0.01
+meas dc maxval2 MAX V(vout6) from=1.62 to=1.98
+meas dc minval2 MIN V(vout6) from=1.62 to=1.98
+meas dc avgval2 AVG V(vout6) from=1.62 to=1.98
+meas dc ppavl2  PP V(vout6) from=1.62 to=1.98
+let LNR2 = ppavl2/avgval2/0.36
+print LNR2
+plot v(vout6)
+wrdata LDO_TB_ACDC_LNR_minload LNR2
+
+dc Iload3 5m 55m 0.1m
+* LR meas   
+meas dc maxval MAX V(vout6) from=5m to=55m
+meas dc minval MIN V(vout6) from=5m to=55m
+meas dc avgval AVG V(vout6) from=5m to=55m
+meas dc ppavl  PP V(vout6) from=5m to=55m
+let LR = ppavl/avgval/50m
+print LR
+* Power meas at maxload
+meas dc Ivdd1 FIND I(VVDDDC) AT=55m
+let Power1 = -1*Ivdd1*1.8
+print Power1
+* Power meas at minload
+meas dc Ivdd2 FIND I(VVDDDC) AT=5m
+let Power2 = -1*Ivdd2*1.8
+print Power2
+*   Vos.meas at maxload
+meas dc vout_x FIND V(vout6) AT=55m
+let vos1 = vout_x-4*0.4
+print vos1
+*   Vos.meas at minload
+meas dc vout_y FIND V(vout6) AT=5m
+let vos2 = vout_y-4*0.4
+print vos2
+plot v(vout6)
+wrdata LDO_TB_ACDC_LR_Power_vos LR Power1 Power2 vos1 vos2 
+
+* Loop test at maxload
+alter Iload1 dc=55m
+ac dec 10 0.1 1G
+meas ac DCPSRp1 find vdb(ppsr1) at = 0.1
+meas ac dcgain1 find vdb(vout1) at = 0.1
+meas ac gain_bandwidth_product1 when vdb(vout1)=0
+meas ac phase_margin1 find vp(vout1) when vdb(vout1)=0
+plot vdb(vout1) vdb(ppsr1) vp(vout1)
+wrdata LDO_TB_ACDC_PSRR_dcgain_maxload DCPSRp1 dcgain1
+wrdata LDO_TB_ACDC_GBW_PM_maxload gain_bandwidth_product1 phase_margin1
+
+* Loop test at minload
+alter Iload1 dc=5m
+ac dec 10 0.1 1G
+meas ac DCPSRp2 find vdb(ppsr1) at = 0.1
+meas ac dcgain2 find vdb(vout1) at = 0.1
+meas ac gain_bandwidth_product2 when vdb(vout1)=0
+meas ac phase_margin2 find vp(vout1) when vdb(vout1)=0
+plot vdb(vout1) vdb(ppsr1) vp(vout1)
+wrdata LDO_TB_ACDC_PSRR_dcgain_minload DCPSRp2 dcgain2
+wrdata LDO_TB_ACDC_GBW_PM_minload gain_bandwidth_product2 phase_margin2
+
+* OP
+op
+
+.endc
+
+.end
