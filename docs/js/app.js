@@ -218,6 +218,11 @@ function renderOverview(container) {
         });
     });
 
+    // 算法 Leaderboard 行点击
+    container.querySelectorAll('.algo-leaderboard tbody tr').forEach(row => {
+        row.addEventListener('click', () => Router.navigate('algorithms'));
+    });
+
     setTimeout(() => {
         renderGaugeChart('chart-gauge', globalRate, '总体满足率', globalRate >= 80 ? '#22c55e' : globalRate >= 50 ? '#38bdf8' : '#ef4444');
         renderPieChart('chart-pdk', pdks, 'PDK');
@@ -423,6 +428,9 @@ function updateCircuitBrowser() {
     const content = document.getElementById('cb-content');
     if (circuitBrowserView === 'table') {
         content.innerHTML = renderCircuitTable(pageCircuits);
+        content.querySelectorAll('.data-table tbody tr').forEach(row => {
+            row.addEventListener('click', () => Router.navigate('circuit', row.dataset.id));
+        });
     } else {
         content.innerHTML = `<div class="cards-grid">${pageCircuits.map(c => renderCircuitCard(c)).join('')}</div>`;
         content.querySelectorAll('.circuit-card').forEach(card => {
@@ -833,6 +841,12 @@ function renderAlgorithms(container) {
         <h2 class="section-title">收敛曲线画廊</h2>
         <div class="gallery-grid" id="algo-gallery"></div>
     `;
+
+    container.querySelectorAll('.algo-leaderboard tbody tr').forEach(row => {
+        row.addEventListener('click', () => {
+            // 可选：高亮该算法
+        });
+    });
 
     setTimeout(() => {
         const indicators = ['成功率', '速度', '稳定性', '收敛效率', 'FOM'];
