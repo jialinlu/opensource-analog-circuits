@@ -168,6 +168,53 @@ function renderScatterChart(domId, data, xName, yName) {
     });
 }
 
+// ===== 收敛曲线图 =====
+function renderConvergenceChart(domId, seriesData, legendData) {
+    return initChart(domId, {
+        tooltip: {
+            trigger: 'axis',
+            formatter: function(params) {
+                let s = `评估次数: ${params[0].axisValue}<br/>`;
+                params.forEach(p => {
+                    s += `${p.marker} ${p.seriesName}: ${p.value?.toFixed ? p.value.toFixed(4) : p.value}<br/>`;
+                });
+                return s;
+            }
+        },
+        legend: {
+            data: legendData,
+            textStyle: { color: ChartColors.textSecondary },
+            top: 0,
+        },
+        grid: { left: '3%', right: '4%', bottom: '3%', top: '15%', containLabel: true },
+        xAxis: {
+            type: 'category',
+            name: '评估次数',
+            nameTextStyle: { color: ChartColors.textSecondary },
+            axisLine: { lineStyle: { color: ChartColors.grid } },
+            axisLabel: { color: ChartColors.textSecondary },
+        },
+        yAxis: {
+            type: 'value',
+            name: '最优目标值',
+            nameTextStyle: { color: ChartColors.textSecondary },
+            axisLine: { lineStyle: { color: ChartColors.grid } },
+            splitLine: { lineStyle: { color: ChartColors.grid } },
+            axisLabel: { color: ChartColors.textSecondary },
+        },
+        series: seriesData.map((s, i) => ({
+            name: s.name,
+            type: 'line',
+            data: s.data,
+            smooth: true,
+            symbol: 'circle',
+            symbolSize: 6,
+            lineStyle: { width: 2 },
+            itemStyle: { color: ChartColors.primary[i % ChartColors.primary.length] },
+        })),
+    });
+}
+
 // ===== 规格满足率对比图 =====
 function renderSpecBarChart(domId, data) {
     const categories = data.map(d => d.name);

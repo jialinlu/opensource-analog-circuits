@@ -1,0 +1,139 @@
+{
+  "circuit": "chargepump",
+  "dim": 7,
+  "max_evals": 30,
+  "seed": 42,
+  "algorithms": {
+    "hebo": {
+      "best_obj": 0.0,
+      "best_metrics": {
+        "vout": 4.0
+      },
+      "total_evals": 31,
+      "total_time": 2.624844551086426,
+      "history": [
+        {
+          "eval": 1,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 2,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 3,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 4,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 5,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 6,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 7,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 8,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 9,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 10,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 11,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 12,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 13,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 14,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 15,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 16,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 17,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 18,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 19,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 20,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 21,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 22,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 23,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 24,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 25,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 26,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 27,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 28,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 29,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 30,
+          "best_obj": 0.0
+        }
+      ],
+      "wall_time": 144.97874999046326
+    }
+  }
+}

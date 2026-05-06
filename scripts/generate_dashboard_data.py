@@ -9,7 +9,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
 CIRCUITS_DIR = REPO_ROOT / "circuits"
-OUTPUT_PATH = REPO_ROOT / "benchmark-dashboard" / "data" / "circuits_data.json"
+OUTPUT_PATH = REPO_ROOT / "docs" / "data" / "circuits_data.json"
 
 
 def parse_readme(readme_path):

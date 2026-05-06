@@ -1,14 +1,21 @@
 // 数据加载模块
 const DataStore = {
     data: null,
+    algoData: null,
     loaded: false,
     listeners: [],
 
     async load() {
         try {
-            const response = await fetch('data/circuits_data.json');
-            if (!response.ok) throw new Error('Failed to load data');
-            this.data = await response.json();
+            const [circuitsRes, algoRes] = await Promise.all([
+                fetch('data/circuits_data.json'),
+                fetch('data/algorithm_results.json').catch(() => null),
+            ]);
+            if (!circuitsRes.ok) throw new Error('Failed to load circuits data');
+            this.data = await circuitsRes.json();
+            if (algoRes && algoRes.ok) {
+                this.algoData = await algoRes.json();
+            }
             this.loaded = true;
             this.listeners.forEach(cb => cb(this.data));
         } catch (err) {
@@ -44,6 +51,14 @@ const DataStore = {
 
     getPdks() {
         return this.getStats().pdks || {};
+    },
+
+    getAlgoResults(circuitId) {
+        return this.algoData?.[circuitId] || null;
+    },
+
+    hasAlgoResults() {
+        return this.algoData !== null && Object.keys(this.algoData).length > 0;
     },
 };
 

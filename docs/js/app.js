@@ -178,6 +178,8 @@ function renderDashboard(container) {
 
         <h2 class="section-title">快速浏览</h2>
         <div class="cards-grid" id="quick-circuits"></div>
+
+        ${renderDashboardAlgoComparison()}
     `;
 
     // 渲染图表
@@ -208,6 +210,54 @@ function renderDashboard(container) {
     quickContainer.querySelectorAll('.circuit-card').forEach(card => {
         card.addEventListener('click', () => Router.navigate('circuit', card.dataset.id));
     });
+}
+
+function renderDashboardAlgoComparison() {
+    if (!DataStore.hasAlgoResults()) return '';
+
+    const algoData = DataStore.algoData;
+    const algoNames = {
+        ga: '遗传算法 (GA)',
+        turbo: 'TuRBO',
+        hebo: 'HEBO',
+    };
+
+    let html = `
+        <h2 class="section-title">算法对比</h2>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>电路</th>
+                        <th>变量数</th>
+                        <th>评估预算</th>
+                        ${Object.values(algoNames).map(n => `<th>${n} 最优值</th>`).join('')}
+                    </tr>
+                </thead>
+                <tbody>
+    `;
+
+    for (const [circuitId, data] of Object.entries(algoData)) {
+        const circuit = DataStore.getCircuitById(circuitId);
+        const name = circuit ? circuit.display_name : circuitId;
+        html += `
+            <tr data-id="${circuitId}">
+                <td><strong>${name}</strong></td>
+                <td>${data.dim}</td>
+                <td>${data.max_evals}</td>
+                ${Object.keys(algoNames).map(algo => {
+                    const res = data.algorithms[algo];
+                    if (res) {
+                        return `<td style="color: ${res.best_obj === 0 ? 'var(--success)' : 'var(--text-primary)'}">${res.best_obj.toFixed(4)}</td>`;
+                    }
+                    return `<td style="color: var(--text-muted)">-</td>`;
+                }).join('')}
+            </tr>
+        `;
+    }
+
+    html += `</tbody></table></div>`;
+    return html;
 }
 
 // ===== Leaderboard =====
@@ -586,6 +636,8 @@ function renderCircuitDetail(container, id) {
                 </tbody>
             </table>
         </div>
+
+        ${renderAlgoComparison(c.id)}
     `;
 
     // 渲染规格偏差图
@@ -604,6 +656,97 @@ function renderCircuitDetail(container, id) {
         } else {
             document.getElementById('chart-specs').style.display = 'none';
         }
+
+        // 渲染算法收敛曲线
+        renderAlgoChart(c.id);
+    }, 50);
+}
+
+function renderAlgoComparison(circuitId) {
+    const algoResults = DataStore.getAlgoResults(circuitId);
+    if (!algoResults) return '';
+
+    const algos = algoResults.algorithms;
+    const algoNames = {
+        ga: '遗传算法 (GA)',
+        turbo: 'TuRBO',
+        hebo: 'HEBO',
+    };
+    const algoColors = {
+        ga: '#22c55e',
+        turbo: '#3b82f6',
+        hebo: '#f59e0b',
+    };
+
+    let html = `
+        <div class="detail-section">
+            <h3>算法对比</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px;">
+    `;
+
+    for (const [algoKey, res] of Object.entries(algos)) {
+        html += `
+            <div class="metric-card" style="text-align: left; padding: 16px;">
+                <div style="font-weight: 600; color: ${algoColors[algoKey] || '#e2e8f0'}; margin-bottom: 8px;">${algoNames[algoKey] || algoKey.toUpperCase()}</div>
+                <div style="font-size: 0.85rem; color: var(--text-secondary);">
+                    <div>最优目标值: <strong style="color: var(--text-primary);">${res.best_obj.toFixed(4)}</strong></div>
+                    <div>评估次数: ${res.total_evals}</div>
+                    <div>仿真时间: ${formatTime(res.total_time)}</div>
+                    <div>总耗时: ${formatTime(res.wall_time)}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    html += `</div><div id="chart-convergence" class="chart-box" style="height: 300px;"></div></div>`;
+    return html;
+}
+
+function renderAlgoChart(circuitId) {
+    const algoResults = DataStore.getAlgoResults(circuitId);
+    if (!algoResults) return;
+
+    const algos = algoResults.algorithms;
+    const algoNames = {
+        ga: '遗传算法 (GA)',
+        turbo: 'TuRBO',
+        hebo: 'HEBO',
+    };
+
+    // 收集所有评估点
+    const allEvals = new Set();
+    Object.values(algos).forEach(a => {
+        a.history.forEach(h => allEvals.add(h.eval));
+    });
+    const sortedEvals = Array.from(allEvals).sort((a, b) => a - b);
+
+    const seriesData = Object.entries(algos).map(([key, res]) => {
+        const histMap = {};
+        let bestSoFar = Infinity;
+        res.history.forEach(h => {
+            if (h.best_obj < bestSoFar) bestSoFar = h.best_obj;
+            histMap[h.eval] = bestSoFar;
+        });
+        const data = sortedEvals.map(e => {
+            // 找到该评估点之前的最佳值
+            let best = Infinity;
+            for (const h of res.history) {
+                if (h.eval <= e && h.best_obj < best) {
+                    best = h.best_obj;
+                }
+            }
+            return best === Infinity ? null : best;
+        });
+        return {
+            name: algoNames[key] || key.toUpperCase(),
+            data: data,
+        };
+    });
+
+    const legendData = seriesData.map(s => s.name);
+
+    setTimeout(() => {
+        renderConvergenceChart('chart-convergence', seriesData, legendData);
     }, 50);
 }
 
