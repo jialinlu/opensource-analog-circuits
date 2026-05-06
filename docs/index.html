@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analog Circuit Sizing Benchmark</title>
+    <title>AnalogBench - 开源模拟电路尺寸优化基准</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 </head>
@@ -14,14 +14,14 @@
             <span class="nav-title">AnalogBench</span>
         </div>
         <div class="nav-links">
-            <a href="#!/dashboard" class="nav-link active" data-page="dashboard">总览</a>
-            <a href="#!/leaderboard" class="nav-link" data-page="leaderboard">排行榜</a>
-            <a href="#!/catalog" class="nav-link" data-page="catalog">电路目录</a>
+            <a href="#!/overview" class="nav-link active" data-page="overview">概览</a>
+            <a href="#!/circuits" class="nav-link" data-page="circuits">电路</a>
+            <a href="#!/algorithms" class="nav-link" data-page="algorithms">算法对比</a>
+            <a href="#!/matrix" class="nav-link" data-page="matrix">满足矩阵</a>
         </div>
     </nav>
 
     <main id="app">
-        <!-- 页面内容由 JS 动态渲染 -->
         <div class="loading">
             <div class="loading-spinner"></div>
             <p>正在加载数据...</p>
@@ -29,7 +29,7 @@
     </main>
 
     <footer class="footer">
-        <p>开源模拟电路尺寸优化基准测试套件 · 31 个参数化电路</p>
+        <p>开源模拟电路尺寸优化基准测试套件 · 31 个参数化电路 · 7 个类别 · 5 种 PDK</p>
     </footer>
 
     <script src="js/data.js"></script>
