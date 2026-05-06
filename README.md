@@ -202,16 +202,16 @@ Each circuit in this suite is derived from open-source repositories or public PD
 
 | Circuit | Source | License / Attribution |
 |---------|--------|----------------------|
-| ptm180nm_opamp | Custom two-stage opamp using **ASU PTM 180nm** models | ASU PTM (public) |
+| ptm180nm_opamp | [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym) — two-stage opamp, **ASU PTM 180nm** | Original repo license |
 | gh_autockt_opamp | [ksettaluri6/AutoCkt](https://github.com/ksettaluri6/AutoCkt) (Stanford) — two-stage opamp, PTM 45nm | Original repo license |
-| ota_iitb | IITB educational OTA — 5T OTA + cascode, 180nm BSIM3 | Educational / public |
-| chargepump | Open-source 5-stage Charge Pump with embedded BSIM4 models | Open source |
+| ota_iitb | [neeraj17-p/OTA_IITB_esim_Marathon](https://github.com/neeraj17-p/OTA_IITB_esim_Marathon) — 5T OTA + cascode, 180nm | Original repo license |
+| chargepump | [utkarsh-10-17/Charge-Pump-Circuit-using-CMOS](https://github.com/utkarsh-10-17/Charge-Pump-Circuit-using-CMOS) — 5-stage Charge Pump | Original repo license |
 | bjt_ce_amp | [danielrioslinares/ngspice-examples](https://github.com/danielrioslinares/ngspice-examples) — BJT common-emitter amplifier | Original repo license |
 | sky130_bgr | [silicon-vlsi/BGR_DESIGN_SKY130nm](https://github.com/silicon-vlsi/BGR_DESIGN_SKY130nm) — Bandgap reference | Original repo license |
 | sky130_ldo | [github_sky130/lowdropoutregulator](https://github.com/ayeshafareed/LDO_MOSFET) — Low-dropout regulator | Original repo license |
 | sky130_lp_opamp | [velugotiashokkumar/LP_OPAMP_130nm](https://github.com/velugotiashokkumar/LP_OPAMP_130nm) — Low-power two-stage opamp | Original repo license |
-| sky130_por | POR_SKY130 — Power-on-Reset circuit | Open source |
-| sky130_vco | GHz-Range-Low-Power-VCO — Ring oscillator VCO | Open source |
+| sky130_por | [Sree-Vishnu-Varthini/POR_SKY130](https://github.com/Sree-Vishnu-Varthini/POR_SKY130) — Power-on-Reset circuit | Original repo license |
+| sky130_vco | [SANGESH007/GHz-Range-Low-Power-VCO](https://github.com/SANGESH007/GHz-Range-Low-Power-VCO) — Ring oscillator VCO | Original repo license |
 | **Sky130 PDK** | [SkyWater 130nm PDK](https://github.com/google/skywater-pdk) | Apache-2.0 |
 
 > **Note:** Circuits were parameterized and adapted for this benchmark. Original testbenches and netlists may have been modified (e.g., parameter injection, `.lib` path fixes, convergence options). Please refer to the original repositories for the unmodified designs.
