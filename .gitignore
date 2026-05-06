@@ -8,3 +8,13 @@ build/
 *.swo
 *~
 .circuit.cir
+
+# Ngspice simulation artifacts (wrdata output, etc.)
+circuits/*/*
+!circuits/*/*.cir
+!circuits/*/*.sp
+!circuits/*/*.spice
+!circuits/*/*.json
+!circuits/*/*.md
+!circuits/*/*.lib
+!circuits/*/*.txt
