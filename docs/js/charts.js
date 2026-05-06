@@ -173,45 +173,81 @@ function renderConvergenceChart(domId, seriesData, legendData) {
     return initChart(domId, {
         tooltip: {
             trigger: 'axis',
+            backgroundColor: 'rgba(5, 5, 8, 0.95)',
+            borderColor: 'rgba(0, 212, 255, 0.2)',
+            textStyle: { color: '#e2e8f0' },
             formatter: function(params) {
-                let s = `评估次数: ${params[0].axisValue}<br/>`;
+                let s = `<div style="font-weight:600;margin-bottom:6px;">评估次数: ${params[0].axisValue}</div>`;
                 params.forEach(p => {
-                    s += `${p.marker} ${p.seriesName}: ${p.value?.toFixed ? p.value.toFixed(4) : p.value}<br/>`;
+                    const val = p.value?.toFixed ? p.value.toFixed(4) : p.value;
+                    s += `<div style="display:flex;align-items:center;gap:6px;margin:3px 0;">
+                        <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${p.color};"></span>
+                        <span style="flex:1;">${p.seriesName}:</span>
+                        <span style="font-weight:600;">${val}</span>
+                    </div>`;
                 });
                 return s;
             }
         },
         legend: {
             data: legendData,
-            textStyle: { color: ChartColors.textSecondary },
-            top: 0,
+            textStyle: { color: '#94a3b8', fontSize: 13 },
+            top: 10,
+            itemGap: 20,
+            itemWidth: 20,
+            itemHeight: 10,
         },
-        grid: { left: '3%', right: '4%', bottom: '3%', top: '15%', containLabel: true },
+        grid: { left: '3%', right: '4%', bottom: '5%', top: '18%', containLabel: true },
         xAxis: {
             type: 'category',
             name: '评估次数',
-            nameTextStyle: { color: ChartColors.textSecondary },
-            axisLine: { lineStyle: { color: ChartColors.grid } },
-            axisLabel: { color: ChartColors.textSecondary },
+            nameTextStyle: { color: '#64748b', fontSize: 12 },
+            axisLine: { lineStyle: { color: 'rgba(100,116,139,0.2)' } },
+            axisLabel: { color: '#64748b' },
+            splitLine: { show: false },
         },
         yAxis: {
             type: 'value',
-            name: '最优目标值',
-            nameTextStyle: { color: ChartColors.textSecondary },
-            axisLine: { lineStyle: { color: ChartColors.grid } },
-            splitLine: { lineStyle: { color: ChartColors.grid } },
-            axisLabel: { color: ChartColors.textSecondary },
+            name: '最优目标值 (log)',
+            nameTextStyle: { color: '#64748b', fontSize: 12 },
+            axisLine: { lineStyle: { color: 'rgba(100,116,139,0.2)' } },
+            splitLine: { lineStyle: { color: 'rgba(100,116,139,0.1)' } },
+            axisLabel: { color: '#64748b' },
+            logBase: 10,
         },
-        series: seriesData.map((s, i) => ({
-            name: s.name,
-            type: 'line',
-            data: s.data,
-            smooth: true,
-            symbol: 'circle',
-            symbolSize: 6,
-            lineStyle: { width: 2 },
-            itemStyle: { color: ChartColors.primary[i % ChartColors.primary.length] },
-        })),
+        series: seriesData.map((s, i) => {
+            const color = s.color || ChartColors.primary[i % ChartColors.primary.length];
+            return {
+                name: s.name,
+                type: 'line',
+                data: s.data,
+                smooth: 0.3,
+                symbol: 'circle',
+                symbolSize: 8,
+                showSymbol: true,
+                lineStyle: {
+                    width: 3,
+                    color: color,
+                    shadowBlur: 10,
+                    shadowColor: color,
+                },
+                itemStyle: {
+                    color: color,
+                    borderWidth: 2,
+                    borderColor: '#050508',
+                },
+                areaStyle: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        { offset: 0, color: color + '33' },
+                        { offset: 1, color: color + '05' },
+                    ]),
+                },
+                emphasis: {
+                    focus: 'series',
+                    lineStyle: { width: 4 },
+                },
+            };
+        }),
     });
 }
 

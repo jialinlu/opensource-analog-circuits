@@ -119,6 +119,8 @@ function renderDashboard(container) {
     const pdks = DataStore.getPdks();
 
     container.innerHTML = `
+        ${renderDashboardAlgoComparison()}
+
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="stat-label">电路总数</div>
@@ -178,8 +180,6 @@ function renderDashboard(container) {
 
         <h2 class="section-title">快速浏览</h2>
         <div class="cards-grid" id="quick-circuits"></div>
-
-        ${renderDashboardAlgoComparison()}
     `;
 
     // 渲染图表
@@ -210,6 +210,25 @@ function renderDashboard(container) {
     quickContainer.querySelectorAll('.circuit-card').forEach(card => {
         card.addEventListener('click', () => Router.navigate('circuit', card.dataset.id));
     });
+
+    // 算法对比收敛曲线按钮事件
+    document.querySelectorAll('.toggle-chart-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const chartId = btn.dataset.chart;
+            const circuitId = btn.dataset.circuit;
+            const wrap = document.getElementById(`${chartId}-wrap`);
+            if (wrap.style.display === 'none') {
+                wrap.style.display = 'block';
+                btn.textContent = '📈 收起曲线';
+                btn.style.background = 'rgba(0,212,255,0.2)';
+                setTimeout(() => renderAlgoChartInline(chartId, circuitId), 100);
+            } else {
+                wrap.style.display = 'none';
+                btn.textContent = '📉 收敛曲线';
+                btn.style.background = 'rgba(0,212,255,0.1)';
+            }
+        });
+    });
 }
 
 function renderDashboardAlgoComparison() {
@@ -221,42 +240,63 @@ function renderDashboardAlgoComparison() {
         turbo: 'TuRBO',
         hebo: 'HEBO',
     };
+    const algoColors = {
+        ga: '#00ff88',
+        turbo: '#00d4ff',
+        hebo: '#ffa502',
+    };
 
     let html = `
-        <h2 class="section-title">算法对比</h2>
-        <div class="table-container">
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>电路</th>
-                        <th>变量数</th>
-                        <th>评估预算</th>
-                        ${Object.values(algoNames).map(n => `<th>${n} 最优值</th>`).join('')}
-                    </tr>
-                </thead>
-                <tbody>
+        <div class="hero-section">
+            <div class="hero-title">⚡ 算法对比实验</div>
+            <div class="hero-subtitle">GA · TuRBO · HEBO 在 3 个电路上收敛性能对比，点击电路名查看详情</div>
+            <div class="table-container" style="background: rgba(5,5,8,0.4); border: 1px solid rgba(0,212,255,0.1);">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>电路</th>
+                            <th>变量数</th>
+                            <th>评估预算</th>
+                            ${Object.entries(algoNames).map(([k, n]) => `<th style="color: ${algoColors[k]}">${n}</th>`).join('')}
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
     `;
 
+    let chartIdx = 0;
     for (const [circuitId, data] of Object.entries(algoData)) {
         const circuit = DataStore.getCircuitById(circuitId);
         const name = circuit ? circuit.display_name : circuitId;
+        const chartId = `dash-convergence-${chartIdx++}`;
         html += `
             <tr data-id="${circuitId}">
-                <td><strong>${name}</strong></td>
+                <td><strong style="color: var(--accent); cursor: pointer;" onclick="Router.navigate('circuit', '${circuitId}')">${name}</strong></td>
                 <td>${data.dim}</td>
                 <td>${data.max_evals}</td>
                 ${Object.keys(algoNames).map(algo => {
                     const res = data.algorithms[algo];
                     if (res) {
-                        return `<td style="color: ${res.best_obj === 0 ? 'var(--success)' : 'var(--text-primary)'}">${res.best_obj.toFixed(4)}</td>`;
+                        const isBest = res.best_obj === 0;
+                        return `<td class="${isBest ? 'algo-best' : ''}">${res.best_obj.toFixed(4)} ${isBest ? '✓' : ''}</td>`;
                     }
                     return `<td style="color: var(--text-muted)">-</td>`;
                 }).join('')}
+                <td><button class="toggle-chart-btn" data-chart="${chartId}" data-circuit="${circuitId}" style="padding: 6px 14px; background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.3); border-radius: 8px; color: var(--accent); cursor: pointer; font-size: 0.8rem; transition: all 0.3s;">📉 收敛曲线</button></td>
             </tr>
         `;
     }
 
     html += `</tbody></table></div>`;
+
+    // 为每个电路添加收敛曲线容器
+    chartIdx = 0;
+    for (const circuitId of Object.keys(algoData)) {
+        const chartId = `dash-convergence-${chartIdx++}`;
+        html += `<div id="${chartId}-wrap" style="display: none; margin-top: 20px;"><div id="${chartId}" class="chart-box" style="height: 350px;"></div></div>`;
+    }
+
+    html += `</div>`;
     return html;
 }
 
@@ -703,6 +743,10 @@ function renderAlgoComparison(circuitId) {
 }
 
 function renderAlgoChart(circuitId) {
+    renderAlgoChartInline('chart-convergence', circuitId);
+}
+
+function renderAlgoChartInline(domId, circuitId) {
     const algoResults = DataStore.getAlgoResults(circuitId);
     if (!algoResults) return;
 
@@ -712,6 +756,11 @@ function renderAlgoChart(circuitId) {
         turbo: 'TuRBO',
         hebo: 'HEBO',
     };
+    const algoColors = {
+        ga: '#00ff88',
+        turbo: '#00d4ff',
+        hebo: '#ffa502',
+    };
 
     // 收集所有评估点
     const allEvals = new Set();
@@ -720,15 +769,8 @@ function renderAlgoChart(circuitId) {
     });
     const sortedEvals = Array.from(allEvals).sort((a, b) => a - b);
 
-    const seriesData = Object.entries(algos).map(([key, res]) => {
-        const histMap = {};
-        let bestSoFar = Infinity;
-        res.history.forEach(h => {
-            if (h.best_obj < bestSoFar) bestSoFar = h.best_obj;
-            histMap[h.eval] = bestSoFar;
-        });
+    const seriesData = Object.entries(algos).map(([key, res], idx) => {
         const data = sortedEvals.map(e => {
-            // 找到该评估点之前的最佳值
             let best = Infinity;
             for (const h of res.history) {
                 if (h.eval <= e && h.best_obj < best) {
@@ -740,13 +782,14 @@ function renderAlgoChart(circuitId) {
         return {
             name: algoNames[key] || key.toUpperCase(),
             data: data,
+            color: algoColors[key] || ChartColors.primary[idx % ChartColors.primary.length],
         };
     });
 
     const legendData = seriesData.map(s => s.name);
 
     setTimeout(() => {
-        renderConvergenceChart('chart-convergence', seriesData, legendData);
+        renderConvergenceChart(domId, seriesData, legendData);
     }, 50);
 }
 
