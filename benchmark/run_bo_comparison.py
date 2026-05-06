@@ -59,9 +59,7 @@ def run_turbo(bench, max_evals=30, seed=42):
     dim = bench.dim
     lb = np.zeros(dim)
     ub = np.ones(dim)
-    n_init = max(4, 2 * dim)
-    if n_init >= max_evals:
-        n_init = max_evals // 2
+    n_init = min(max(4, 2 * dim), max_evals // 2)
 
     rng = np.random.default_rng(seed)
     np.random.seed(seed)

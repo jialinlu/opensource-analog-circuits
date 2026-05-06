@@ -1,0 +1,79 @@
+{
+  "circuit": "sky130_bgr",
+  "dim": 15,
+  "max_evals": 15,
+  "seed": 42,
+  "algorithms": {
+    "hebo": {
+      "best_obj": 0.0,
+      "best_metrics": {
+        "vref": 0.724204
+      },
+      "total_evals": 16,
+      "total_time": 275.6702125072479,
+      "history": [
+        {
+          "eval": 1,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 2,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 3,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 4,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 5,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 6,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 7,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 8,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 9,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 10,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 11,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 12,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 13,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 14,
+          "best_obj": 0.0
+        },
+        {
+          "eval": 15,
+          "best_obj": 0.0
+        }
+      ],
+      "wall_time": 281.46126198768616
+    }
+  }
+}

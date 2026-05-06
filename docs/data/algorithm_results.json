@@ -290,6 +290,157 @@
       }
     }
   },
+  "sky130_bgr": {
+    "dim": 15,
+    "max_evals": 10,
+    "algorithms": {
+      "ga": {
+        "best_obj": 0.0,
+        "best_metrics": {
+          "vref": 0.738317
+        },
+        "total_evals": 13,
+        "total_time": 208.79795122146606,
+        "wall_time": 208.85565400123596,
+        "history": [
+          {
+            "eval": 3,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 6,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 9,
+            "best_obj": 0.0
+          }
+        ]
+      },
+      "turbo": {
+        "best_obj": 0.0,
+        "best_metrics": {
+          "vref": 0.747927
+        },
+        "total_evals": 24,
+        "total_time": 384.2140851020813,
+        "wall_time": 179.74944376945496,
+        "history": [
+          {
+            "eval": 1,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 2,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 3,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 4,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 5,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 6,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 7,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 8,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 9,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 10,
+            "best_obj": 0.0
+          }
+        ]
+      },
+      "hebo": {
+        "best_obj": 0.0,
+        "best_metrics": {
+          "vref": 0.724204
+        },
+        "total_evals": 16,
+        "total_time": 275.6702125072479,
+        "wall_time": 281.46126198768616,
+        "history": [
+          {
+            "eval": 1,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 2,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 3,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 4,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 5,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 6,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 7,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 8,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 9,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 10,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 11,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 12,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 13,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 14,
+            "best_obj": 0.0
+          },
+          {
+            "eval": 15,
+            "best_obj": 0.0
+          }
+        ]
+      }
+    }
+  },
   "ptm180nm_opamp": {
     "dim": 19,
     "max_evals": 30,
