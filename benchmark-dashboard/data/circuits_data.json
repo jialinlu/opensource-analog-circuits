@@ -1,0 +1,5611 @@
+{
+  "circuits": [
+    {
+      "id": "alfio_raffc",
+      "name": "alfio_raffc",
+      "display_name": "Alfio Raffc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 29,
+      "design_vars": [
+        {
+          "name": "MOSFET_15_2_L_gmb_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_15_2_W_gmb_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_15_2_M_gmb_NMOS",
+          "default": 2,
+          "lb": 1,
+          "ub": 10
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf_PMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_7_1_L_gm3_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_7_1_M_gm3_PMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_7_1_W_gm3_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 3,
+          "lb": 1,
+          "ub": 15
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 11.0,
+          "lb": 2.2,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 0.35,
+          "lb": 0.06999999999999999,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": -15.3708
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Alfio RAFFC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "amp_nmcf",
+      "name": "amp_nmcf",
+      "display_name": "Amp Nmcf",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 24,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 0.999118,
+          "lb": 0.42,
+          "ub": 4.99559
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.011995,
+          "lb": 0.33733166666666664,
+          "ub": 3.035985
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 7,
+          "lb": 1,
+          "ub": 35
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 8.701178,
+          "lb": 1.7402356,
+          "ub": 43.50589
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 0.52274,
+          "lb": 0.17424666666666666,
+          "ub": 1.56822
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 6,
+          "lb": 1,
+          "ub": 30
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 2.99305,
+          "lb": 0.5986100000000001,
+          "ub": 14.965250000000001
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 2.054409,
+          "lb": 0.684803,
+          "ub": 4.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 27,
+          "lb": 5,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf2_PMOS",
+          "default": 1.451549,
+          "lb": 0.42,
+          "ub": 7.257745
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf2_PMOS",
+          "default": 0.667516,
+          "lb": 0.22250533333333333,
+          "ub": 2.002548
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf2_PMOS",
+          "default": 263,
+          "lb": 52,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.556118,
+          "lb": 0.42,
+          "ub": 7.780589999999999
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 0.590141,
+          "lb": 0.19671366666666668,
+          "ub": 1.770423
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 7.399736,
+          "lb": 1.4799472,
+          "ub": 36.99868
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 0.648895,
+          "lb": 0.21629833333333334,
+          "ub": 1.946685
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 21,
+          "lb": 4,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 9.822251,
+          "lb": 1.9644502,
+          "ub": 49.111255
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 3.580161,
+          "lb": 1.193387,
+          "ub": 4.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 17,
+          "lb": 3,
+          "ub": 50
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 4.959151e-06,
+          "lb": 1e-06,
+          "ub": 2.4795755e-05
+        },
+        {
+          "name": "M_C0",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "M_C1",
+          "default": 12,
+          "lb": 2,
+          "ub": 50
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 141.851,
+          "ugf": 3389390.0,
+          "pm": 43.9753
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym RGNN_RL 基准套件的电路。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "bjt_ce_amp",
+      "name": "bjt_ce_amp",
+      "display_name": "Bjt Ce Amp",
+      "category": "放大器",
+      "pdk": "内嵌模型",
+      "parser_type": "regex",
+      "var_count": 5,
+      "design_vars": [
+        {
+          "name": "R1",
+          "default": 110000.0,
+          "lb": 55000.0,
+          "ub": 165000.0
+        },
+        {
+          "name": "R2",
+          "default": 10000.0,
+          "lb": 5000.0,
+          "ub": 15000.0
+        },
+        {
+          "name": "R3",
+          "default": 10000.0,
+          "lb": 5000.0,
+          "ub": 15000.0
+        },
+        {
+          "name": "R4",
+          "default": 1000.0,
+          "lb": 500.0,
+          "ub": 1500.0
+        },
+        {
+          "name": "C1",
+          "default": 1e-07,
+          "lb": 5e-08,
+          "ub": 1.5e-07
+        }
+      ],
+      "specs": [
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 5.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": 11.3701
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 0.04
+      },
+      "description": "一个基本的 BJT 共射极放大器，用作 ngspice 教学示例。设计采用分立电阻、电容和内置 BJT 模型，无需外部 PDK。",
+      "source": "danielrioslinares/ngspice-examples",
+      "source_url": "https://github.com/danielrioslinares/ngspice-examples",
+      "author": "Daniel Rios Linares",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "chargepump",
+      "name": "chargepump",
+      "display_name": "Chargepump",
+      "category": "电荷泵",
+      "pdk": "内嵌模型",
+      "parser_type": "regex",
+      "var_count": 7,
+      "design_vars": [
+        {
+          "name": "WN1",
+          "default": 0.3,
+          "lb": 0.15,
+          "ub": 0.45
+        },
+        {
+          "name": "WN8",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "WP1",
+          "default": 0.3,
+          "lb": 0.15,
+          "ub": 0.45
+        },
+        {
+          "name": "WP5",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "LCHN",
+          "default": 0.1,
+          "lb": 0.05,
+          "ub": 0.15
+        },
+        {
+          "name": "LCHP",
+          "default": 0.1,
+          "lb": 0.05,
+          "ub": 0.15
+        },
+        {
+          "name": "C_CAP",
+          "default": 1e-11,
+          "lb": 5e-12,
+          "ub": 1.5e-11
+        }
+      ],
+      "specs": [
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 3.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": 4.0
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 0.08
+      },
+      "description": "一个采用 CMOS 实现的五级 Dickson 风格电荷泵。设计使用内置的 BSIM4 器件模型，完全自包含，无需外部 PDK 依赖。",
+      "source": "utkarsh-10-17/Charge-Pump-Circuit-using-CMOS",
+      "source_url": "https://github.com/utkarsh-10-17/Charge-Pump-Circuit-using-CMOS",
+      "author": "Utkarsh",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "fan_smc",
+      "name": "fan_smc",
+      "display_name": "Fan Smc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 25,
+      "design_vars": [
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf2_PMOS",
+          "default": 32,
+          "lb": 6,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 16,
+          "lb": 3,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 16,
+          "lb": 3,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 5.0,
+          "lb": 1.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 60.0,
+          "lb": 12.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 69.9285,
+          "ugf": 2079150.0,
+          "pm": 80.9604
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Fan SMC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "gh_autockt_opamp",
+      "name": "gh_autockt_opamp",
+      "display_name": "Gh Autockt Opamp",
+      "category": "运算放大器",
+      "pdk": "PTM 45nm",
+      "parser_type": "ac_data",
+      "var_count": 10,
+      "design_vars": [
+        {
+          "name": "wp1",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "wn1",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "wn3",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "wp3",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "wn4",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "wn5",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "cc",
+          "default": 3.0,
+          "lb": 1.5,
+          "ub": 4.5
+        },
+        {
+          "name": "ibias",
+          "default": 30.0,
+          "lb": 15.0,
+          "ub": 45.0
+        },
+        {
+          "name": "cload",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        },
+        {
+          "name": "vcm",
+          "default": 0.6,
+          "lb": 0.3,
+          "ub": 0.8999999999999999
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": -4.00557
+        },
+        "objective": 2001.0667595,
+        "meets_specs": false,
+        "sim_time": 0.03
+      },
+      "description": "AutoCkt 论文（\"AutoCkt: Deep Reinforcement Learning of Analog Circuit Designs\"）中使用的主要基准两级运算放大器。采用 PTM 45nm 模型制造。",
+      "source": "ksettaluri6/AutoCkt",
+      "source_url": "https://github.com/ksettaluri6/AutoCkt",
+      "author": "K. Settaluri et al., Stanford University",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "hoilee_affc",
+      "name": "hoilee_affc",
+      "display_name": "Hoilee Affc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 35,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_12_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_12_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_12_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_22_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_22_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_22_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_25_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_25_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_25_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_59_2_L_HSBCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_59_2_M_HSBCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_59_2_W_HSBCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_60_2_L_gma_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_60_2_M_gma_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_60_2_W_gma_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_9_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_9_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_9_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 18.0,
+          "lb": 3.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 90.0754,
+          "ugf": 838366.0,
+          "pm": 8.05217
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：HoiLee AFFC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ldo_1",
+      "name": "ldo_1",
+      "display_name": "Ldo 1",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 20,
+      "design_vars": [
+        {
+          "name": "W_M0",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 15.0
+        },
+        {
+          "name": "L_M0",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_M0",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M2",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M2",
+          "default": 4.0,
+          "lb": 1.3333333333333333,
+          "ub": 4.0
+        },
+        {
+          "name": "M_M2",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M4",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "L_M4",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M4",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M6",
+          "default": 25.0,
+          "lb": 5.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M6",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_M6",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M7",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 15.0
+        },
+        {
+          "name": "L_M7",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M7",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M8",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M8",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_M8",
+          "default": 120,
+          "lb": 24,
+          "ub": 50
+        },
+        {
+          "name": "current_0_bias",
+          "default": 5e-06,
+          "lb": 1.0000000000000002e-06,
+          "ub": 2.5e-05
+        },
+        {
+          "name": "M_CL",
+          "default": 200,
+          "lb": 40,
+          "ub": 50
+        }
+      ],
+      "specs": [
+        {
+          "name": "dcgain",
+          "operator": ">",
+          "target": 40.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 100000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45.0
+        },
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": 0.005288,
+          "dcgain": 40.24,
+          "ugf": 331919.0
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的低压差稳压器。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ldo_2",
+      "name": "ldo_2",
+      "display_name": "Ldo 2",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 57,
+      "design_vars": [
+        {
+          "name": "W_NM0",
+          "default": 13.0,
+          "lb": 2.6,
+          "ub": 65.0
+        },
+        {
+          "name": "L_NM0",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM0",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_NM1",
+          "default": 13.0,
+          "lb": 2.6,
+          "ub": 65.0
+        },
+        {
+          "name": "L_NM1",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM1",
+          "default": 13,
+          "lb": 2,
+          "ub": 50
+        },
+        {
+          "name": "W_NM2",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "L_NM2",
+          "default": 15.0,
+          "lb": 5.0,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM2",
+          "default": 200,
+          "lb": 40,
+          "ub": 50
+        },
+        {
+          "name": "W_NM3",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_NM3",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_NM3",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_NM6",
+          "default": 13.0,
+          "lb": 2.6,
+          "ub": 65.0
+        },
+        {
+          "name": "L_NM6",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM6",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_NM7",
+          "default": 13.0,
+          "lb": 2.6,
+          "ub": 65.0
+        },
+        {
+          "name": "L_NM7",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM7",
+          "default": 34,
+          "lb": 6,
+          "ub": 50
+        },
+        {
+          "name": "W_NM8",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_NM8",
+          "default": 12.0,
+          "lb": 4.0,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM8",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_NM10",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_NM10",
+          "default": 15.0,
+          "lb": 5.0,
+          "ub": 4.0
+        },
+        {
+          "name": "M_NM10",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_PM0",
+          "default": 1.5,
+          "lb": 0.42,
+          "ub": 7.5
+        },
+        {
+          "name": "L_PM0",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM0",
+          "default": 50,
+          "lb": 10,
+          "ub": 50
+        },
+        {
+          "name": "W_PM1",
+          "default": 1.5,
+          "lb": 0.42,
+          "ub": 7.5
+        },
+        {
+          "name": "L_PM1",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM1",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_PM2",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_PM2",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_PM2",
+          "default": 55,
+          "lb": 11,
+          "ub": 50
+        },
+        {
+          "name": "W_PM3",
+          "default": 1.29,
+          "lb": 0.42,
+          "ub": 6.45
+        },
+        {
+          "name": "L_PM3",
+          "default": 1.86,
+          "lb": 0.62,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM3",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_PM4",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_PM4",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_PM4",
+          "default": 150,
+          "lb": 30,
+          "ub": 50
+        },
+        {
+          "name": "W_PM5",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_PM5",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM5",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_PM6",
+          "default": 9.0,
+          "lb": 1.8,
+          "ub": 45.0
+        },
+        {
+          "name": "L_PM6",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM6",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "W_PM7",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_PM7",
+          "default": 12.0,
+          "lb": 4.0,
+          "ub": 4.0
+        },
+        {
+          "name": "M_PM7",
+          "default": 40,
+          "lb": 8,
+          "ub": 50
+        },
+        {
+          "name": "W_PM8",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 50.0
+        },
+        {
+          "name": "L_PM8",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_PM8",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "current_0_bias",
+          "default": 5e-07,
+          "lb": 1e-06,
+          "ub": 2.4999999999999998e-06
+        },
+        {
+          "name": "M_R0",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "M_C0",
+          "default": 200,
+          "lb": 40,
+          "ub": 50
+        },
+        {
+          "name": "M_C1",
+          "default": 160,
+          "lb": 32,
+          "ub": 50
+        },
+        {
+          "name": "M_C4",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "M_CL",
+          "default": 5,
+          "lb": 1,
+          "ub": 25
+        }
+      ],
+      "specs": [
+        {
+          "name": "dcgain",
+          "operator": ">",
+          "target": 40.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 100000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45.0
+        },
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": -4.8302,
+          "dcgain": 38.1198,
+          "ugf": 101776.0
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的低压差稳压器。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ldo_folded_cascode",
+      "name": "ldo_folded_cascode",
+      "display_name": "Ldo Folded Cascode",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 23,
+      "design_vars": [
+        {
+          "name": "W_M1",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M1",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "M_M1",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M3",
+          "default": 30.0,
+          "lb": 6.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M3",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M3",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M5",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 50.0
+        },
+        {
+          "name": "L_M5",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M5",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M7",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M7",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_M7",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M9",
+          "default": 30.0,
+          "lb": 6.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M9",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M9",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M10",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 50.0
+        },
+        {
+          "name": "L_M10",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M10",
+          "default": 250,
+          "lb": 50,
+          "ub": 50
+        },
+        {
+          "name": "Vb1",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 1.8
+        },
+        {
+          "name": "Vb2",
+          "default": 0.025,
+          "lb": 0.1,
+          "ub": 0.07500000000000001
+        },
+        {
+          "name": "M_Rfb",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "M_Cfb",
+          "default": 10,
+          "lb": 2,
+          "ub": 50
+        },
+        {
+          "name": "M_CL",
+          "default": 240,
+          "lb": 48,
+          "ub": 50
+        }
+      ],
+      "specs": [
+        {
+          "name": "dcgain",
+          "operator": ">",
+          "target": 40.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 100000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45.0
+        },
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": -5.71275,
+          "dcgain": 43.2842,
+          "ugf": 25101000.0
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的低压差稳压器。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ldo_simple",
+      "name": "ldo_simple",
+      "display_name": "Ldo Simple",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 16,
+      "design_vars": [
+        {
+          "name": "W_M1",
+          "default": 2.0,
+          "lb": 0.42,
+          "ub": 10.0
+        },
+        {
+          "name": "L_M1",
+          "default": 2.0,
+          "lb": 0.6666666666666666,
+          "ub": 4.0
+        },
+        {
+          "name": "M_M1",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M3",
+          "default": 80.0,
+          "lb": 16.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M3",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M3",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M5",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M5",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M5",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "W_M6",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 100.0
+        },
+        {
+          "name": "L_M6",
+          "default": 0.5,
+          "lb": 0.16666666666666666,
+          "ub": 1.5
+        },
+        {
+          "name": "M_M6",
+          "default": 360,
+          "lb": 72,
+          "ub": 50
+        },
+        {
+          "name": "Vb",
+          "default": 1.2,
+          "lb": 0.39999999999999997,
+          "ub": 1.8
+        },
+        {
+          "name": "M_Rfb",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "M_Cfb",
+          "default": 5,
+          "lb": 1,
+          "ub": 25
+        },
+        {
+          "name": "M_CL",
+          "default": 250,
+          "lb": 50,
+          "ub": 50
+        }
+      ],
+      "specs": [
+        {
+          "name": "dcgain",
+          "operator": ">",
+          "target": 40.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 100000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45.0
+        },
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": -5.39711,
+          "dcgain": 35.9814,
+          "ugf": 5615900.0
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的低压差稳压器。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ldo_tb",
+      "name": "ldo_tb",
+      "display_name": "Ldo Tb",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 21,
+      "design_vars": [
+        {
+          "name": "mosfet_0_8_w_biascm_pmos",
+          "default": 1.1511714458465576,
+          "lb": 0.42,
+          "ub": 5.755857229232788
+        },
+        {
+          "name": "mosfet_0_8_l_biascm_pmos",
+          "default": 2.908731134608388,
+          "lb": 0.9695770448694626,
+          "ub": 4.0
+        },
+        {
+          "name": "mosfet_0_8_m_biascm_pmos",
+          "default": 27,
+          "lb": 5,
+          "ub": 50
+        },
+        {
+          "name": "mosfet_8_2_w_gm1_pmos",
+          "default": 1.485758513212204,
+          "lb": 0.42,
+          "ub": 7.42879256606102
+        },
+        {
+          "name": "mosfet_8_2_l_gm1_pmos",
+          "default": 1.1558892875909805,
+          "lb": 0.38529642919699353,
+          "ub": 3.4676678627729416
+        },
+        {
+          "name": "mosfet_8_2_m_gm1_pmos",
+          "default": 14,
+          "lb": 2,
+          "ub": 50
+        },
+        {
+          "name": "mosfet_10_1_w_gm2_pmos",
+          "default": 6.022575721144676,
+          "lb": 1.2045151442289352,
+          "ub": 30.11287860572338
+        },
+        {
+          "name": "mosfet_10_1_l_gm2_pmos",
+          "default": 2.1927622258663177,
+          "lb": 0.7309207419554392,
+          "ub": 4.0
+        },
+        {
+          "name": "mosfet_10_1_m_gm2_pmos",
+          "default": 27,
+          "lb": 5,
+          "ub": 50
+        },
+        {
+          "name": "mosfet_11_1_w_power_pmos",
+          "default": 7.487297892570496,
+          "lb": 1.4974595785140992,
+          "ub": 37.43648946285248
+        },
+        {
+          "name": "mosfet_11_1_l_power_pmos",
+          "default": 1.1738390671089292,
+          "lb": 0.3912796890363097,
+          "ub": 3.5215172013267875
+        },
+        {
+          "name": "mosfet_11_1_m_power_pmos",
+          "default": 949,
+          "lb": 189,
+          "ub": 50
+        },
+        {
+          "name": "mosfet_17_7_w_biascm_nmos",
+          "default": 1.812826544046402,
+          "lb": 0.42,
+          "ub": 9.06413272023201
+        },
+        {
+          "name": "mosfet_17_7_l_biascm_nmos",
+          "default": 1.0926024317741394,
+          "lb": 0.3642008105913798,
+          "ub": 3.277807295322418
+        },
+        {
+          "name": "mosfet_17_7_m_biascm_nmos",
+          "default": 5,
+          "lb": 1,
+          "ub": 25
+        },
+        {
+          "name": "mosfet_21_2_w_load2_nmos",
+          "default": 2.9079740941524506,
+          "lb": 0.5815948188304901,
+          "ub": 14.539870470762253
+        },
+        {
+          "name": "mosfet_21_2_l_load2_nmos",
+          "default": 4.691825315356255,
+          "lb": 1.5639417717854183,
+          "ub": 4.0
+        },
+        {
+          "name": "mosfet_21_2_m_load2_nmos",
+          "default": 24,
+          "lb": 4,
+          "ub": 50
+        },
+        {
+          "name": "current_0_bias",
+          "default": 3.211307168006898e-06,
+          "lb": 1e-06,
+          "ub": 1.605653584003449e-05
+        },
+        {
+          "name": "M_C0",
+          "default": 19,
+          "lb": 3,
+          "ub": 50
+        },
+        {
+          "name": "M_CL",
+          "default": 287,
+          "lb": 57,
+          "ub": 50
+        }
+      ],
+      "specs": [
+        {
+          "name": "dcgain",
+          "operator": ">",
+          "target": 40.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 100000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45.0
+        },
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": 1.58203,
+          "dcgain": 66.4311,
+          "ugf": 1094750.0,
+          "pm": 53.428
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym RGNN_RL 基准套件的电路。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "leung_dfcfc1",
+      "name": "leung_dfcfc1",
+      "display_name": "Leung Dfcfc1",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 32,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 200,
+          "lb": 40,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_12_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_12_1_M_gmf2_PMOS",
+          "default": 400,
+          "lb": 80,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_12_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_22_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_22_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_22_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_24_1_L_gm4_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_24_1_M_gm4_NMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_24_1_W_gm4_NMOS",
+          "default": 2.0,
+          "lb": 0.42,
+          "ub": 10.0
+        },
+        {
+          "name": "MOSFET_25_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_25_1_M_gm3_NMOS",
+          "default": 400,
+          "lb": 80,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_25_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_9_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_9_2_M_gm1_PMOS",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_9_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 18.0,
+          "lb": 3.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 122.807,
+          "ugf": 2208670.0,
+          "pm": -38.175
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Leung DFCFC1。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "leung_dfcfc2",
+      "name": "leung_dfcfc2",
+      "display_name": "Leung Dfcfc2",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 29,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm4_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm4_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_10_1_W_gm4_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_12_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_12_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_12_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_25_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_25_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_25_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 100,
+          "lb": 20,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 17.0,
+          "lb": 3.4,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 17.0,
+          "lb": 3.4,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 108.42,
+          "ugf": 1103100.0,
+          "pm": 57.7447
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Leung DFCFC2。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "leung_nmcf",
+      "name": "leung_nmcf",
+      "display_name": "Leung Nmcf",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 26,
+      "design_vars": [
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 5.0,
+          "lb": 1.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 96.6304,
+          "ugf": 929546.0,
+          "pm": -67.6501
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Leung NMCF。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "leung_nmcnr",
+      "name": "leung_nmcnr",
+      "display_name": "Leung Nmcnr",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 24,
+      "design_vars": [
+        {
+          "name": "RESISTOR_0",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 50.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 5.0,
+          "lb": 1.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 122.396,
+          "ugf": 718480.0,
+          "pm": -57.5334
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Leung NMCNR。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ota_iitb",
+      "name": "ota_iitb",
+      "display_name": "Ota Iitb",
+      "category": "运算放大器",
+      "pdk": "IITB 180nm",
+      "parser_type": "ac_data",
+      "var_count": 13,
+      "design_vars": [
+        {
+          "name": "W1",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        },
+        {
+          "name": "W2",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        },
+        {
+          "name": "W3",
+          "default": 20.0,
+          "lb": 10.0,
+          "ub": 30.0
+        },
+        {
+          "name": "W4",
+          "default": 20.0,
+          "lb": 10.0,
+          "ub": 30.0
+        },
+        {
+          "name": "W5",
+          "default": 15.0,
+          "lb": 7.5,
+          "ub": 22.5
+        },
+        {
+          "name": "W6",
+          "default": 40.0,
+          "lb": 20.0,
+          "ub": 60.0
+        },
+        {
+          "name": "L1",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L2",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L3",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L4",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L5",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L6",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "CL",
+          "default": 5e-12,
+          "lb": 2.5e-12,
+          "ub": 7.5e-12
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 40
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": -10.7487
+        },
+        "objective": 2001.2687175,
+        "meets_specs": false,
+        "sim_time": 0.03
+      },
+      "description": "一个采用 180nm 工艺设计的 5 晶体管运算跨导放大器（OTA），带有 cascode 有源负载。来自 IITB eSim 马拉松的教学基准电路。",
+      "source": "neeraj17-p/OTA_IITB_esim_Marathon",
+      "source_url": "https://github.com/neeraj17-p/OTA_IITB_esim_Marathon",
+      "author": "Neeraj, IIT Bombay (eSim Marathon)",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "peng_acbc",
+      "name": "peng_acbc",
+      "display_name": "Peng Acbc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 35,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_12_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_12_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_12_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_22_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_22_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_22_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_24_1_L_gm4_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_24_1_M_gm4_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_24_1_W_gm4_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_25_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_25_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_25_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_59_1_L_ma1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_59_1_M_ma1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_59_1_W_ma1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_9_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_9_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_9_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 10.0,
+          "lb": 2.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 3.0,
+          "lb": 0.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 94.1616,
+          "ugf": 688006.0,
+          "pm": 62.0208
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Peng ACBC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "peng_iac",
+      "name": "peng_iac",
+      "display_name": "Peng Iac",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 33,
+      "design_vars": [
+        {
+          "name": "CAPACITOR_0",
+          "default": 0.5,
+          "lb": 0.1,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 1.1,
+          "lb": 0.22000000000000003,
+          "ub": 1e-10
+        },
+        {
+          "name": "CLOAD",
+          "default": 150.0,
+          "lb": 30.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 1.25,
+          "lb": 0.25,
+          "ub": 0.0001
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 24,
+          "lb": 4,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf_PMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf_PMOS",
+          "default": 9,
+          "lb": 1,
+          "ub": 45
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 2,
+          "lb": 1,
+          "ub": 10
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 3,
+          "lb": 1,
+          "ub": 15
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_66_1_L_gmt_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_66_1_M_gmt_PMOS",
+          "default": 16,
+          "lb": 3,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_66_1_W_gmt_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_68_1_L_BIASCM_NMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_68_1_M_BIASCM_NMOS",
+          "default": 3,
+          "lb": 1,
+          "ub": 15
+        },
+        {
+          "name": "MOSFET_68_1_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_70_3_L_BIASCM_NMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_70_3_M_BIASCM_NMOS",
+          "default": 3,
+          "lb": 1,
+          "ub": 15
+        },
+        {
+          "name": "MOSFET_70_3_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 0.35,
+          "lb": 0.15,
+          "ub": 1.0499999999999998
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 3,
+          "lb": 1,
+          "ub": 15
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "RESISTOR_0",
+          "default": 750.0,
+          "lb": 150.0,
+          "ub": 100.0
+        },
+        {
+          "name": "VCM",
+          "default": 240.0,
+          "lb": 80.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 113.955,
+          "ugf": 1076140.0,
+          "pm": 1.91066
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Peng IAC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "peng_tcfc",
+      "name": "peng_tcfc",
+      "display_name": "Peng Tcfc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 26,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_70_3_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_70_3_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_70_3_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 1.1,
+          "lb": 0.22000000000000003,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 1.0,
+          "lb": 0.2,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 1.25,
+          "lb": 0.25,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 150.0,
+          "lb": 30.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 240.0,
+          "lb": 80.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 117.641,
+          "ugf": 2466360.0,
+          "pm": -19.176
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Peng TCFC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ptm180nm_opamp",
+      "name": "ptm180nm_opamp",
+      "display_name": "Ptm180Nm Opamp",
+      "category": "运算放大器",
+      "pdk": "PTM 180nm",
+      "parser_type": "ac_data",
+      "var_count": 19,
+      "design_vars": [
+        {
+          "name": "W1",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        },
+        {
+          "name": "W2",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        },
+        {
+          "name": "W3",
+          "default": 20.0,
+          "lb": 10.0,
+          "ub": 30.0
+        },
+        {
+          "name": "W4",
+          "default": 20.0,
+          "lb": 10.0,
+          "ub": 30.0
+        },
+        {
+          "name": "W5",
+          "default": 15.0,
+          "lb": 7.5,
+          "ub": 22.5
+        },
+        {
+          "name": "W6",
+          "default": 40.0,
+          "lb": 20.0,
+          "ub": 60.0
+        },
+        {
+          "name": "W7",
+          "default": 20.0,
+          "lb": 10.0,
+          "ub": 30.0
+        },
+        {
+          "name": "W8",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "L1",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L2",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L3",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L4",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L5",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L6",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L7",
+          "default": 0.36,
+          "lb": 0.18,
+          "ub": 0.54
+        },
+        {
+          "name": "L8",
+          "default": 0.72,
+          "lb": 0.36,
+          "ub": 1.08
+        },
+        {
+          "name": "Cc",
+          "default": 2.0,
+          "lb": 1.0,
+          "ub": 3.0
+        },
+        {
+          "name": "CL",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "Ib",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 51.27259,
+          "ugf": 29657341.04153038,
+          "pm": 180.75884438555795
+        },
+        "objective": 0.1454568333333333,
+        "meets_specs": false,
+        "sim_time": 0.04
+      },
+      "description": "一个采用 ASU 预测技术模型（PTM）180nm 器件设计的经典 Miller 补偿两级运算放大器。这是 AnalogGym 框架中的基准电路之一。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "qu2017_azc",
+      "name": "qu2017_azc",
+      "display_name": "Qu2017 Azc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 40,
+      "design_vars": [
+        {
+          "name": "CAPACITOR_0",
+          "default": 810.0,
+          "lb": 162.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 404.0,
+          "lb": 80.8,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_2",
+          "default": 310.0,
+          "lb": 62.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "MOSFET_0_14_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_14_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_14_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_12_1_L_AZC1_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_12_1_M_AZC1_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_12_1_W_AZC1_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_13_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_13_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_13_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_14_4_L_LOAD1_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_14_4_M_LOAD1_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_14_4_W_LOAD1_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_19_16_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_19_16_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_19_16_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_24_8_L_AZC3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_24_8_M_AZC3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_24_8_W_AZC3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_6_3_L_AZC2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_6_3_M_AZC2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_6_3_W_AZC2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_9_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_9_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_9_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "RESISTOR_0",
+          "default": 35.0,
+          "lb": 7.0,
+          "ub": 100.0
+        },
+        {
+          "name": "RESISTOR_1",
+          "default": 35.0,
+          "lb": 7.0,
+          "ub": 100.0
+        },
+        {
+          "name": "RESISTOR_2",
+          "default": 350.0,
+          "lb": 70.0,
+          "ub": 100.0
+        },
+        {
+          "name": "RESISTOR_3",
+          "default": 40.0,
+          "lb": 8.0,
+          "ub": 100.0
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 1.0,
+          "lb": 0.2,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 1500.0,
+          "lb": 300.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 97.9384,
+          "ugf": 2024770.0,
+          "pm": 61.9407
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Qu2017 AZC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "ramos_pfc",
+      "name": "ramos_pfc",
+      "display_name": "Ramos Pfc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 26,
+      "design_vars": [
+        {
+          "name": "MOSFET_11_1_L_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf1_PMOS",
+          "default": 400,
+          "lb": 80,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 81,
+          "lb": 16,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 203,
+          "lb": 40,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 148,
+          "lb": 29,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 71,
+          "lb": 14,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 20,
+          "lb": 4,
+          "ub": 50
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 1,
+          "lb": 1,
+          "ub": 5
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 63.0,
+          "lb": 12.6,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 25.0,
+          "lb": 5.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 24.0,
+          "lb": 4.8,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 100.0,
+          "lb": 20.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 400.0,
+          "lb": 133.33333333333334,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 135.297,
+          "ugf": 1808660.0,
+          "pm": -24.0777
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Ramos PFC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sau_cfcc",
+      "name": "sau_cfcc",
+      "display_name": "Sau Cfcc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 31,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf2_PMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_15_2_L_gmc_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_15_2_M_gmc_NMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_15_2_W_gmc_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 8,
+          "lb": 1,
+          "ub": 40
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_7_1_L_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_7_1_M_gmf1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_7_1_W_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 1.15,
+          "lb": 0.22999999999999998,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 20.0,
+          "lb": 4.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 500.0,
+          "lb": 100.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 99.6423,
+          "ugf": 5845760.0,
+          "pm": 12.6839
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Sau CFCC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sky130_bgr",
+      "name": "sky130_bgr",
+      "display_name": "Sky130 Bgr",
+      "category": "带隙基准源",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 15,
+      "design_vars": [
+        {
+          "name": "L_0",
+          "default": 2.0,
+          "lb": 1.0,
+          "ub": 3.0
+        },
+        {
+          "name": "L_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_2",
+          "default": 2.0,
+          "lb": 1.0,
+          "ub": 3.0
+        },
+        {
+          "name": "L_3",
+          "default": 2.0,
+          "lb": 1.0,
+          "ub": 3.0
+        },
+        {
+          "name": "L_4",
+          "default": 7.0,
+          "lb": 3.5,
+          "ub": 10.5
+        },
+        {
+          "name": "M_0",
+          "default": 4,
+          "lb": 2,
+          "ub": 6
+        },
+        {
+          "name": "M_1",
+          "default": 8,
+          "lb": 4,
+          "ub": 12
+        },
+        {
+          "name": "M_2",
+          "default": 1,
+          "lb": 1,
+          "ub": 2
+        },
+        {
+          "name": "M_3",
+          "default": 2,
+          "lb": 1,
+          "ub": 3
+        },
+        {
+          "name": "M_4",
+          "default": 1,
+          "lb": 1,
+          "ub": 2
+        },
+        {
+          "name": "W_0",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "W_1",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "W_2",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "W_3",
+          "default": 5.0,
+          "lb": 2.5,
+          "ub": 7.5
+        },
+        {
+          "name": "W_4",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        }
+      ],
+      "specs": [
+        {
+          "name": "vref",
+          "operator": ">",
+          "target": 0.7
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vref": 0.738317
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 17.2
+      },
+      "description": "一个采用 SkyWater 130nm 开源 PDK 设计的 Brokaw 风格带隙电压基准源。核心通过结合 PTAT 和 CTAT 电流产生温度补偿的基准电压。",
+      "source": "silicon-vlsi/BGR_DESIGN_SKY130nm",
+      "source_url": "https://github.com/silicon-vlsi/BGR_DESIGN_SKY130nm",
+      "author": "silicon-vlsi",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sky130_ldo",
+      "name": "sky130_ldo",
+      "display_name": "Sky130 Ldo",
+      "category": "低压差稳压器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 4,
+      "design_vars": [
+        {
+          "name": "L_0",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "W_0",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "W_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        }
+      ],
+      "specs": [
+        {
+          "name": "vout",
+          "operator": ">",
+          "target": 3.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "vout": 2.0
+        },
+        "objective": 0.3333333333333333,
+        "meets_specs": false,
+        "sim_time": 16.85
+      },
+      "description": "一个采用 SkyWater 130nm 实现的低压差稳压器。设计使用误差放大器和传输晶体管，在最小压差下维持稳定的输出电压。",
+      "source": "ayeshafareed/LDO_MOSFET",
+      "source_url": "https://github.com/ayeshafareed/LDO_MOSFET",
+      "author": "Ayesha Fareed",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sky130_lp_opamp",
+      "name": "sky130_lp_opamp",
+      "display_name": "Sky130 Lp Opamp",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "ac_data",
+      "var_count": 6,
+      "design_vars": [
+        {
+          "name": "L_0",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "L_1",
+          "default": 0.5,
+          "lb": 0.25,
+          "ub": 0.75
+        },
+        {
+          "name": "M_0",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "M_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "W_0",
+          "default": 65.0,
+          "lb": 32.5,
+          "ub": 97.5
+        },
+        {
+          "name": "W_1",
+          "default": 10.0,
+          "lb": 5.0,
+          "ub": 15.0
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 40
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 45
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 72.76753,
+          "ugf": 843977807.1855339,
+          "pm": 179.85514974070907
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 16.87
+      },
+      "description": "一个采用 SkyWater 130nm 设计的低功耗两级运算放大器。针对最小静态功耗进行了优化，同时保持可接受的增益和带宽。",
+      "source": "velugotiashokkumar/LP_OPAMP_130nm",
+      "source_url": "https://github.com/velugotiashokkumar/LP_OPAMP_130nm",
+      "author": "Velugoti Ashok Kumar",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sky130_por",
+      "name": "sky130_por",
+      "display_name": "Sky130 Por",
+      "category": "上电复位",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 4,
+      "design_vars": [
+        {
+          "name": "L_0",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "W_0",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "W_1",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        }
+      ],
+      "specs": [
+        {
+          "name": "trip_point",
+          "operator": "<",
+          "target": 1.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "trip_point": 1.0
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 16.77
+      },
+      "description": "一个采用 SkyWater 130nm 的上电复位电路，在电源电压上电过程中越过定义阈值时产生干净的复位脉冲。",
+      "source": "Sree-Vishnu-Varthini/POR_SKY130",
+      "source_url": "https://github.com/Sree-Vishnu-Varthini/POR_SKY130",
+      "author": "Sree Vishnu Varthini",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "sky130_vco",
+      "name": "sky130_vco",
+      "display_name": "Sky130 Vco",
+      "category": "压控振荡器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 7,
+      "design_vars": [
+        {
+          "name": "W_N",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_N",
+          "default": 0.15,
+          "lb": 0.075,
+          "ub": 0.225
+        },
+        {
+          "name": "W_P",
+          "default": 2.745,
+          "lb": 1.3725,
+          "ub": 4.1175
+        },
+        {
+          "name": "W_P2",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_P",
+          "default": 0.35,
+          "lb": 0.175,
+          "ub": 0.525
+        },
+        {
+          "name": "W_TAIL",
+          "default": 1.0,
+          "lb": 0.5,
+          "ub": 1.5
+        },
+        {
+          "name": "L_TAIL",
+          "default": 0.15,
+          "lb": 0.075,
+          "ub": 0.225
+        }
+      ],
+      "specs": [
+        {
+          "name": "ymax",
+          "operator": ">",
+          "target": 1.5
+        },
+        {
+          "name": "ymin",
+          "operator": "<",
+          "target": 0.5
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "ymax": 1.89343,
+          "ymin": 0.0278986
+        },
+        "objective": 0.0,
+        "meets_specs": true,
+        "sim_time": 16.92
+      },
+      "description": "一个采用 SkyWater 130nm 设计的基于环形振荡器的压控振荡器（VCO）。设计目标为 GHz 范围振荡频率，同时保持低功耗。",
+      "source": "SANGESH007/GHz-Range-Low-Power-VCO",
+      "source_url": "https://github.com/SANGESH007/GHz-Range-Low-Power-VCO",
+      "author": "SANGESH007",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "song_dacfc",
+      "name": "song_dacfc",
+      "display_name": "Song Dacfc",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 35,
+      "design_vars": [
+        {
+          "name": "MOSFET_58_2_L_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_58_2_M_gmf1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_58_2_W_gmf1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 0.7,
+          "lb": 0.13999999999999999,
+          "ub": 1e-10
+        },
+        {
+          "name": "MOSFET_0_8_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_8_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_8_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_10_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_10_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_10_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_17_7_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_17_7_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_17_7_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_21_2_L_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_21_2_M_LOAD2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_21_2_W_LOAD2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_5_2_L_gma1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_5_2_M_gma1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_5_2_W_gma1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_7_1_L_gma2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_7_1_M_gma2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_7_1_W_gma2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_8_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_8_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_8_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 1.5,
+          "lb": 0.3,
+          "ub": 1e-10
+        },
+        {
+          "name": "CURRENT_0_BIAS",
+          "default": 5.0,
+          "lb": 1.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "CLOAD",
+          "default": 500.0,
+          "lb": 100.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 90.2639,
+          "ugf": 1160510.0,
+          "pm": 89.0149
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Song DACFC。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    },
+    {
+      "id": "yan_az",
+      "name": "yan_az",
+      "display_name": "Yan Az",
+      "category": "运算放大器",
+      "pdk": "SkyWater 130nm",
+      "parser_type": "regex",
+      "var_count": 38,
+      "design_vars": [
+        {
+          "name": "MOSFET_0_14_L_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_0_14_M_BIASCM_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_0_14_W_BIASCM_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_11_1_L_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_11_1_M_gm2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_11_1_W_gm2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_13_1_L_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_13_1_M_gmf2_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_13_1_W_gmf2_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_14_4_L_gm8_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_14_4_M_gm8_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_14_4_W_gm8_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_16_4_L_gm5_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_16_4_M_gm5_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_16_4_W_gm5_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_18_1_L_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_18_1_M_gm3_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_18_1_W_gm3_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_19_16_L_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_19_16_M_BIASCM_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_19_16_W_BIASCM_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_22_1_L_gmb1_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_22_1_M_gmb1_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_22_1_W_gmb1_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_23_1_L_gmb2_NMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_23_1_M_gmb2_NMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_23_1_W_gmb2_NMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "MOSFET_9_2_L_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.3333333333333333,
+          "ub": 3.0
+        },
+        {
+          "name": "MOSFET_9_2_M_gm1_PMOS",
+          "default": 4,
+          "lb": 1,
+          "ub": 20
+        },
+        {
+          "name": "MOSFET_9_2_W_gm1_PMOS",
+          "default": 1.0,
+          "lb": 0.42,
+          "ub": 5.0
+        },
+        {
+          "name": "CURRENT_1_BIAS",
+          "default": 5.0,
+          "lb": 1.0,
+          "ub": 0.0001
+        },
+        {
+          "name": "RESISTOR_0",
+          "default": 240.0,
+          "lb": 48.0,
+          "ub": 100.0
+        },
+        {
+          "name": "RESISTOR_1",
+          "default": 85.7,
+          "lb": 17.14,
+          "ub": 100.0
+        },
+        {
+          "name": "RESISTOR_2",
+          "default": 85.7,
+          "lb": 17.14,
+          "ub": 100.0
+        },
+        {
+          "name": "CAPACITOR_0",
+          "default": 1.4,
+          "lb": 0.27999999999999997,
+          "ub": 1e-10
+        },
+        {
+          "name": "CAPACITOR_1",
+          "default": 1.3,
+          "lb": 0.26,
+          "ub": 1e-10
+        },
+        {
+          "name": "CLOAD",
+          "default": 15.0,
+          "lb": 3.0,
+          "ub": 1e-10
+        },
+        {
+          "name": "VCM",
+          "default": 300.0,
+          "lb": 100.0,
+          "ub": 1.8
+        }
+      ],
+      "specs": [
+        {
+          "name": "gain",
+          "operator": ">",
+          "target": 60.0
+        },
+        {
+          "name": "ugf",
+          "operator": ">",
+          "target": 1000000.0
+        },
+        {
+          "name": "pm",
+          "operator": ">",
+          "target": 60.0
+        }
+      ],
+      "baseline": {
+        "metrics": {
+          "gain": 149.635,
+          "ugf": 2797650.0,
+          "pm": -96.3583
+        },
+        "objective": null,
+        "meets_specs": false,
+        "sim_time": 17.0
+      },
+      "description": "来自 AnalogGym 基准套件的运算放大器。拓扑结构：Yan AZ。",
+      "source": "CODA-Team/AnalogGym",
+      "source_url": "https://github.com/CODA-Team/AnalogGym",
+      "author": "CODA-Team",
+      "license": "原始仓库许可证"
+    }
+  ],
+  "stats": {
+    "total_circuits": 31,
+    "categories": {
+      "运算放大器": 20,
+      "放大器": 1,
+      "电荷泵": 1,
+      "低压差稳压器": 6,
+      "带隙基准源": 1,
+      "上电复位": 1,
+      "压控振荡器": 1
+    },
+    "pdks": {
+      "SkyWater 130nm": 26,
+      "内嵌模型": 2,
+      "PTM 45nm": 1,
+      "IITB 180nm": 1,
+      "PTM 180nm": 1
+    },
+    "parser_types": {
+      "regex": 27,
+      "ac_data": 4
+    },
+    "total_vars": 715,
+    "max_vars": 57,
+    "min_vars": 4,
+    "avg_vars": 23.1,
+    "meets_specs_count": 6,
+    "avg_sim_time": 14.25
+  },
+  "generated_at": "2026-05-06 12:11:05.145313"
+}
