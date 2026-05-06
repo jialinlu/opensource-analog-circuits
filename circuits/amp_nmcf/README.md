@@ -1,15 +1,15 @@
 # AMP_NMCF
 
-## Source
-- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **Author / Organization**: CODA-Team
-- **License**: Original repository license
+## 来源
+- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **作者 / 组织**: CODA-Team
+- **许可证**: 原始仓库许可证
 
-## Circuit Description
-Circuit from the AnalogGym RGNN_RL benchmark suite.
+## 电路描述
+来自 AnalogGym RGNN_RL 基准套件的电路。
 
-## Tunable Parameters
-| Parameter | Default | Range |
+## 可调参数
+| 参数 | 默认值 | 范围 |
 |-----------|---------|-------|
 | MOSFET_0_8_W_BIASCM_PMOS | 0.999118 | [0.42, 4.99559] |
 | MOSFET_0_8_L_BIASCM_PMOS | 1.011995 | [0.33733166666666664, 3.035985] |
@@ -36,13 +36,13 @@ Circuit from the AnalogGym RGNN_RL benchmark suite.
 | M_C0 | 1 | [1, 5] |
 | M_C1 | 12 | [2, 50] |
 
-## Evaluation Metrics
-- **gain** — DC open-loop gain (dB)
-- **ugf** — Unity-gain frequency (Hz)
-- **pm** — Phase margin (°)
+## 评估指标
+- **gain** — 直流开环增益 (dB)
+- **ugf** — 单位增益频率 (Hz)
+- **pm** — 相位裕度 (°)
 
-## Model Files
+## 模型文件
 Sky130 PDK (`../../sky130_pdk/...`)
 
-## Notes
-Adapted from AnalogGym. The original `.include` paths were modified to point to the shared `sky130_pdk/` folder.
+## 备注
+改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。

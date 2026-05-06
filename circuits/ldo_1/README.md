@@ -1,15 +1,15 @@
 # ldo_1
 
-## Source
-- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **Author / Organization**: CODA-Team
-- **License**: Original repository license
+## 来源
+- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **作者 / 组织**: CODA-Team
+- **许可证**: 原始仓库许可证
 
-## Circuit Description
-Low-dropout regulator from the AnalogGym benchmark suite.
+## 电路描述
+来自 AnalogGym 基准套件的低压差稳压器。
 
-## Tunable Parameters
-| Parameter | Default | Range |
+## 可调参数
+| 参数 | 默认值 | 范围 |
 |-----------|---------|-------|
 | W_M0 | 3.0 | [0.6, 15.0] |
 | L_M0 | 1.0 | [0.3333333333333333, 3.0] |
@@ -32,11 +32,11 @@ Low-dropout regulator from the AnalogGym benchmark suite.
 | current_0_bias | 5e-06 | [1.0000000000000002e-06, 2.5e-05] |
 | M_CL | 200 | [40, 50] |
 
-## Evaluation Metrics
-- **vout** — Output voltage (V)
+## 评估指标
+- **vout** — 输出电压 (V)
 
-## Model Files
+## 模型文件
 Sky130 PDK (`../../sky130_pdk/...`)
 
-## Notes
-Adapted from AnalogGym. The original `.include` paths were modified to point to the shared `sky130_pdk/` folder.
+## 备注
+改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。

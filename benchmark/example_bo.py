@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Example: Bayesian Optimization demo using the NgspiceBenchmark framework.
+示例：使用 NgspiceBenchmark 框架的贝叶斯优化（BO）演示。
 
-Usage:
-    python example_bo.py [config_file]
+用法：
+    python example_bo.py [配置文件]
 
-Examples:
+示例：
     python example_bo.py circuits/ptm180nm_opamp/config.json
     python example_bo.py circuits/gh_autockt_opamp/config.json
 """
@@ -18,7 +18,7 @@ from ngspice_benchmark import NgspiceBenchmark
 
 
 def run_bo_demo(config_path: str = "circuits/ptm180nm_opamp/config.json"):
-    """Run a quick BO demo on the specified benchmark config."""
+    """在指定基准配置下快速运行 BO 演示。"""
     bench = NgspiceBenchmark.from_config(config_path)
 
     print(f"Circuit: {bench.name}")
@@ -28,7 +28,7 @@ def run_bo_demo(config_path: str = "circuits/ptm180nm_opamp/config.json"):
     print(f"Specs: {bench.specs}")
     print()
 
-    # Evaluate default design point
+    # 评估默认设计点
     x0 = bench.default_design_point()
     metrics = bench.evaluate(x0)
     obj0 = bench.objective_fn(metrics)
@@ -45,7 +45,7 @@ def run_bo_demo(config_path: str = "circuits/ptm180nm_opamp/config.json"):
         print("No design variables (fixed-size circuit). Skipping random search.")
         return
 
-    # Try a few random designs
+    # 尝试几个随机设计
     print("=== Random Design Points ===")
     rng = np.random.default_rng(42)
     best_obj = obj0

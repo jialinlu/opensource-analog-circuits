@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Genetic Algorithm (GA) demo for analog circuit sizing.
+模拟电路尺寸优化遗传算法（GA）示例。
 
-A lightweight real-coded GA that works with any NgspiceBenchmark config.
-No external optimization libraries required (pure numpy).
+一个轻量级实数编码 GA，适用于任意 NgspiceBenchmark 配置。
+无需外部优化库（纯 numpy 实现）。
 
-Usage:
-    python example_ga.py [config_file] [--generations N] [--popsize N]
+用法：
+    python example_ga.py [配置文件] [--generations N] [--popsize N]
 
-Examples:
+示例：
     python example_ga.py circuits/ptm180nm_opamp/config.json --generations 20 --popsize 30
     python example_ga.py circuits/gh_autockt_opamp/config.json -g 30 -p 40
 """
@@ -22,7 +22,7 @@ from ngspice_benchmark import NgspiceBenchmark
 
 
 class RealCodedGA:
-    """Real-coded Genetic Algorithm for circuit sizing."""
+    """用于电路尺寸优化的实数编码遗传算法。"""
 
     def __init__(
         self,
@@ -47,27 +47,27 @@ class RealCodedGA:
         self.lb = np.zeros(self.dim)
         self.ub = np.ones(self.dim)
 
-        # History
+        # 历史记录
         self.best_obj_per_gen = []
         self.mean_obj_per_gen = []
         self.best_x = None
         self.best_obj = float("inf")
 
     def _evaluate_population(self, pop: np.ndarray) -> np.ndarray:
-        """Evaluate objective for each individual in the population."""
+        """评估种群中每个个体的目标值。"""
         objs = np.zeros(len(pop))
         for i, x in enumerate(pop):
             objs[i] = self.bench.objective(x)
         return objs
 
     def _tournament_select(self, pop: np.ndarray, objs: np.ndarray, k: int = 3) -> np.ndarray:
-        """Tournament selection (minimization)."""
+        """锦标赛选择（最小化问题）。"""
         candidates = self.rng.choice(len(pop), size=k, replace=False)
         winner = candidates[np.argmin(objs[candidates])]
         return pop[winner].copy()
 
     def _simulated_binary_crossover(self, p1: np.ndarray, p2: np.ndarray, eta: float = 15.0) -> tuple:
-        """SBX crossover for real-coded GA."""
+        """实数编码 GA 的模拟二进制交叉（SBX）。"""
         if self.rng.random() > self.cx_rate:
             return p1.copy(), p2.copy()
 
@@ -98,7 +98,7 @@ class RealCodedGA:
         return c1, c2
 
     def _polynomial_mutation(self, x: np.ndarray, eta_m: float = 20.0) -> np.ndarray:
-        """Polynomial mutation."""
+        """多项式变异。"""
         if self.rng.random() > self.mut_rate:
             return x
 
@@ -125,21 +125,21 @@ class RealCodedGA:
         return y
 
     def run(self, verbose: bool = True):
-        """Run the GA optimization loop."""
-        # Initialize population (include default design point)
+        """运行 GA 优化循环。"""
+        # 初始化种群（包含默认设计点）
         pop = self.rng.random((self.pop_size, self.dim))
         if self.pop_size > 0:
             pop[0] = self.bench.default_design_point()
 
         objs = self._evaluate_population(pop)
 
-        # Track best ever
+        # 追踪历史最优
         best_idx = np.argmin(objs)
         self.best_obj = objs[best_idx]
         self.best_x = pop[best_idx].copy()
 
         for gen in range(self.n_generations):
-            # Sort by objective
+            # 按目标值排序
             sorted_idx = np.argsort(objs)
             pop = pop[sorted_idx]
             objs = objs[sorted_idx]
@@ -158,10 +158,10 @@ class RealCodedGA:
                 self.best_obj = float(objs[0])
                 self.best_x = pop[0].copy()
 
-            # Elitism: keep top individuals
+            # 精英保留：保留最优个体
             new_pop = pop[: self.elitism].copy()
 
-            # Generate offspring
+            # 生成后代
             while len(new_pop) < self.pop_size:
                 p1 = self._tournament_select(pop, objs)
                 p2 = self._tournament_select(pop, objs)
@@ -173,7 +173,7 @@ class RealCodedGA:
             pop = new_pop[: self.pop_size]
             objs = self._evaluate_population(pop)
 
-        # Final sort
+        # 最终排序
         best_idx = np.argmin(objs)
         if objs[best_idx] < self.best_obj:
             self.best_obj = float(objs[best_idx])
@@ -182,7 +182,7 @@ class RealCodedGA:
         return self.best_x, self.best_obj
 
     def report(self):
-        """Print final optimization report."""
+        """打印最终优化报告。"""
         print("\n" + "=" * 60)
         print("OPTIMIZATION REPORT")
         print("=" * 60)
@@ -193,7 +193,7 @@ class RealCodedGA:
         print(f"Total time:     {self.bench.sim_time:.1f}s")
         print(f"\nBest objective: {self.best_obj:.6f}")
 
-        # Evaluate best to get metrics
+        # 评估最优解以获取指标
         metrics = self.bench.evaluate(self.best_x)
         print(f"Meets specs:    {self.bench.meets_specs(metrics)}")
         print("\nBest metrics:")
@@ -218,19 +218,19 @@ class RealCodedGA:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="GA-based circuit sizing demo")
+    parser = argparse.ArgumentParser(description="基于 GA 的电路尺寸优化示例")
     parser.add_argument(
         "config",
         nargs="?",
         default="circuits/ptm180nm_opamp/config.json",
-        help="Path to benchmark JSON config",
+        help="基准测试 JSON 配置文件路径",
     )
-    parser.add_argument("-g", "--generations", type=int, default=15, help="Number of generations")
-    parser.add_argument("-p", "--popsize", type=int, default=20, help="Population size")
-    parser.add_argument("--cx", type=float, default=0.9, help="Crossover rate")
-    parser.add_argument("--mut", type=float, default=0.2, help="Mutation rate")
-    parser.add_argument("--seed", type=int, default=42, help="Random seed")
-    parser.add_argument("--quiet", action="store_true", help="Suppress per-generation output")
+    parser.add_argument("-g", "--generations", type=int, default=15, help="进化代数")
+    parser.add_argument("-p", "--popsize", type=int, default=20, help="种群大小")
+    parser.add_argument("--cx", type=float, default=0.9, help="交叉率")
+    parser.add_argument("--mut", type=float, default=0.2, help="变异率")
+    parser.add_argument("--seed", type=int, default=42, help="随机种子")
+    parser.add_argument("--quiet", action="store_true", help="抑制每代输出")
     args = parser.parse_args()
 
     bench = NgspiceBenchmark.from_config(args.config)
@@ -248,9 +248,9 @@ def main():
         seed=args.seed,
     )
 
-    print(f"GA Sizing Demo: {bench.name}")
-    print(f"Design space: {bench.dim}D")
-    print(f"Pop size: {args.popsize}, Generations: {args.generations}")
+    print(f"GA 尺寸优化示例: {bench.name}")
+    print(f"设计空间维度: {bench.dim}D")
+    print(f"种群大小: {args.popsize}, 进化代数: {args.generations}")
     print("-" * 60)
 
     ga.run(verbose=not args.quiet)

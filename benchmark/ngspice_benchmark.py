@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Unified Ngspice Benchmark Framework for Open-Source Analog Circuits.
+开源模拟电路统一 Ngspice 基准测试框架。
 
-Provides a generic interface for circuit sizing optimization algorithms.
-Supports arbitrary ngspice circuits with parameterized design variables.
+为电路尺寸优化算法提供通用接口。
+支持任意带参数化设计变量的 ngspice 电路。
 """
 import os
 import re
@@ -19,11 +19,11 @@ from typing import Dict, List, Tuple, Optional, Callable
 
 class NgspiceBenchmark:
     """
-    Generic benchmark interface for ngspice-based analog circuits.
+    基于 ngspice 的模拟电路通用基准接口。
 
-    Usage:
+    用法：
         bench = NgspiceBenchmark.from_config("configs/gh_opamp.json")
-        x = bench.default_design_point()  # normalized [0,1]
+        x = bench.default_design_point()  # 归一化 [0,1]
         metrics = bench.evaluate(x)
         obj = bench.objective(metrics)
     """
@@ -40,15 +40,15 @@ class NgspiceBenchmark:
         pdk_corner: str = "tt",
     ):
         """
-        Args:
-            name: circuit identifier
-            circuit_file: path to main .cir/.spice/.sp file
-            design_vars: {name: (default, lb, ub)}
-            metrics_parser: function(log_text) -> metrics dict
-            objective_fn: function(metrics) -> scalar (lower=better)
-            specs: {metric_name: ("<" or ">", target_value)}
-            working_dir: temp dir for simulation
-            pdk_corner: sky130 corner (tt, ss, ff, sf, fs)
+        参数：
+            name: 电路标识符
+            circuit_file: 主网表 .cir/.spice/.sp 文件路径
+            design_vars: {名称: (默认值, 下限, 上限)}
+            metrics_parser: 函数(log_text) -> 指标字典
+            objective_fn: 函数(metrics) -> 标量（越小越好）
+            specs: {指标名: ("<" 或 ">", 目标值)}
+            working_dir: 仿真临时目录
+            pdk_corner: sky130 工艺角 (tt, ss, ff, sf, fs)
         """
         self.name = name
         self.circuit_file = Path(circuit_file).resolve()
@@ -70,19 +70,19 @@ class NgspiceBenchmark:
 
     @classmethod
     def from_config(cls, config_path: str):
-        """Load benchmark from JSON config file."""
+        """从 JSON 配置文件加载基准测试。"""
         config_path = Path(config_path).resolve()
         with open(config_path) as f:
             cfg = json.load(f)
 
-        # Resolve circuit_file: first relative to config dir, then relative to root
+        # 解析 circuit_file：先相对于配置文件目录，再相对于仓库根目录
         circuit_file = cfg["circuit_file"]
         if not Path(circuit_file).is_absolute():
             root = config_path.parent.parent.parent  # opensource-circuits root
             candidate = (root / circuit_file).resolve()
             circuit_file = str(candidate)
 
-        # Build metrics parser from config
+        # 根据配置构建指标解析器
         parser_type = cfg.get("metrics_parser_type", "regex")
         patterns = cfg.get("metrics_patterns", {})
         
@@ -99,14 +99,14 @@ class NgspiceBenchmark:
                                 pass
                 return metrics
         elif parser_type == "ac_data":
-            # Parse AC .print output table for gain/ugf/pm
+            # 从 AC .print 输出表格解析 gain/ugf/pm
             def parser(log_text: str) -> Dict:
                 return parse_ac_metrics(log_text, patterns)
         else:
             def parser(log_text: str) -> Dict:
                 return {}
 
-        # Build objective from config
+        # 根据配置构建目标函数
         obj_cfg = cfg.get("objective", {"type": "sum_violations"})
         def objective_fn(metrics: Dict) -> float:
             return compute_objective(metrics, cfg.get("specs", {}), obj_cfg)
@@ -122,16 +122,15 @@ class NgspiceBenchmark:
         )
 
     def _prepare_circuit(self, params: Dict[str, float], tmpdir: Path) -> Path:
-        """Copy circuit and inject parameters, preserving unit suffixes.
+        """复制电路并注入参数，保留单位后缀。
         
-        Handles both single-param-per-line and multi-param-per-line .param
-        statements.  Modifies existing .param lines in-place so that the
-        injected values take effect.
+        处理每行单参数和每行多参数的 .param 语句。
+        就地修改现有 .param 行，使注入的值生效。
         """
         with open(self.circuit_file, 'r') as f:
             lines = f.readlines()
 
-        # Extract unit suffixes from original .param lines
+        # 从原始 .param 行提取单位后缀
         unit_map = {}
         for line in lines:
             for pname in self.names:
@@ -141,7 +140,7 @@ class NgspiceBenchmark:
                     unit_map[pname] = m.group(2)
                     break
 
-        # Modify .param lines in-place, replacing only the params we control
+        # 就地修改 .param 行，仅替换我们控制的参数
         new_lines = []
         for line in lines:
             stripped = line.strip()
@@ -149,20 +148,20 @@ class NgspiceBenchmark:
                 new_lines.append(line)
                 continue
 
-            # This line may contain multiple param=value pairs
+            # 该行可能包含多个 param=value 对
             modified = stripped
             for pname in self.names:
                 val = params.get(pname)
                 if val is None:
                     continue
                 unit = unit_map.get(pname, "")
-                # Replace pname=oldval with pname=newval, preserving spacing
+                # 将 pname=旧值 替换为 pname=新值，保留空格
                 pattern = rf'\b{re.escape(pname)}\s*=\s*[-\d\.eE]+\w*'
                 replacement = f"{pname}={val}{unit}"
                 modified = re.sub(pattern, replacement, modified, count=1, flags=re.IGNORECASE)
             new_lines.append(modified + "\n")
 
-        # Ensure .title exists (ngspice needs it as first non-comment line)
+        # 确保 .title 存在（ngspice 需要它作为第一个非注释行）
         title_idx = -1
         for i, line in enumerate(new_lines):
             if line.strip().lower().startswith(".title"):
@@ -180,7 +179,7 @@ class NgspiceBenchmark:
                         title_idx = i
                     break
 
-        # Insert ngspice convergence options after .title
+        # 在 .title 后插入 ngspice 收敛选项
         options_line = ".options itl1=5000 itl2=5000 itl4=5000\n"
         new_lines.insert(title_idx + 1, options_line)
 
@@ -191,8 +190,8 @@ class NgspiceBenchmark:
 
     def evaluate(self, x: np.ndarray, corner: Optional[str] = None) -> Dict:
         """
-        Evaluate design point x (normalized [0,1]).
-        Returns metrics dict.
+        评估设计点 x（归一化 [0,1]）。
+        返回指标字典。
         """
         params = self._denormalize(x)
         tmpdir = Path(self.working_dir) if self.working_dir else Path(tempfile.mkdtemp(prefix="bench_"))
@@ -200,7 +199,7 @@ class NgspiceBenchmark:
 
         try:
             circuit_path = self._prepare_circuit(params, tmpdir)
-            # Run ngspice from the original circuit's directory so relative .includes work
+            # 从原始电路所在目录运行 ngspice，使相对路径 .include 生效
             cwd = str(self.circuit_file.parent)
             cmd = ["ngspice", "-b", str(circuit_path)]
 
@@ -223,12 +222,12 @@ class NgspiceBenchmark:
                 shutil.rmtree(tmpdir, ignore_errors=True)
 
     def objective(self, x: np.ndarray, corner: Optional[str] = None) -> float:
-        """Evaluate and return scalar objective (lower=better)."""
+        """评估并返回标量目标值（越小越好）。"""
         metrics = self.evaluate(x, corner)
         return self.objective_fn(metrics)
 
     def meets_specs(self, metrics: Dict) -> bool:
-        """Check if metrics meet target specs."""
+        """检查指标是否满足目标规格。"""
         for k, (op, target) in self.specs.items():
             v = metrics.get(k)
             if v is None:
@@ -240,27 +239,27 @@ class NgspiceBenchmark:
         return True
 
     def _denormalize(self, x: np.ndarray) -> Dict[str, float]:
-        """Convert normalized [0,1] vector to parameter dict."""
+        """将归一化 [0,1] 向量转换为参数字典。"""
         x = np.asarray(x)
         values = self.lb + x * (self.ub - self.lb)
         return {name: float(values[i]) for i, name in enumerate(self.names)}
 
     def normalize(self, params: Dict[str, float]) -> np.ndarray:
-        """Convert parameter dict to normalized [0,1] vector."""
+        """将参数字典转换为归一化 [0,1] 向量。"""
         values = np.array([params.get(n, self.defaults[i]) for i, n in enumerate(self.names)])
         return (values - self.lb) / (self.ub - self.lb)
 
     def default_design_point(self) -> np.ndarray:
-        """Return normalized default design point."""
+        """返回归一化默认设计点。"""
         return self.normalize({n: self.design_vars[n][0] for n in self.names})
 
     def get_design_space(self) -> Tuple[List[str], np.ndarray, np.ndarray]:
-        """Return (names, lb, ub)."""
+        """返回 (名称列表, 下限, 上限)。"""
         return self.names, self.lb.copy(), self.ub.copy()
 
 
 def compute_objective(metrics: Dict, specs: Dict, obj_cfg: Dict) -> float:
-    """Compute scalar objective from metrics and specs."""
+    """根据指标和规格计算标量目标值。"""
     obj_type = obj_cfg.get("type", "sum_violations")
     if obj_type == "sum_violations":
         total = 0.0
@@ -297,20 +296,20 @@ def compute_objective(metrics: Dict, specs: Dict, obj_cfg: Dict) -> float:
 
 def parse_ac_metrics(log_text: str, patterns: Dict) -> Dict:
     """
-    Parse AC analysis .print output table to extract gain, ugf, pm.
-    ngspice output format:
+    解析 AC 分析 .print 输出表格以提取 gain、ugf、pm。
+    ngspice 输出格式：
       index  freq  vdb(out)  vp(out)
       0  1.000e+00  6.012e+01  -1.234e+02
     """
     metrics = {}
     
-    # Extract data table (skip header lines, look for numeric data)
+    # 提取数据表格（跳过表头行，查找数值数据）
     data = []
     for line in log_text.splitlines():
         parts = line.strip().split()
         if len(parts) >= 4:
             try:
-                # First col may be index (int) or freq; try both
+                # 第一列可能是索引（整数）或频率；两者都尝试
                 idx_or_freq = float(parts[0])
                 freq = float(parts[1])
                 vdb = float(parts[2])
@@ -326,10 +325,10 @@ def parse_ac_metrics(log_text: str, patterns: Dict) -> Dict:
     vdbs = np.array([d[1] for d in data])
     vps = np.array([d[2] for d in data])
     
-    # Gain = max vdb (at lowest freq, typically)
+    # 增益 = 最大 vdb（通常在最低频率处）
     metrics["gain"] = float(np.max(vdbs))
     
-    # UGF = freq where vdb = 0 (interpolate)
+    # 单位增益频率 = vdb = 0 时的频率（插值）
     above_0db = vdbs >= 0
     if np.any(above_0db) and np.any(~above_0db):
         idx = np.where(above_0db)[0][-1]  # last point above 0dB
@@ -339,7 +338,7 @@ def parse_ac_metrics(log_text: str, patterns: Dict) -> Dict:
             if v1 != v2:
                 ugf = f1 + (0 - v1) * (f2 - f1) / (v2 - v1)
                 metrics["ugf"] = float(ugf)
-                # PM at UGF
+                # UGF 处的相位裕度
                 p1, p2 = vps[idx], vps[idx+1]
                 pm = p1 + (ugf - f1) * (p2 - p1) / (f2 - f1)
                 metrics["pm"] = float(pm) + 180.0  # Convert to phase margin

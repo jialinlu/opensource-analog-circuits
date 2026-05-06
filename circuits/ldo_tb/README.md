@@ -1,15 +1,15 @@
 # LDO_TB
 
-## Source
-- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **Author / Organization**: CODA-Team
-- **License**: Original repository license
+## 来源
+- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **作者 / 组织**: CODA-Team
+- **许可证**: 原始仓库许可证
 
-## Circuit Description
-Circuit from the AnalogGym RGNN_RL benchmark suite.
+## 电路描述
+来自 AnalogGym RGNN_RL 基准套件的电路。
 
-## Tunable Parameters
-| Parameter | Default | Range |
+## 可调参数
+| 参数 | 默认值 | 范围 |
 |-----------|---------|-------|
 | mosfet_0_8_w_biascm_pmos | 1.1511714458465576 | [0.42, 5.755857229232788] |
 | mosfet_0_8_l_biascm_pmos | 2.908731134608388 | [0.9695770448694626, 4.0] |
@@ -33,13 +33,13 @@ Circuit from the AnalogGym RGNN_RL benchmark suite.
 | M_C0 | 19 | [3, 50] |
 | M_CL | 287 | [57, 50] |
 
-## Evaluation Metrics
-- **gain** — DC open-loop gain (dB)
-- **ugf** — Unity-gain frequency (Hz)
-- **pm** — Phase margin (°)
+## 评估指标
+- **gain** — 直流开环增益 (dB)
+- **ugf** — 单位增益频率 (Hz)
+- **pm** — 相位裕度 (°)
 
-## Model Files
+## 模型文件
 Sky130 PDK (`../../sky130_pdk/...`)
 
-## Notes
-Adapted from AnalogGym. The original `.include` paths were modified to point to the shared `sky130_pdk/` folder.
+## 备注
+改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。
