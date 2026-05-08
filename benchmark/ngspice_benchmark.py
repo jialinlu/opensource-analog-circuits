@@ -102,6 +102,10 @@ class NgspiceBenchmark:
             # 从 AC .print 输出表格解析 gain/ugf/pm
             def parser(log_text: str) -> Dict:
                 return parse_ac_metrics(log_text, patterns)
+        elif parser_type == "multi_tb_meas":
+            # 从多 testbench .meas 输出解析（AC + PSRR + CMRR + DC）
+            def parser(log_text: str) -> Dict:
+                return parse_multi_tb_meas(log_text, patterns)
         else:
             def parser(log_text: str) -> Dict:
                 return {}
@@ -290,8 +294,67 @@ def compute_objective(metrics: Dict, specs: Dict, obj_cfg: Dict) -> float:
             elif op == ">":
                 total += w * max(0, target - v) / abs(target) if target != 0 else w * max(0, target - v)
         return total
+    elif obj_type == "multi_tb_max_violation":
+        max_violation = 0.0
+        for k, (op, target) in specs.items():
+            v = metrics.get(k)
+            if v is None:
+                max_violation = max(max_violation, 1000.0)
+                continue
+            if op == "<":
+                violation = max(0, v - target)
+            elif op == ">":
+                violation = max(0, target - v)
+            else:
+                violation = 0.0
+            normalized = violation / abs(target) if target != 0 else violation
+            max_violation = max(max_violation, normalized)
+        return max_violation
     else:
         return 0.0
+
+
+def parse_multi_tb_meas(log_text: str, patterns: Dict) -> Dict:
+    """
+    解析多 testbench .meas 输出，提取 AC/PSRR/CMRR/DC 指标。
+    支持从 raw 测量值计算派生指标（PSRR、CMRR、Power、Vos）。
+    """
+    metrics = {}
+    for key, pattern in patterns.items():
+        for line in log_text.splitlines():
+            m = re.search(pattern, line)
+            if m:
+                try:
+                    metrics[key] = float(m.group(1))
+                except ValueError:
+                    pass
+                break
+
+    # Post-processing: raw -> derived metrics
+    # PSRR: raw vdb(out_psrr) -> PSRR = -vdb(out_psrr)
+    if 'psrr_raw' in metrics:
+        metrics['psrr_db'] = -metrics.pop('psrr_raw')
+
+    # CMRR: CMRR = gain_db - cm_gain_db
+    if 'cm_gain_raw' in metrics and 'gain_db' in metrics:
+        metrics['cmrr_db'] = metrics['gain_db'] - metrics.pop('cm_gain_raw')
+
+    # Power: |i(VDD)| * VDD (1.8V for PTM180nm)
+    if 'i_vdd' in metrics:
+        metrics['power_w'] = 1.8 * abs(metrics.pop('i_vdd'))
+
+    # Vos: approximate from open-loop DC output
+    # Vos ≈ |Vout - Vcm| / Av * 1000 [mV], Vcm = 0.9V
+    if 'vout_vos' in metrics and 'gain_db' in metrics:
+        gain_db = metrics['gain_db']
+        if gain_db > 0:
+            av_linear = 10 ** (gain_db / 20.0)
+            metrics['vos_mv'] = abs(metrics.pop('vout_vos') - 0.9) / av_linear * 1000.0
+        else:
+            metrics['vos_mv'] = 0.0
+            metrics.pop('vout_vos', None)
+
+    return metrics
 
 
 def parse_ac_metrics(log_text: str, patterns: Dict) -> Dict:

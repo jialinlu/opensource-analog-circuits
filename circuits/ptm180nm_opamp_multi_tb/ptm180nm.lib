@@ -1,0 +1,65 @@
+* PTM 180nm BSIM3v3 Model for bulk CMOS
+* Typical parameters for academic use
+* Supply voltage: 1.8V
+
+.model nmos nmos level=49 version=3.3.0
++ TOX   = 4.0E-9      NSUB  = 3.0E+17     NGATE = 1.0E+20
++ VTH0  = 0.3999      K1    = 0.4477      K2    = 0.0153
++ K3    = 2.0955      K3B   = -0.6965     W0    = 1.0E-8
++ NLX   = 1.9593E-7   DVT0W = 0.0         DVT1W = 0.0
++ DVT2W = 0.0         DVT0  = 1.7139      DVT1  = 0.3985
++ DVT2  = -0.0941     U0    = 313.43      UA    = -7.0E-10
++ UB    = 2.0E-18     UC    = 1.0E-11     VSAT  = 9.3401E4
++ A0    = 0.6413      AGS   = 0.1389      B0    = 2.6748E-6
++ B1    = 5.0E-6      KETA  = 0.0224      A1    = 0.0
++ A2    = 1.0         RDSW  = 150.0       PRWG  = 0.5
++ PRWB  = -0.2        WR    = 1.0         WINT  = 2.5E-8
++ LINT  = 1.5E-8      XL    = -2.0E-8     XW    = 0.0
++ DWG   = -5.0E-9     DWB   = 2.0E-9     VOFF  = -0.1136
++ NFACTOR= 1.5072     CIT   = 0.0         CDSC  = 2.4E-4
++ CDSCD = 0.0         CDSCB = 0.0         ETA0  = 0.0607
++ ETAB  = -0.0475     DSUB  = 0.6969      PCLM  = 1.0904
++ PDIBLC1= 0.2839     PDIBLC2= 0.0082    PDIBLCB= -0.1
++ DROUT = 0.7446      PSCBE1= 8.0E8       PSCBE2= 1.0E-5
++ PVAG  = 0.0         DELTA = 0.01        RSH   = 6.5
++ MOBMOD= 1           CAPMOD= 2           NOIMOD= 1
++ CJ    = 9.8E-4      PB    = 0.95        MJ    = 0.345
++ CJSW  = 2.6E-10     PBSW  = 0.99        MJSW  = 0.24
++ CF    = 0.0         CGSO  = 1.5E-10     CGDO  = 1.5E-10
++ CGBO  = 1.0E-12     CJGATE= 2.6E-10     TLEV  = 0
++ TNOM  = 27.0        XTI   = 3.0         KT1   = -0.3
++ KT1L  = 0.0         KT2   = 0.022       UTE   = -1.5
++ UA1   = 4.0E-9      UB1   = -7.0E-18    UC1   = -5.0E-11
++ AT    = 3.3E4       PRT   = 0.0         NJS   = 1.0
++ XTIS  = 3.0
+
+.model pmos pmos level=49 version=3.3.0
++ TOX   = 4.0E-9      NSUB  = 3.0E+17     NGATE = 1.0E+20
++ VTH0  = -0.3999     K1    = 0.4477      K2    = 0.0153
++ K3    = 2.0955      K3B   = -0.6965     W0    = 1.0E-8
++ NLX   = 1.9593E-7   DVT0W = 0.0         DVT1W = 0.0
++ DVT2W = 0.0         DVT0  = 1.7139      DVT1  = 0.3985
++ DVT2  = -0.0941     U0    = 125.0       UA    = -7.0E-10
++ UB    = 2.0E-18     UC    = 1.0E-11     VSAT  = 9.3401E4
++ A0    = 0.6413      AGS   = 0.1389      B0    = 2.6748E-6
++ B1    = 5.0E-6      KETA  = 0.0224      A1    = 0.0
++ A2    = 1.0         RDSW  = 150.0       PRWG  = 0.5
++ PRWB  = -0.2        WR    = 1.0         WINT  = 2.5E-8
++ LINT  = 1.5E-8      XL    = -2.0E-8     XW    = 0.0
++ DWG   = -5.0E-9     DWB   = 2.0E-9     VOFF  = 0.1136
++ NFACTOR= 1.5072     CIT   = 0.0         CDSC  = 2.4E-4
++ CDSCD = 0.0         CDSCB = 0.0         ETA0  = 0.0607
++ ETAB  = -0.0475     DSUB  = 0.6969      PCLM  = 1.0904
++ PDIBLC1= 0.2839     PDIBLC2= 0.0082    PDIBLCB= -0.1
++ DROUT = 0.7446      PSCBE1= 8.0E8       PSCBE2= 1.0E-5
++ PVAG  = 0.0         DELTA = 0.01        RSH   = 6.5
++ MOBMOD= 1           CAPMOD= 2           NOIMOD= 1
++ CJ    = 1.14E-3     PB    = 0.95        MJ    = 0.48
++ CJSW  = 2.6E-10     PBSW  = 0.99        MJSW  = 0.33
++ CF    = 0.0         CGSO  = 1.5E-10     CGDO  = 1.5E-10
++ CGBO  = 1.0E-12     CJGATE= 2.6E-10     TLEV  = 0
++ TNOM  = 27.0        XTI   = 3.0         KT1   = -0.3
++ KT1L  = 0.0         KT2   = 0.022       UTE   = -1.5
++ UA1   = 4.0E-9      UB1   = -7.0E-18    UC1   = -5.0E-11
++ AT    = 3.3E4       PRT   = 0.0         NJS   = 1.0
++ XTIS  = 3.0

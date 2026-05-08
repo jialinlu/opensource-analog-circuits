@@ -1,0 +1,119 @@
+* Two-Stage Miller-Compensated Operational Amplifier
+* Multi-Testbench Version: AC Diff + PSRR + CMRR + DC Vos
+* Technology: 180nm, VDD=1.8V
+
+.include ptm180nm.lib
+
+* ================================================================
+* Parameters (will be overwritten by Python)
+* ================================================================
+.param W1=10u
+.param W2=10u
+.param W3=20u
+.param W4=20u
+.param W5=15u
+.param W6=40u
+.param W7=20u
+.param W8=5u
+.param L1=0.36u
+.param L2=0.36u
+.param L3=0.36u
+.param L4=0.36u
+.param L5=0.36u
+.param L6=0.36u
+.param L7=0.36u
+.param L8=0.72u
+.param Cc=2p
+.param CL=5p
+.param Ib=10u
+
+* ================================================================
+* Global Supplies
+* ================================================================
+VSS vss 0 0
+
+* ================================================================
+* Op-Amp Core (Subcircuit)
+* ================================================================
+.subckt opamp_core inp inn out vdd vss
+M1 d1 inp tail vss nmos W=W1 L=L1
+M2 d2 inn tail vss nmos W=W2 L=L2
+M3 d1 d1 vdd vdd pmos W=W3 L=L3
+M4 d2 d1 vdd vdd pmos W=W4 L=L4
+M5 tail bias vss vss nmos W=W5 L=L5
+M6 out d2 vdd vdd pmos W=W6 L=L6
+M7 out bias vss vss nmos W=W7 L=L7
+M8 bias bias vss vss nmos W=W8 L=L8
+Iref vdd bias DC Ib
+Cc d2 out Cc
+CL out vss CL
+.ends opamp_core
+
+* ================================================================
+* Testbench 1: AC Differential Gain (ADM)
+* ================================================================
+Xop_diff inp_diff inn_diff out_diff vdd_diff vss opamp_core
+Vin_p_diff inp_diff 0 DC 0.9 AC 1
+Vin_n_diff inn_diff 0 DC 0.9
+VDD_diff vdd_diff 0 DC 1.8
+
+* ================================================================
+* Testbench 2: PSRR (Power Supply Rejection Ratio)
+* ================================================================
+* Input at common-mode (no differential signal)
+* AC perturbation on VDD
+Xop_psrr inp_psrr inn_psrr out_psrr vdd_psrr vss opamp_core
+Vin_p_psrr inp_psrr 0 DC 0.9
+Vin_n_psrr inn_psrr 0 DC 0.9
+VDD_psrr vdd_psrr 0 DC 1.8 AC 1
+
+* ================================================================
+* Testbench 3: CMRR (Common-Mode Rejection Ratio)
+* ================================================================
+* Both inputs tied together, AC applied to common node
+Xop_cm inp_cm inp_cm out_cm vdd_cm vss opamp_core
+Vin_cm inp_cm 0 DC 0.9 AC 1
+VDD_cm vdd_cm 0 DC 1.8
+
+* ================================================================
+* Testbench 4: DC Offset Voltage (Vos)
+* ================================================================
+* Both inputs tied to common-mode DC
+Xop_vos inp_vos inp_vos out_vos vdd_vos vss opamp_core
+Vin_vos inp_vos 0 DC 0.9
+VDD_vos vdd_vos 0 DC 1.8
+
+* ================================================================
+* Control Block: Run all testbenches
+* All AC sources are present simultaneously but isolated by
+* different circuit instances and power nodes.
+* ================================================================
+.control
+set filetype=ascii
+set units=degrees
+save all
+
+* Run single AC analysis — all testbenches respond simultaneously
+ac dec 10 0.1 1G
+
+* Measure AC Differential Gain
+meas ac gain_db find vdb(out_diff) at=0.1
+meas ac gbw_hz when vdb(out_diff)=0
+meas ac pm_deg find vp(out_diff) when vdb(out_diff)=0
+
+* Measure PSRR (output response to VDD AC perturbation)
+meas ac psrr_db find vdb(out_psrr) at=0.1
+
+* Measure CM gain (output response to common-mode AC)
+meas ac cm_gain_db find vdb(out_cm) at=0.1
+
+* Run DC Operating Point
+op
+
+* Print all results to stdout (parsed by Python)
+print gain_db gbw_hz pm_deg psrr_db cm_gain_db
+print v(out_vos) v(out_diff) i(VDD_diff)
+
+.endc
+
+.end
