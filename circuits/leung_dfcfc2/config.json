@@ -1,175 +1,175 @@
 {
-  "name": "leung_dfcfc2",
-  "circuit_file": "circuits/leung_dfcfc2/circuit.cir",
-  "design_vars": {
-    "MOSFET_0_8_L_BIASCM_PMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_0_8_M_BIASCM_PMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_0_8_W_BIASCM_PMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_10_1_L_gm4_PMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_10_1_M_gm4_PMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_10_1_W_gm4_PMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_11_1_L_gm2_PMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_11_1_M_gm2_PMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_11_1_W_gm2_PMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_12_1_L_gmf2_PMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_12_1_M_gmf2_PMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_12_1_W_gmf2_PMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_18_7_L_BIASCM_NMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_18_7_M_BIASCM_NMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_18_7_W_BIASCM_NMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_23_2_L_LOAD2_NMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_23_2_M_LOAD2_NMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_23_2_W_LOAD2_NMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_25_1_L_gm3_NMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_25_1_M_gm3_NMOS": [
-      4,
-      1,
-      20
-    ],
-    "MOSFET_25_1_W_gm3_NMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "MOSFET_8_2_L_gm1_PMOS": [
-      1.0,
-      0.3333333333333333,
-      3.0
-    ],
-    "MOSFET_8_2_M_gm1_PMOS": [
-      100,
-      20,
-      50
-    ],
-    "MOSFET_8_2_W_gm1_PMOS": [
-      1.0,
-      0.42,
-      5.0
-    ],
-    "CAPACITOR_0": [
-      17.0,
-      3.4,
-      1e-10
-    ],
-    "CAPACITOR_1": [
-      17.0,
-      3.4,
-      1e-10
-    ],
-    "CURRENT_0_BIAS": [
-      20.0,
-      4.0,
-      0.0001
-    ],
-    "CLOAD": [
-      100.0,
-      20.0,
-      1e-10
-    ],
-    "VCM": [
-      300.0,
-      100.0,
-      1.8
-    ]
-  },
-  "specs": {
-    "gain": [
-      ">",
-      60.0
-    ],
-    "ugf": [
-      ">",
-      1000000.0
-    ],
-    "pm": [
-      ">",
-      60.0
-    ]
-  },
-  "metrics_patterns": {
-    "gain": "^dcgain\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)",
-    "ugf": "^gain_bandwidth_product\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)",
-    "pm": "^phase_in_deg\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)"
-  },
-  "metrics_parser_type": "regex",
-  "objective": {
-    "type": "sum_violations"
-  },
-  "pdk_corner": "tt"
+    "name": "leung_dfcfc2",
+    "circuit_file": "circuits/leung_dfcfc2/circuit.cir",
+    "design_vars": {
+        "MOSFET_0_8_L_BIASCM_PMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_0_8_M_BIASCM_PMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_0_8_W_BIASCM_PMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_10_1_L_gm4_PMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_10_1_M_gm4_PMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_10_1_W_gm4_PMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_11_1_L_gm2_PMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_11_1_M_gm2_PMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_11_1_W_gm2_PMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_12_1_L_gmf2_PMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_12_1_M_gmf2_PMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_12_1_W_gmf2_PMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_18_7_L_BIASCM_NMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_18_7_M_BIASCM_NMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_18_7_W_BIASCM_NMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_23_2_L_LOAD2_NMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_23_2_M_LOAD2_NMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_23_2_W_LOAD2_NMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_25_1_L_gm3_NMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_25_1_M_gm3_NMOS": [
+            4,
+            1,
+            20
+        ],
+        "MOSFET_25_1_W_gm3_NMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "MOSFET_8_2_L_gm1_PMOS": [
+            1.0,
+            0.3333333333333333,
+            3.0
+        ],
+        "MOSFET_8_2_M_gm1_PMOS": [
+            100,
+            20,
+            50
+        ],
+        "MOSFET_8_2_W_gm1_PMOS": [
+            1.0,
+            0.42,
+            5.0
+        ],
+        "CAPACITOR_0": [
+            17.0,
+            1e-10,
+            3.4
+        ],
+        "CAPACITOR_1": [
+            17.0,
+            1e-10,
+            3.4
+        ],
+        "CURRENT_0_BIAS": [
+            20.0,
+            0.0001,
+            4.0
+        ],
+        "CLOAD": [
+            100.0,
+            1e-10,
+            20.0
+        ],
+        "VCM": [
+            300.0,
+            1.8,
+            100.0
+        ]
+    },
+    "specs": {
+        "gain": [
+            ">",
+            60.0
+        ],
+        "ugf": [
+            ">",
+            1000000.0
+        ],
+        "pm": [
+            ">",
+            60.0
+        ]
+    },
+    "metrics_patterns": {
+        "gain": "^dcgain\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)",
+        "ugf": "^gain_bandwidth_product\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)",
+        "pm": "^phase_in_deg\\s*=\\s*([+-]?\\d+\\.?\\d*(?:[eE][+-]?\\d+)?)"
+    },
+    "metrics_parser_type": "regex",
+    "objective": {
+        "type": "sum_violations"
+    },
+    "pdk_corner": "tt"
 }
