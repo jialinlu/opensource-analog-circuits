@@ -13,6 +13,7 @@
 - **JSON 可配置**的设计空间、指标规格与解析器 —— 几分钟即可添加新电路
 - **相对路径模型引用** —— 克隆仓库后所有用例可直接运行
 - 内置 **AC 与 DC/Tran 指标解析器**（从 AC 表格解析增益/UGF/PM，从 DC/Tran 日志正则提取）
+- 支持 **Multi-Testbench** 网表（AC + PSRR + CMRR + DC 同时评估）
 
 ## 仓库结构
 
@@ -130,9 +131,9 @@ params = bench._denormalize(x)
 | `circuit_file` | 主网表路径（相对于仓库根目录） |
 | `design_vars` | `{参数名: [默认值, 下限, 上限]}` |
 | `specs` | `{指标名: ["<" 或 ">", 目标值]}` |
-| `metrics_parser_type` | `"regex"` 或 `"ac_data"` |
-| `metrics_patterns` | `"regex"` 解析器使用的正则字典 |
-| `objective` | `"sum_violations"` 或 `"weighted_sum"` |
+| `metrics_parser_type` | `"regex"`、`"ac_data"` 或 `"multi_tb_meas"` |
+| `metrics_patterns` | `"regex"` / `"multi_tb_meas"` 解析器使用的正则字典 |
+| `objective` | `"sum_violations"`、`"weighted_sum"` 或 `"multi_tb_max_violation"` |
 
 ## 修改调优参数（新增 / 删除 / 调整范围）
 
@@ -205,6 +206,7 @@ params = bench._denormalize(x)
 | 电路 | PDK | 变量数 | 解析器 | 规格 | 默认目标值 | 满足规格 | 仿真时间 |
 |---------|-----|-------|--------|-------|-------------|-------------|----------|
 | **ptm180nm_opamp** | PTM 180nm | 19 | AC | gain>60dB, UGF>1MHz, PM>60° | 0.146 | ❌ | ~0s |
+| **ptm180nm_opamp_multi_tb** | PTM 180nm | 19 | multi_tb_meas | gain>35dB, GBW>30MHz, PM>35°, PSRR>20dB, CMRR>40dB, Power<150µW, Vos<10mV | 0.558 | ❌ | ~1s |
 | **gh_autockt_opamp** | PTM 45nm | 10 | AC | gain>60dB, UGF>1MHz, PM>60° | 2001.07 | ❌ | ~0s |
 | **ota_iitb** | IITB 180nm | 13 | AC | gain>60dB, UGF>1MHz, PM>60° | 2001.27 | ❌ | ~0s |
 | **chargepump** | 内嵌 BSIM4 | 7 | regex | vout>3V | 0.000 | ✅ | ~0.1s |
