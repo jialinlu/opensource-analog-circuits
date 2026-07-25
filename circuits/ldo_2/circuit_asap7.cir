@@ -1,0 +1,30 @@
+* ldo_2 ASAP7 cell netlist (subcircuit only).
+* Simulated via tb_asap7.sp which supplies parameters, sources and analyses.
+* Migrated from sky130 to ASAP7 (BSIM-CMG / OSDI). Devices use NFIN + L (nm).
+
+.subckt ldo_2_asap7 gnd vdd vref vout vfb vinp Ib
+NM10 net42 Ib gnd gnd nmos_slvt L=L_NM10 NFIN=N_NM10
+NM9 net37 vref net42 gnd nmos_lvt L=L_NM9 NFIN=N_NM9
+NM8 net40 vinp net42 gnd nmos_lvt L=L_NM8 NFIN=N_NM8
+NM7 net32 Ib gnd gnd nmos_slvt L=L_NM7 NFIN=N_NM7
+NM6 net030 Ib gnd gnd nmos_slvt L=L_NM6 NFIN=N_NM6
+NM4 net049 net20 gnd gnd nmos_slvt L=L_NM4 NFIN=N_NM4
+NM3 net20 net20 gnd gnd nmos_slvt L=L_NM3 NFIN=N_NM3
+NM2 net17 vref net030 gnd nmos_slvt L=L_NM2 NFIN=N_NM2
+NM1 Ib Ib gnd gnd nmos_slvt L=L_NM1 NFIN=N_NM1
+NM0 net14 net7 gnd gnd nmos_slvt L=L_NM0 NFIN=N_NM0
+NP9 net40 net40 vdd vdd pmos_rvt L=L_PM9 NFIN=N_PM9
+NP8 net37 net40 vdd vdd pmos_rvt L=L_PM8 NFIN=N_PM8
+NP7 vfb net37 vdd vdd pmos_rvt L=L_PM7 NFIN=N_PM7
+NP6 net32 net32 vfb vfb pmos_rvt L=L_PM6 NFIN=N_PM6
+NP5 net030 net32 vout vout pmos_rvt L=L_PM5 NFIN=N_PM5
+NP4 vout net049 vdd vdd pmos_slvt L=L_PM4 NFIN=N_PM4
+NP3 net049 net14 vdd vdd pmos_rvt L=L_PM3 NFIN=N_PM3
+NP2 net20 net17 vdd vdd pmos_rvt L=L_PM2 NFIN=N_PM2
+NP1 net17 net14 vdd vdd pmos_rvt L=L_PM1 NFIN=N_PM1
+NP0 net14 net14 vdd vdd pmos_rvt L=L_PM0 NFIN=N_PM0
+R0 Ib net7 {R_R0}
+C4 net37 gnd {C_C4*1p}
+C1 net17 vout {C_C1*1p}
+C0 vout net7 {C_C0*1p}
+.ends ldo_2_asap7

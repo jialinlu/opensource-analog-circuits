@@ -1,0 +1,23 @@
+#!/bin/bash
+# ngspice wrapper: forwards ngspice calls to the dockerized ngspice
+# (image: ngspice-osdi) which provides OSDI + BSIM-CMG for ASAP7.
+# See asap7_pdk/README.md for how to build the image.
+#
+# The opensource-circuits repo (2 levels above this script) and the macOS
+# temp dirs are mounted into the container at identical paths, so relative
+# .include/.lib paths and absolute netlist paths keep working.
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+p1='/tmp/';         r1='/private/tmp/'
+p2='/var/folders/'; r2='/private/var/folders/'
+args=()
+for a in "$@"; do
+  a="${a//$p1/$r1}"
+  a="${a//$p2/$r2}"
+  args+=("$a")
+done
+exec docker run --rm \
+  -v "$ROOT:$ROOT" \
+  -v /private/tmp:/private/tmp \
+  -v /private/var/folders:/private/var/folders \
+  -w "$PWD" \
+  ngspice-osdi sh -c 'exec timeout 290 ngspice "$@"' sh "${args[@]}"

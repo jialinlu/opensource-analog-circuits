@@ -1,45 +1,80 @@
-# LDO_TB
+# ldo_tb
 
-## 来源
-- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **作者 / 组织**: CODA-Team
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **Author / organization**: CODA-Team
+- **License**: see the original repository
 
-## 电路描述
-来自 AnalogGym RGNN_RL 基准套件的电路。
+## Description
+LDO (subcircuit `Basic_LDO`) from the AnalogGym benchmark suite: PMOS
+input pair (friendly to low input common-mode), super-source-follower
+second stage, PMOS pass device, resistor feedback divider.
 
-## 可调参数
-| 参数 | 默认值 | 范围 |
-|-----------|---------|-------|
-| mosfet_0_8_w_biascm_pmos | 1.1511714458465576 | [0.42, 5.755857229232788] |
-| mosfet_0_8_l_biascm_pmos | 2.908731134608388 | [0.9695770448694626, 4.0] |
-| mosfet_0_8_m_biascm_pmos | 27 | [5, 50] |
-| mosfet_8_2_w_gm1_pmos | 1.485758513212204 | [0.42, 7.42879256606102] |
-| mosfet_8_2_l_gm1_pmos | 1.1558892875909805 | [0.38529642919699353, 3.4676678627729416] |
-| mosfet_8_2_m_gm1_pmos | 14 | [2, 50] |
-| mosfet_10_1_w_gm2_pmos | 6.022575721144676 | [1.2045151442289352, 30.11287860572338] |
-| mosfet_10_1_l_gm2_pmos | 2.1927622258663177 | [0.7309207419554392, 4.0] |
-| mosfet_10_1_m_gm2_pmos | 27 | [5, 50] |
-| mosfet_11_1_w_power_pmos | 7.487297892570496 | [1.4974595785140992, 37.43648946285248] |
-| mosfet_11_1_l_power_pmos | 1.1738390671089292 | [0.3912796890363097, 3.5215172013267875] |
-| mosfet_11_1_m_power_pmos | 949 | [189, 50] |
-| mosfet_17_7_w_biascm_nmos | 1.812826544046402 | [0.42, 9.06413272023201] |
-| mosfet_17_7_l_biascm_nmos | 1.0926024317741394 | [0.3642008105913798, 3.277807295322418] |
-| mosfet_17_7_m_biascm_nmos | 5 | [1, 25] |
-| mosfet_21_2_w_load2_nmos | 2.9079740941524506 | [0.5815948188304901, 14.539870470762253] |
-| mosfet_21_2_l_load2_nmos | 4.691825315356255 | [1.5639417717854183, 4.0] |
-| mosfet_21_2_m_load2_nmos | 24 | [4, 50] |
-| current_0_bias | 3.211307168006898e-06 | [1e-06, 1.605653584003449e-05] |
-| M_C0 | 19 | [3, 50] |
-| M_CL | 287 | [57, 50] |
+Two PDK versions are provided:
 
-## 评估指标
-- **gain** — 直流开环增益 (dB)
-- **ugf** — 单位增益频率 (Hz)
-- **pm** — 相位裕度 (°)
+| File | PDK | Supply | Contents |
+|---|---|---|---|
+| `circuit.cir` | SkyWater sky130 (1.8 V) | 1.8 V | original netlist + testbench (untouched) |
+| `circuit_asap7.cir` | ASAP7 (0.7 V) | 0.7 V | migrated **cell** netlist (subcircuit only) |
+| `tb_asap7.sp` | ASAP7 (0.7 V) | 0.7 V | standalone testbench, 12 PVT corners |
 
-## 模型文件
-Sky130 PDK (`../../sky130_pdk/...`)
+Migration notes (ASAP7 version): ASAP7 FinFET models sized by `NFIN`; the
+feedback divider was changed from 300k/100k to 100k/100k so that
+Vout = 2·Vref = 0.5 V; the pass device uses `pmos_slvt` because the
+super-source-follower limits the gate drive to ~0.39 V at 0.7 V supply;
+the second stage uses `pmos_slvt` (it was the LVT flavor in sky130 as
+well). The manual first-pass sizing already met all specs, so no BO run
+was needed for this circuit.
 
-## 备注
-改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。
+## Simulation results (TT, 25 °C)
+
+| Metric | sky130 (default sizing) | ASAP7 (manual sizing) |
+|---|---|---|
+| Supply / Vref | 1.8 V / 0.4 V | 0.7 V / 0.25 V |
+| Vout @ max load (55 mA) | non-functional* | 0.482 V |
+| DC loop gain (max / min load) | −86.3 dB* / — | 42.6 / 52.4 dB |
+| GBW (max / min load) | —* | 9.8 / 9.3 MHz |
+| Phase margin (max / min load) | —* | 102.1° / 101.3° |
+| PSRR @ DC | —* | 27.9 dB |
+| Load regulation (LR) | —* | 0.78 |
+| Power @ max load | —* | 38.6 mW |
+
+\* The sky130 default sizing shipped in this repo is a non-functional
+starting point for optimization (output does not regulate); it is kept
+unchanged for reference. The ASAP7 column meets all benchmark specs:
+dcgain > 40 dB, ugf > 1 MHz, PM > 45°, vout > 0.42 V.
+
+## Design variables (ASAP7, `config_asap7.json`)
+
+| Parameter | Default | Range | Meaning |
+|---|---|---|---|
+| N_BIASCM_PMOS | 16 | [4, 64] | PMOS bias mirrors fins |
+| N_GM1_PMOS | 16 | [4, 64] | PMOS input pair fins (lvt) |
+| N_GM2_PMOS | 64 | [16, 256] | super-source-follower fins (slvt) |
+| N_POWER_PMOS | 12000 | [4000, 30000] | pass PMOS fins (slvt) |
+| N_BIASCM_NMOS | 8 | [2, 32] | NMOS bias mirrors fins |
+| N_LOAD2_NMOS | 16 | [4, 64] | NMOS load fins |
+| current_0_bias | 10 µA | [2 µA, 50 µA] | bias current |
+| C_C0 | 4 pF | [0.5, 40] pF | compensation capacitor |
+| C_LOAD | 100 pF | [20, 500] pF | load capacitor |
+
+## How to run (ASAP7)
+
+Requires the ngspice+OSDI environment described in
+[`asap7_pdk/README.md`](../../asap7_pdk/README.md).
+
+```bash
+export PATH=/Users/lujialin/lujialin/mc_sizing/opensource-circuits/asap7_pdk/bin:$PATH
+ngspice -b tb_asap7.sp     # TT nominal corner
+./run_corners.sh           # all 12 PVT corners -> corner_results/
+```
+
+## Metrics
+- **vout** — regulated output voltage (V), plus dcgain / ugf / pm loop metrics
+
+## Model files
+- sky130: `../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice` (tt)
+- ASAP7: `../../asap7_pdk/models/ngspice/` (OSDI BSIM-CMG, see `asap7_pdk/README.md`)
+
+## Notes
+Adapted from AnalogGym. The original sky130 netlist is unchanged.

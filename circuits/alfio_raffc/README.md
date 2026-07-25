@@ -1,15 +1,15 @@
-# Alfio_RAFFC_Pin_3（Alfio RAFFC 运算放大器）
+# Alfio_RAFFC_Pin_3 (Alfio RAFFC Operational Amplifier)
 
-## 来源
-- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **作者 / 组织**: CODA-Team
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **Author / Organization**: CODA-Team
+- **License**: License of the original repository
 
-## 电路描述
-来自 AnalogGym 基准套件的运算放大器。拓扑结构：Alfio RAFFC。
+## Description
+An operational amplifier from the AnalogGym benchmark suite. Topology: Alfio RAFFC.
 
-## 可调参数
-| 参数 | 默认值 | 范围 |
+## Design variables
+| Parameter | Default | Range |
 |-----------|---------|-------|
 | MOSFET_15_2_L_gmb_NMOS | 1.0 | [0.3333333333333333, 3.0] |
 | MOSFET_15_2_W_gmb_NMOS | 1.0 | [0.42, 5.0] |
@@ -41,13 +41,13 @@
 | CLOAD | 100.0 | [20.0, 1e-10] |
 | VCM | 300.0 | [100.0, 1.8] |
 
-## 评估指标
-- **gain** — 直流开环增益 (dB)
-- **ugf** — 单位增益频率 (Hz)
-- **pm** — 相位裕度 (°)
+## Metrics
+- **gain** — DC open-loop gain (dB)
+- **ugf** — Unity-gain frequency (Hz)
+- **pm** — Phase margin (°)
 
-## 模型文件
+## Model files
 Sky130 PDK (`../../sky130_pdk/...`)
 
-## 备注
-改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。
+## Notes
+Adapted from AnalogGym. The original `.include` paths have been modified to point to the shared `sky130_pdk/` folder.

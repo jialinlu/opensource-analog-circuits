@@ -1,15 +1,15 @@
 # Peng_IAC_Pin_3
 
-## 来源
-- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **作者 / 组织**: CODA-Team
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **Author / Organization**: CODA-Team
+- **License**: License of the original repository
 
-## 电路描述
-来自 AnalogGym 基准套件的运算放大器。拓扑结构：Peng IAC。
+## Description
+An operational amplifier from the AnalogGym benchmark suite. Topology: Peng IAC.
 
-## 可调参数
-| 参数 | 默认值 | 范围 |
+## Design variables
+| Parameter | Default | Range |
 |-----------|---------|-------|
 | CAPACITOR_0 | 0.5 | [0.1, 1e-10] |
 | CAPACITOR_1 | 1.1 | [0.22000000000000003, 1e-10] |
@@ -45,13 +45,13 @@
 | RESISTOR_0 | 750.0 | [150.0, 100.0] |
 | VCM | 240.0 | [80.0, 1.8] |
 
-## 评估指标
-- **gain** — 直流开环增益 (dB)
-- **ugf** — 单位增益频率 (Hz)
-- **pm** — 相位裕度 (°)
+## Metrics
+- **gain** — DC open-loop gain (dB)
+- **ugf** — Unity-gain frequency (Hz)
+- **pm** — Phase margin (°)
 
-## 模型文件
+## Model files
 Sky130 PDK (`../../sky130_pdk/...`)
 
-## 备注
-改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。
+## Notes
+Adapted from AnalogGym. The original `.include` paths have been modified to point to the shared `sky130_pdk/` folder.

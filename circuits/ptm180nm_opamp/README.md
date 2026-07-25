@@ -1,35 +1,35 @@
-# PTM 180nm Two-Stage OpAmp（PTM 180nm 两级运算放大器）
+# PTM 180nm Two-Stage OpAmp
 
-## 来源
-- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **作者 / 组织**: CODA-Team
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **Author / Organization**: CODA-Team
+- **License**: License of the original repository
 
-## 电路描述
-一个采用 ASU 预测技术模型（PTM）180nm 器件设计的经典 Miller 补偿两级运算放大器。这是 AnalogGym 框架中的基准电路之一。
+## Description
+A classic Miller-compensated two-stage operational amplifier designed with ASU Predictive Technology Model (PTM) 180nm devices. This is one of the benchmark circuits in the AnalogGym framework.
 
-## 可调参数
-| 参数 | 默认值 | 说明 |
+## Design variables
+| Parameter | Default | Description |
 |-----------|---------|-------------|
-| W1–W2 | 10 µm | 输入差分对宽度 (M1/M2) |
-| W3–W4 | 20 µm | 电流镜有源负载宽度 (M3/M4) |
-| W5 | 15 µm | 尾电流源宽度 (M5) |
-| W6 | 40 µm | 第二级驱动管宽度 (M6) |
-| W7 | 20 µm | 第二级负载宽度 (M7) |
-| W8 | 5 µm | 偏置晶体管宽度 (M8) |
-| L1–L2 | 0.36 µm | 沟道长度 |
-| Cc | 3 pF | Miller 补偿电容 |
-| Ibias | 30 µA | 偏置电流 |
-| Cload | 10 pF | 输出负载电容 |
-| Vcm | 0.6 V | 共模输入电压 |
+| W1–W2 | 10 µm | Input differential pair width (M1/M2) |
+| W3–W4 | 20 µm | Current-mirror active load width (M3/M4) |
+| W5 | 15 µm | Tail current source width (M5) |
+| W6 | 40 µm | Second-stage driver width (M6) |
+| W7 | 20 µm | Second-stage load width (M7) |
+| W8 | 5 µm | Bias transistor width (M8) |
+| L1–L2 | 0.36 µm | Channel length |
+| Cc | 3 pF | Miller compensation capacitor |
+| Ibias | 30 µA | Bias current |
+| Cload | 10 pF | Output load capacitance |
+| Vcm | 0.6 V | Common-mode input voltage |
 
-## 评估指标
-- **gain** — 直流开环增益 (dB)
-- **ugf** — 单位增益频率 (Hz)
-- **pm** — 相位裕度 (°)
+## Metrics
+- **gain** — DC open-loop gain (dB)
+- **ugf** — Unity-gain frequency (Hz)
+- **pm** — Phase margin (°)
 
-## 模型文件
-- `ptm180nm.lib` — ASU PTM 180nm BSIM3v3 模型
+## Model files
+- `ptm180nm.lib` — ASU PTM 180nm BSIM3v3 models
 
-## 备注
-该网表从 AnalogGym 套件中提取并改编用于本基准测试（参数名称已标准化，`.lib` 路径已修正）。
+## Notes
+The netlist was extracted from the AnalogGym suite and adapted for this benchmark (parameter names have been standardized and the `.lib` path has been corrected).

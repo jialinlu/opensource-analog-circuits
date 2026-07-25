@@ -1,0 +1,18 @@
+* ldo_folded_cascode ASAP7 cell netlist (subcircuit only).
+* Simulated via tb_asap7.sp which supplies parameters, sources and analyses.
+* Migrated from sky130 to ASAP7 (BSIM-CMG / OSDI). Devices use NFIN + L (nm).
+
+.subckt ldo_folded_cascode_asap7 Vdd vinp Vb2 vinn Vb1 Vss Vreg
+NM10 Vreg vout1 Vdd Vdd pmos_rvt L=L_M10 NFIN=N_M10
+NM1 net2 vinp net4 Vss nmos_lvt L=L_M1 NFIN=N_M1
+NM2 net3 vinn net4 Vss nmos_lvt L=L_M2 NFIN=N_M2
+NM4 net3 net1 Vdd Vdd pmos_rvt L=L_M4 NFIN=N_M4
+NM3 net2 net1 Vdd Vdd pmos_rvt L=L_M3 NFIN=N_M3
+NM9 net4 Vb1 Vss Vss nmos_slvt L=L_M9 NFIN=N_M9
+NM6 vout1 Vb2 net3 Vdd pmos_slvt L=L_M6 NFIN=N_M6
+NM5 net1 Vb2 net2 Vdd pmos_slvt L=L_M5 NFIN=N_M5
+NM7 net1 Vb1 Vss Vss nmos_slvt L=L_M7 NFIN=N_M7
+NM8 vout1 Vb1 Vss Vss nmos_slvt L=L_M8 NFIN=N_M8
+Cfb net2 Vreg {C_FB*1p}
+Rfb net2 vout1 {R_FB}
+.ends ldo_folded_cascode_asap7

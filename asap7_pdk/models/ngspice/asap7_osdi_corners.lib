@@ -1,0 +1,80 @@
+* ASAP7 ngspice (OSDI/BSIM-CMG) corner library
+* 12 corners = 3 process (TT/SS/FF) x VDD (+/-10%) x temperature (-40/27/125C)
+* Usage in testbench:
+*   .lib "<this file>" <corner>
+*   .param supply_voltage = 'VDD_NOM*vdd_scale'
+* where VDD_NOM is the nominal supply of the design (0.7V or 0.8V).
+* Each section pulls in the corresponding BSIM-CMG model cards and sets
+* vdd_scale (supply multiplier) and the simulation temperature.
+
+.lib tt_nom
+.include "7nm_TT_osdi.pm"
+.param vdd_scale=1.0
+.temp 27
+.endl
+
+.lib tt_vlo_tlo
+.include "7nm_TT_osdi.pm"
+.param vdd_scale=0.9
+.temp -40
+.endl
+
+.lib tt_vhi_thi
+.include "7nm_TT_osdi.pm"
+.param vdd_scale=1.1
+.temp 125
+.endl
+
+.lib tt_vlo_thi
+.include "7nm_TT_osdi.pm"
+.param vdd_scale=0.9
+.temp 125
+.endl
+
+.lib ss_nom
+.include "7nm_SS_osdi.pm"
+.param vdd_scale=1.0
+.temp 27
+.endl
+
+.lib ss_vlo_thi
+.include "7nm_SS_osdi.pm"
+.param vdd_scale=0.9
+.temp 125
+.endl
+
+.lib ss_vhi_tlo
+.include "7nm_SS_osdi.pm"
+.param vdd_scale=1.1
+.temp -40
+.endl
+
+.lib ss_vlo_tlo
+.include "7nm_SS_osdi.pm"
+.param vdd_scale=0.9
+.temp -40
+.endl
+
+.lib ff_nom
+.include "7nm_FF_osdi.pm"
+.param vdd_scale=1.0
+.temp 27
+.endl
+
+.lib ff_vhi_thi
+.include "7nm_FF_osdi.pm"
+.param vdd_scale=1.1
+.temp 125
+.endl
+
+.lib ff_vlo_tlo
+.include "7nm_FF_osdi.pm"
+.param vdd_scale=0.9
+.temp -40
+.endl
+
+.lib ff_vhi_tlo
+.include "7nm_FF_osdi.pm"
+.param vdd_scale=1.1
+.temp -40
+.endl

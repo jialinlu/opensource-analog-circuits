@@ -1,0 +1,39 @@
+* ldo_tb ASAP7 cell netlist (subcircuit only).
+* Simulated via tb_asap7.sp which supplies parameters, sources and analyses.
+* Migrated from sky130 to ASAP7 (BSIM-CMG / OSDI). Devices use NFIN + L (nm).
+
+.subckt Basic_LDO_asap7 gnda vdda vinn vout vfb vinp Ib
+NM0 Ib Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM1 vb4 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM2 dm_1 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM3 vb3 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM4 net20 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN='2*N_BIASCM_PMOS'
+NM5 voutn voutn vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM6 net10 voutn vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM7 net7 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+NM24 net1 Ib vdda vdda pmos_rvt L=L_BIASCM_PMOS NFIN=N_BIASCM_PMOS
+
+NM11 vout net1 vdda vdda pmos_slvt L=L_POWER_PMOS NFIN=N_POWER_PMOS
+
+NM10 net12 net10 net1 net1 pmos_slvt L=L_GM2_PMOS NFIN=N_GM2_PMOS
+
+NM8 dm_2 vinp net20 net20 pmos_lvt L=L_GM1_PMOS NFIN=N_GM1_PMOS
+NM9 net106 vinn net20 net20 pmos_lvt L=L_GM1_PMOS NFIN=N_GM1_PMOS
+
+NM14 vb3 vb3 gnda gnda nmos_rvt L=L_BIASCM_NMOS NFIN=N_BIASCM_NMOS
+NM12 vb4 vb3 net28 gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM13 dm_1 vb3 net31 gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM15 voutn vb3 dm_2 gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM16 net10 vb3 net106 gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM17 net28 vb4 gnda gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM18 net31 vb4 gnda gnda nmos_rvt L=L_BIASCM_NMOS NFIN='4*N_BIASCM_NMOS'
+NM19 dm_2 vb4 gnda gnda nmos_rvt L=L_BIASCM_NMOS NFIN='8*N_BIASCM_NMOS'
+NM20 net106 vb4 gnda gnda nmos_rvt L=L_BIASCM_NMOS NFIN='8*N_BIASCM_NMOS'
+
+NM21 net12 net7 gnda gnda nmos_rvt L=L_LOAD2_NMOS NFIN=N_LOAD2_NMOS
+NM22 net7 net7 gnda gnda nmos_rvt L=L_LOAD2_NMOS NFIN=N_LOAD2_NMOS
+
+r1 vout vfb 100e3
+r0 vfb gnda 100e3
+C0 net106 vout {C_C0*1p}
+.ends Basic_LDO_asap7

@@ -1,0 +1,19 @@
+* ldo_1 ASAP7 cell netlist (subcircuit only).
+* Simulated via tb_asap7.sp which supplies parameters, sources and analyses.
+* Migrated from sky130 to ASAP7 (BSIM-CMG / OSDI). Devices use NFIN + L (nm).
+
+.subckt ldo_1_asap7 Vss Vdd vinn vout vfb vinp Ib
+NM8 vout net3 Vdd Vdd pmos_rvt L=L_M8 NFIN=N_M8
+NM1 net1 net1 Vdd Vdd pmos_rvt L=L_M1 NFIN=N_M1
+NM0 net8 net1 Vdd Vdd pmos_rvt L=L_M0 NFIN=N_M0
+NM6 net3 net8 Vdd Vdd pmos_rvt L=L_M6 NFIN=N_M6
+NM7 net3 Ib Vss Vss nmos_slvt L=L_M7 NFIN=N_M7
+NM5 Ib Ib Vss Vss nmos_slvt L=L_M5 NFIN=N_M5
+NM4 net2 Ib Vss Vss nmos_slvt L=L_M4 NFIN=N_M4
+NM3 net8 vinp net2 Vss nmos_lvt L=L_M3 NFIN=N_M3
+NM2 net1 vinn net2 Vss nmos_lvt L=L_M2 NFIN=N_M2
+r0 vout vfb 40e3
+r1 vfb Vss 100e3
+* miller compensation added for ASAP7 0.7V stability (both load corners)
+Cc net3 vout {C_CC*1p}
+.ends ldo_1_asap7

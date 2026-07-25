@@ -1,31 +1,31 @@
-# Sky130 GHz-Range Low-Power VCO（Sky130 GHz 范围低功耗压控振荡器）
+# Sky130 GHz-Range Low-Power VCO
 
-## 来源
-- **原始仓库**: [SANGESH007/GHz-Range-Low-Power-VCO](https://github.com/SANGESH007/GHz-Range-Low-Power-VCO)
-- **作者 / 组织**: SANGESH007
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [SANGESH007/GHz-Range-Low-Power-VCO](https://github.com/SANGESH007/GHz-Range-Low-Power-VCO)
+- **Author / Organization**: SANGESH007
+- **License**: License of the original repository
 
-## 电路描述
-一个采用 SkyWater 130nm 设计的基于环形振荡器的压控振荡器（VCO）。设计目标为 GHz 范围振荡频率，同时保持低功耗。
+## Description
+A ring-oscillator-based voltage-controlled oscillator (VCO) designed in SkyWater 130nm. The design targets GHz-range oscillation frequency while maintaining low power consumption.
 
-## 可调参数
-| 参数 | 默认值 | 说明 |
+## Design variables
+| Parameter | Default | Description |
 |-----------|---------|-------------|
-| W_N | 1.0 µm | NMOS 反相器器件宽度 |
-| L_N | 0.15 µm | NMOS 器件沟道长度 |
-| W_P | 2.745 µm | PMOS 反相器器件宽度 |
-| W_P2 | 1.0 µm | 次级 PMOS 器件宽度 |
-| L_P | 0.35 µm | PMOS 器件沟道长度 |
-| W_TAIL | 1.0 µm | 尾电流源宽度 |
-| L_TAIL | 0.15 µm | 尾电流源沟道长度 |
+| W_N | 1.0 µm | NMOS inverter device width |
+| L_N | 0.15 µm | NMOS device channel length |
+| W_P | 2.745 µm | PMOS inverter device width |
+| W_P2 | 1.0 µm | Secondary PMOS device width |
+| L_P | 0.35 µm | PMOS device channel length |
+| W_TAIL | 1.0 µm | Tail current source width |
+| L_TAIL | 0.15 µm | Tail current source channel length |
 
-## 评估指标
-- **ymax** — 最大输出摆幅 / 频率指标
-- **ymin** — 最小输出摆幅 / 频率指标
+## Metrics
+- **ymax** — Maximum output swing / frequency metric
+- **ymin** — Minimum output swing / frequency metric
 
-## 模型文件
+## Model files
 Sky130 PDK (`../../sky130_pdk/...`)
 - `sky130_fd_pr__nfet_01v8` / `sky130_fd_pr__pfet_01v8`
 
-## 备注
-改编自原始 VCO 仓库；`.lib` 路径已修正为相对路径。
+## Notes
+Adapted from the original VCO repository; `.lib` paths have been corrected to relative paths.

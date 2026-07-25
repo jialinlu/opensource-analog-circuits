@@ -1,0 +1,14 @@
+* ldo_simple ASAP7 cell netlist (subcircuit only).
+* Simulated via tb_asap7.sp which supplies parameters, sources and analyses.
+* Migrated from sky130 to ASAP7 (BSIM-CMG / OSDI). Devices use NFIN + L (nm).
+
+.subckt ldo_simple_asap7 Vdd vinp vinn Vb Vss Vreg
+NM1 net1 vinp net2 Vss nmos_lvt L=L_M1 NFIN=N_M1
+NM2 vout1 vinn net2 Vss nmos_lvt L=L_M2 NFIN=N_M2
+NM3 vout1 net1 Vdd Vdd pmos_rvt L=L_M3 NFIN=N_M3
+NM4 net1 net1 Vdd Vdd pmos_rvt L=L_M4 NFIN=N_M4
+NM5 net2 Vb Vss Vss nmos_slvt L=L_M5 NFIN=N_M5
+NM6 Vreg vout1 Vdd Vdd pmos_rvt L=L_M6 NFIN=N_M6
+Cfb net22 Vreg {C_FB*1p}
+Rfb net22 vout1 {R_FB}
+.ends ldo_simple_asap7

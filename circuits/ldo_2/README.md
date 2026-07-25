@@ -1,79 +1,87 @@
 # ldo_2
 
-## 来源
-- **原始仓库**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
-- **作者 / 组织**: CODA-Team
-- **许可证**: 原始仓库许可证
+## Source
+- **Original repository**: [CODA-Team/AnalogGym](https://github.com/CODA-Team/AnalogGym)
+- **Author / organization**: CODA-Team
+- **License**: see the original repository
 
-## 电路描述
-来自 AnalogGym 基准套件的低压差稳压器。
+## Description
+LDO from the AnalogGym benchmark suite with an NMOS input-pair error
+amplifier and a self-biased control network: the pass device gate is
+driven through a bias chain (NP5 → net030 → NM2 → net17 → NP2 → net20 →
+NM4 → net049) that closes the output-voltage feedback loop.
 
-## 可调参数
-| 参数 | 默认值 | 范围 |
-|-----------|---------|-------|
-| W_NM0 | 13.0 | [2.6, 65.0] |
-| L_NM0 | 2.0 | [0.6666666666666666, 4.0] |
-| M_NM0 | 100 | [20, 50] |
-| W_NM1 | 13.0 | [2.6, 65.0] |
-| L_NM1 | 2.0 | [0.6666666666666666, 4.0] |
-| M_NM1 | 13 | [2, 50] |
-| W_NM2 | 1.0 | [0.42, 5.0] |
-| L_NM2 | 15.0 | [5.0, 4.0] |
-| M_NM2 | 200 | [40, 50] |
-| W_NM3 | 100.0 | [20.0, 100.0] |
-| L_NM3 | 1.0 | [0.3333333333333333, 3.0] |
-| M_NM3 | 1 | [1, 5] |
-| W_NM6 | 13.0 | [2.6, 65.0] |
-| L_NM6 | 2.0 | [0.6666666666666666, 4.0] |
-| M_NM6 | 100 | [20, 50] |
-| W_NM7 | 13.0 | [2.6, 65.0] |
-| L_NM7 | 2.0 | [0.6666666666666666, 4.0] |
-| M_NM7 | 34 | [6, 50] |
-| W_NM8 | 20.0 | [4.0, 100.0] |
-| L_NM8 | 12.0 | [4.0, 4.0] |
-| M_NM8 | 1 | [1, 5] |
-| W_NM10 | 20.0 | [4.0, 100.0] |
-| L_NM10 | 15.0 | [5.0, 4.0] |
-| M_NM10 | 100 | [20, 50] |
-| W_PM0 | 1.5 | [0.42, 7.5] |
-| L_PM0 | 2.0 | [0.6666666666666666, 4.0] |
-| M_PM0 | 50 | [10, 50] |
-| W_PM1 | 1.5 | [0.42, 7.5] |
-| L_PM1 | 2.0 | [0.6666666666666666, 4.0] |
-| M_PM1 | 1 | [1, 5] |
-| W_PM2 | 20.0 | [4.0, 100.0] |
-| L_PM2 | 1.0 | [0.3333333333333333, 3.0] |
-| M_PM2 | 55 | [11, 50] |
-| W_PM3 | 1.29 | [0.42, 6.45] |
-| L_PM3 | 1.86 | [0.62, 4.0] |
-| M_PM3 | 100 | [20, 50] |
-| W_PM4 | 100.0 | [20.0, 100.0] |
-| L_PM4 | 1.0 | [0.3333333333333333, 3.0] |
-| M_PM4 | 150 | [30, 50] |
-| W_PM5 | 20.0 | [4.0, 100.0] |
-| L_PM5 | 2.0 | [0.6666666666666666, 4.0] |
-| M_PM5 | 100 | [20, 50] |
-| W_PM6 | 9.0 | [1.8, 45.0] |
-| L_PM6 | 2.0 | [0.6666666666666666, 4.0] |
-| M_PM6 | 100 | [20, 50] |
-| W_PM7 | 20.0 | [4.0, 100.0] |
-| L_PM7 | 12.0 | [4.0, 4.0] |
-| M_PM7 | 40 | [8, 50] |
-| W_PM8 | 10.0 | [2.0, 50.0] |
-| L_PM8 | 0.5 | [0.16666666666666666, 1.5] |
-| M_PM8 | 100 | [20, 50] |
-| current_0_bias | 5e-07 | [1e-06, 2.4999999999999998e-06] |
-| M_R0 | 100 | [20, 50] |
-| M_C0 | 200 | [40, 50] |
-| M_C1 | 160 | [32, 50] |
-| M_C4 | 1 | [1, 5] |
-| M_CL | 5 | [1, 25] |
+Two PDK versions are provided:
 
-## 评估指标
-- **vout** — 输出电压 (V)
+| File | PDK | Supply | Contents |
+|---|---|---|---|
+| `circuit.cir` | SkyWater sky130 (1.8 V) | 1.8 V | original netlist + testbench (untouched) |
+| `circuit_asap7.cir` | ASAP7 (0.7 V) | 0.7 V | migrated **cell** netlist (subcircuit only) |
+| `tb_asap7.sp` | ASAP7 (0.7 V) | 0.7 V | standalone testbench, 12 PVT corners |
 
-## 模型文件
-Sky130 PDK (`../../sky130_pdk/...`)
+Migration notes (ASAP7 version): ASAP7 `nmos/pmos_rvt/slvt/lvt` FinFET
+models sized by `NFIN`; the bias-chain device ratios had to be
+re-balanced for 0.7 V (NP0 strong/NP1 weak, NM2/NM3/NM4 enlarged) so the
+output regulation loop closes; the pass device uses `pmos_slvt` for
+sufficient drive at 100 mA load; Vref = 0.45 V (unity feedback);
+compensation caps retuned by Bayesian optimization.
 
-## 备注
-改编自 AnalogGym。原始的 `.include` 路径已修改为指向共享的 `sky130_pdk/` 文件夹。
+## Simulation results (TT, 25 °C)
+
+| Metric | sky130 (default sizing) | ASAP7 (optimized) |
+|---|---|---|
+| Supply / Vref | 1.8 V / 1.6 V | 0.7 V / 0.45 V |
+| Vout @ max load (100 mA) | 1.57 V | 0.412 V |
+| DC loop gain (max / min load) | 38.1 / 38.1 dB | 48.6 / 48.6 dB |
+| GBW (max / min load) | 0.10 / — MHz | 84.1 / 81.7 MHz |
+| Phase margin (max / min load) | 111.7° / 105.9° | 67.5° / 131.3° |
+| PSRR @ DC | 2.0 dB | 37.7 dB |
+| Line regulation (LNR1) | 0.420 | 0.051 |
+| Load regulation (LR) | 0.00027 | 0.0051 |
+| Power @ max load | 180 mW | 70 mW |
+
+The sky130 column is the circuit as shipped in this repo (default sizing);
+the ASAP7 column is the migrated design after BO sizing. All ASAP7
+benchmark specs are met: dcgain > 40 dB, ugf > 1 MHz, PM > 45°,
+vout > 0.38 V.
+
+## Design variables (ASAP7, `config_asap7.json`)
+
+| Parameter | Default | Range | Meaning |
+|---|---|---|---|
+| N_NM0, N_NM1, N_NM6, N_NM7 | 30 / 21 / 25 / 31 | [2, 32] | NMOS bias mirrors fins |
+| N_NM2 | 50 | [8, 128] | bias-chain NMOS fins |
+| N_NM3 / N_NM4 | 252 | [16, 256] | bias-chain mirror fins |
+| N_NM8 / N_NM9 | 57 | [4, 64] | NMOS input pair fins |
+| N_NM10 | 104 | [8, 128] | input-pair tail fins |
+| N_PM0 | 36 | [8, 128] | bias diode PMOS fins |
+| N_PM1 | 10 | [1, 32] | bias-chain PMOS fins |
+| N_PM2, N_PM3 | 29, 26 | [4, 64] | bias-chain PMOS fins |
+| N_PM4 | 13846 | [1000, 20000] | pass PMOS fins (slvt) |
+| N_PM5, N_PM6, N_PM7 | 126 / 54 / 30 | [4, 128] | vfb-rail PMOS fins |
+| N_PM8 / N_PM9 | 21 | [4, 64] | mirror load fins |
+| current_0_bias | 17 µA | [2 µA, 100 µA] | bias current |
+| R_R0 | 345 Ω | [100, 20k] Ω | bias resistor |
+| C_C0 / C_C1 / C_C4 | 44 / 2.4 / 1.9 pF | — | compensation caps |
+| C_LOAD | 872 pF | [50, 1000] pF | load capacitor |
+
+## How to run (ASAP7)
+
+Requires the ngspice+OSDI environment described in
+[`asap7_pdk/README.md`](../../asap7_pdk/README.md).
+
+```bash
+export PATH=/Users/lujialin/lujialin/mc_sizing/opensource-circuits/asap7_pdk/bin:$PATH
+ngspice -b tb_asap7.sp     # TT nominal corner
+./run_corners.sh           # all 12 PVT corners -> corner_results/
+```
+
+## Metrics
+- **vout** — regulated output voltage (V), plus dcgain / ugf / pm loop metrics
+
+## Model files
+- sky130: `../../sky130_pdk/libs.tech/ngspice/sky130.lib.spice` (tt)
+- ASAP7: `../../asap7_pdk/models/ngspice/` (OSDI BSIM-CMG, see `asap7_pdk/README.md`)
+
+## Notes
+Adapted from AnalogGym. The original sky130 netlist is unchanged.
