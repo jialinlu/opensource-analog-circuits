@@ -20,4 +20,4 @@ exec docker run --rm \
   -v /private/tmp:/private/tmp \
   -v /private/var/folders:/private/var/folders \
   -w "$PWD" \
-  ngspice-osdi sh -c 'exec timeout 290 ngspice "$@"' sh "${args[@]}"
+  ngspice-osdi sh -c 'exec timeout 1800 ngspice "$@"' sh "${args[@]}"
