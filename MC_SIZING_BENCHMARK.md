@@ -8,10 +8,6 @@ algorithm is **not** expected to run MC inside its sizing loop (see §5) —
 but it must contain a mechanism that measurably improves MC yield over
 the same algorithm without that mechanism (see §6, ablation gate).
 
-This document is the contract. It defines the cases, the optimization
-interface, the training objective (FOM), the validation procedure, and the
-acceptance criteria. If a number is not defined here, ask before assuming.
-
 ---
 
 ## 1. What is in the package
@@ -305,8 +301,6 @@ Anti-gaming provisions:
 
 **读者：** 开发考虑失配（mismatch-aware）sizing 算法的供应商团队。
 **范围：** 五个 ASAP7 LDO 设计。你的算法给出晶体管尺寸（以及少量偏置/无源器件值）；我们用蒙特卡洛（MC）仿真评估设计对器件间 Vth 失配的鲁棒性。**不要求**你的算法在 sizing 循环内运行 MC（见 §5）——但算法中必须包含一种机制，能够可测量地提升 MC 良率，优于同一算法关闭该机制的版本（见 §6 消融门）。
-
-本文档即合同。它定义了案例、优化接口、训练目标（FOM）、验证流程和验收标准。任何此处未定义的数字，请先提问，不要自行假设。
 
 ---
 
