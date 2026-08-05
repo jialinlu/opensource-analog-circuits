@@ -22,12 +22,14 @@ Goal: use the five LDOs in `circuits/ldo_*` as test cases to evaluate sizing
    **baseline has been run** for the current (TT-optimized) design points.
    Results in `results/ldo_*_mc_baseline.json`, summarized in §7.
 
-**Next task (approved plan, not yet implemented)**: an MC-aware sizing
-benchmark — a numerical, MC-robust objective that a sizing algorithm can
-optimize and that can *prove* improvement over the baselines. The agreed
-design (§8) is: soft-min σ-margin objective, K≈25–30 inner-loop MC samples
-with common random numbers (CRN), train/validation seed separation, and a
-500-sample independent validation at the end.
+**MC-aware sizing benchmark (implemented, 2026-08-05)**: the MC sizing
+driver `benchmark/mc_benchmark.py` implements the agreed design (§8):
+soft-min σ-margin FOM, K=30 inner-loop MC samples with CRN, train seed
+424242 / validation seed 987654 separation, and 500-sample independent
+validation with Wilson CI. The vendor-facing contract (interface, FOM
+definition, acceptance criteria) is in `MC_SIZING_BENCHMARK.md`; 500-sample
+validations of the current design points are in
+`results/ldo_*_mc_validation_default.json`.
 
 ---
 

@@ -14,7 +14,7 @@ import re
 import math
 from pathlib import Path
 
-ROOT = Path("/Users/lujialin/lujialin/mc_sizing/opensource-circuits")
+ROOT = Path(__file__).resolve().parent.parent
 
 # per-circuit settings: (vout_node, maxload, minload)
 CFG = {
@@ -170,5 +170,6 @@ end
     print(f"{circuit}: {len(sig_lines)} devices -> {out}")
 
 
-for c in CFG:
-    gen(c)
+if __name__ == "__main__":
+    for c in CFG:
+        gen(c)

@@ -17,7 +17,7 @@ import argparse
 import subprocess
 from pathlib import Path
 
-ROOT = Path("/Users/lujialin/lujialin/mc_sizing/opensource-circuits")
+ROOT = Path(__file__).resolve().parent.parent
 
 # spec set per circuit: (metric, ">", lower_bound)
 SPECS = {
